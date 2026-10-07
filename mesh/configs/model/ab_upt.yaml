@@ -1,0 +1,38 @@
+name: ABUPT
+hparams:
+  hidden_dim: 96
+  num_heads: 4
+  geometry_depth: 1
+  physics_blocks: [perceiver, self, cross, self]
+  perceiver_query_chunk_size: 16000
+  anchor_query_chunk_size: 16000
+  num_domain_decoder_blocks:
+    surface: 2
+    volume: 2
+  num_domain_anchor_points:
+    surface: 1024
+    volume: 1024
+  anchor_sampling: random
+
+  condition_dim: 96
+  fidelity_embed_dim: 48
+  feature_embed_dim: 48
+  feature_injection_mode: tokens
+  token_feature_embed_dim: 48
+  inject_token_features_into_geometry: true
+
+  surface_indicator_index: 2
+  surface_indicator_threshold: 0.5
+
+  geometry_source: surface
+  num_supernodes: 256
+  supernode_sampling: random
+  supernode_neighborhood: knn
+  supernode_k: 32
+
+  coordinate_scale: 1000
+  cond_scale: 1000
+
+  mlp_expansion_factor: 4
+  dropout_prob: 0.0
+  drop_path_rate: 0.0

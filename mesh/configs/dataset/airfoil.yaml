@@ -1,0 +1,20 @@
+name: AirfoilData
+input_channels: 6
+n_cond: 1
+output_channels: 5
+space: 2
+composition_seed: 42
+shuffling_seed: 42
+hparams:
+  data_path: data/airfoil/processed
+  metadata_path: null
+  val_fraction: 0.1
+  test_fraction: 0.1
+  budget: 6009712  # 200 HF simulations equivalent (200 B_tilde, 1 HF sim = 30,048.6s)
+  linearization_col: n_nodes
+  q: 1.04
+  cost_column: simulation_time
+  lambd: null
+  hf_only: true
+  lambda_bounds: [-20, 20]
+  n_samples_target: 1

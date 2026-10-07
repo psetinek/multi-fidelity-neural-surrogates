@@ -1,0 +1,4 @@
+writer: wandb
+wandb_project: multi-fidelity-neural-surrogates
+experiment_id: test
+run_id: null

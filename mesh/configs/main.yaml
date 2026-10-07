@@ -1,0 +1,14 @@
+defaults:
+  - _self_
+  - dataset: hyperelasticity_discretization
+  - model: transolver
+  - training: discretization
+  - logging: wandb
+
+use_ddp: False
+seed: 42
+output_path: ckpts/
+
+hydra:
+  job:
+    chdir: false

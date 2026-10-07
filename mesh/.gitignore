@@ -1,0 +1,41 @@
+# datasets and run artefacts (local only)
+/data/*
+!/data/download_airfoil.py
+/ckpts/
+/outputs/
+/multirun/
+/results/
+/wandb/
+/wandb_hpc_sync*/
+/_data_test/
+
+# internal working folders
+/_internal/
+/_legacy/
+/camera_ready/
+/rebuttal_prep/
+/neurips_2026_rebuttal/
+/noether/
+
+# generated figures, tables and data files
+*.png
+*.pdf
+*.svg
+*.csv
+/paper/**/*.tex
+!/paper/results/*.csv
+# vendored upstream repositories are kept complete
+!/data_generation/airfoil/NACA_simulation/**
+!/data_generation/airfoil/airfrans_lib/**
+
+# python and tooling
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.vscode/
+.claude/
+.agents/
+skills-lock.json
+CLAUDE.md
+*.zip
+*.tar.gz

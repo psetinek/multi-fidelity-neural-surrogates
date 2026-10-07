@@ -1,0 +1,17 @@
+defaults:
+  - _self_
+  - optimizer: adamw
+  - scheduler: onecycle
+  - loss: rel_l2
+
+device: cuda
+train_batch_size: 16
+val_batch_size: 64
+n_nodes_subsampling: 16_000
+n_steps: 125_000
+eval_every: 500
+early_stopping_patience: 100_000
+num_workers: 0
+gradient_clipping: true
+use_amp: false
+compile: false

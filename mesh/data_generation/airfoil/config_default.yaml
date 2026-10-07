@@ -1,0 +1,55 @@
+# Multi-fidelity airfoil dataset configuration (data_generation/airfoil): minimal example.
+# output_root is resolved against the repository root when relative; the campaign is
+# written to <output_root>/runs/<run_name>/ (raw/, analysis/). Point it at
+# shared storage for a real campaign (~1.5 GB raw per case).
+output_root: _data_test/airfoil
+run_name: null
+
+runtime:
+  stop_on_error: false
+  skip_existing: true
+  compute_gradients: false
+  write_geometry_figures: false
+  generate_vtk: true
+  max_parallel: 1
+
+openfoam:
+  turbulence: SST
+  compressible: false
+  n_proc: 16
+  temperature: 298.15
+  domain_L: 200.0
+  n_iter:
+    coarse: 14000
+    fine: 24000
+
+fidelity:
+  n_levels: 11
+  exponent: 1.35
+  target_lowest_rel_l2: [0.15, 0.20]
+  ranges:
+    y_h:
+      coarse: 8.0e-06
+      fine: 2.0e-06
+    y_hd:
+      coarse: 4.0e-04
+      fine: 1.0e-04
+    x_h:
+      coarse: 8.0e-05
+      fine: 1.0e-05
+    y_exp:
+      coarse: 1.11
+      fine: 1.075
+    x_exp:
+      coarse: 1.08
+      fine: 1.025
+    x_expd:
+      coarse: 1.11
+      fine: 1.075
+
+# Add as many cases as needed. Each case gets all 11 fidelities.
+cases:
+  - name: naca0012_re3e6_aoa0
+    reynolds: 3.0e6
+    aoa_deg: 0.0
+    digits: [0, 0, 12]

@@ -1,0 +1,5 @@
+name: rel_l2_airfoil
+normalized: false
+hparams:
+  kind: per_channel
+  eps: 1e-8

@@ -1,0 +1,19 @@
+defaults:
+  - _self_
+  - optimizer: adamw_airfoil
+  - scheduler: onecycle_airfoil
+  - loss: rel_l2_airfoil
+
+device: cuda
+train_batch_size: 2
+val_batch_size: 8
+# random node subset per training sample (full meshes have up to ~180k nodes);
+# AB-UPT trains on the full mesh, see airfoil_abupt.yaml
+n_nodes_subsampling: 32000
+n_steps: 100_000
+eval_every: 500
+early_stopping_patience: 100_000
+num_workers: 0  # rolling in-memory dataset
+gradient_clipping: true
+use_amp: false
+compile: false

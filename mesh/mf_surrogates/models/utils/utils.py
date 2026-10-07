@@ -1,0 +1,31 @@
+from typing import Optional, Sequence, Union
+
+import torch
+from torch import nn
+
+
+class MLP(nn.Module):
+    def __init__(
+        self,
+        latents: Sequence[int],
+        act_fn: nn.Module = nn.GELU,
+        last_act_fn: Optional[nn.Module] = None,
+        bias: Union[bool, Sequence[bool]] = True,
+        dropout_prob: float = 0.0,
+    ):
+        super().__init__()
+        if isinstance(bias, bool):
+            bias = [bias] * (len(latents) - 1)
+        dropout = nn.Dropout(dropout_prob)
+        mlp = []
+        for i, (lat_i, lat_i2) in enumerate(zip(latents, latents[1:], strict=False)):
+            mlp.append(nn.Linear(lat_i, lat_i2, bias=bias[i]))
+            if i != len(latents) - 2:
+                mlp.append(act_fn())
+                mlp.append(dropout)
+        if last_act_fn is not None:
+            mlp.append(last_act_fn())
+        self.mlp = nn.Sequential(*mlp)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.mlp(x)

@@ -1,0 +1,13 @@
+name: Transolver
+hparams:
+  dropout_prob: 0.1
+  attn_dropout_prob: 0.1
+  transolver_base: 128
+  num_heads: 4
+  num_layers: 8
+  slice_base: 128
+  mlp_ratio: 4
+  cond_dim: 16
+  gradient_checkpointing: False
+  coordinate_scale: 1000
+  cond_scale: 1000

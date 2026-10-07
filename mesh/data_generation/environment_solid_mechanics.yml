@@ -1,0 +1,21 @@
+# Solver environment for the solid-mechanics pipelines (linear_elasticity/, hyperelasticity/).
+# Mirrors the environment that generated the paper datasets: FEniCSx from conda-forge,
+# the small Python helpers from pip. Exact builds are recorded in
+# environment_solid_mechanics.lock.yml.
+#
+#   conda env create -f data_generation/environment_solid_mechanics.yml
+#   conda activate mf_solid_mechanics
+name: mf_solid_mechanics
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - fenics-dolfinx=0.10.0   # pulls basix, ufl, ffcx, petsc4py, mpi4py, hdf5 (mpich builds)
+  - mpich=4.3
+  - pyvista=0.47
+  - pip
+  - pip:
+      - gmsh==4.15.1
+      - h5py==3.15.1
+      - pandas==3.0.1
+      - tqdm==4.67.3

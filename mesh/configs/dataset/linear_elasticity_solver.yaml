@@ -1,0 +1,21 @@
+name: PlateData
+input_channels: 6
+n_cond: 1
+output_channels: 1
+space: 2
+composition_seed: 42
+shuffling_seed: 42
+hparams:
+  data_path: data/linear_elasticity/solver_truncation/processed
+  metadata_path: null
+  val_fraction: 0.05
+  test_fraction: 0.05
+  budget: 52428800  # 200 HF simulations equivalent (200 B_tilde, 1 HF sim = 262,144 solver iterations)
+  hf_only: true
+  linearization_col: solver_max_its
+  q: 0.99993
+  cost_column: solver_max_its
+  lambd: null
+  lambda_bounds: [-20, 20]
+  n_samples_target: 1
+  no_conditioning: false

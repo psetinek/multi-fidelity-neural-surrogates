@@ -1,0 +1,10 @@
+name: onecycle
+hparams:
+  max_lr: 3e-4
+  pct_start: 0.05
+  anneal_strategy: cos
+  cycle_momentum: True
+  base_momentum: 0.85
+  max_momentum: 0.95
+  div_factor: 25.0
+  final_div_factor: 1000.0

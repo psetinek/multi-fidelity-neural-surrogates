@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mf_surrogates"
+version = "1.0.0"
+description = "Multi-fidelity training of neural surrogates on unstructured meshes"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [
+    {name = "Paul Setinek"},
+]
+dependencies = [
+    # training and evaluation
+    "torch>=2.12",
+    "torch_geometric>=2.8",
+    "einops>=0.8",
+    "h5py>=3.16",
+    "hydra-core>=1.3.3",
+    "omegaconf>=2.3",
+    "numpy>=2.5",
+    "pandas>=3.0",
+    "petname>=2.9",
+    "PyYAML>=6.0",
+    "tqdm>=4.68",
+    "transformers>=5.12",
+    "wandb>=0.28",
+    # airfoil dataset download
+    "huggingface_hub>=1.21",
+    # airfoil post-processing: newer VTK versions resample the one-cell-thick meshes incorrectly
+    "pyvista==0.45.2",
+    "vtk==9.4.2",
+    # paper figures
+    "matplotlib>=3.11",
+    "cmcrameri>=1.9",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff==0.16.10",
+    "pre-commit>=4.6",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mf_surrogates*"]
+
+[tool.ruff]
+line-length = 120
+extend-exclude = [
+    # vendored AirfRANS code, kept as published
+    "data_generation/airfoil/NACA_simulation",
+    "data_generation/airfoil/airfrans_lib",
+]
+
+[tool.ruff.lint]
+# pyflakes (unused or undefined names) and syntax errors
+select = ["F", "E9"]

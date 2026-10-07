@@ -1,0 +1,5 @@
+defaults:
+  - airfoil
+  - _self_
+
+n_nodes_subsampling: null

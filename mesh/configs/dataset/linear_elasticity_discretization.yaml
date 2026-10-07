@@ -1,0 +1,21 @@
+name: PlateData
+input_channels: 6
+n_cond: 1
+output_channels: 1
+space: 2
+composition_seed: 42
+shuffling_seed: 42
+hparams:
+  data_path: data/linear_elasticity/discretization/processed
+  metadata_path: null
+  val_fraction: 0.1
+  test_fraction: 0.1
+  budget: 5881602  # 200 HF simulations equivalent (200 B_tilde, 1 HF sim = 29,408 nodes)
+  hf_only: true
+  linearization_col: n_nodes
+  q: 0.675
+  cost_column: n_nodes
+  lambd: null
+  lambda_bounds: [-20, 20]
+  n_samples_target: 1
+  no_conditioning: false

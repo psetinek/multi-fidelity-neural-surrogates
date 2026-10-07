@@ -1,0 +1,7547 @@
+# batch 2 (Apr 2026) campaign config. output_root is resolved against the repository root when
+# relative; the original campaign wrote to shared storage (see README, "The paper dataset").
+output_root: _data_test/airfoil
+runtime:
+  stop_on_error: false
+  skip_existing: true
+  compute_gradients: false
+  write_geometry_figures: false
+  generate_vtk: true
+  max_parallel: 11
+openfoam:
+  turbulence: SST
+  compressible: false
+  n_proc: 16
+  temperature: 298.15
+  domain_L: 200.0
+  n_iter:
+    mode: authors
+    authors_low_aoa: 20000
+    authors_high_aoa: 40000
+    aoa_threshold_deg: 10.0
+fidelity:
+  n_levels: 11
+  exponent: 2.3
+  target_lowest_rel_l2:
+  - 0.1
+  - 0.15
+  ranges:
+    y_h:
+      coarse: 2.0e-05
+      fine: 2.0e-06
+    y_hd:
+      coarse: 0.007
+      fine: 0.0001
+    x_h:
+      coarse: 0.0015
+      fine: 1.0e-05
+    y_exp:
+      coarse: 1.28
+      fine: 1.075
+    x_exp:
+      coarse: 1.28
+      fine: 1.025
+    x_expd:
+      coarse: 1.3
+      fine: 1.075
+cases:
+- name: mf_dataset_2_000_naca3414_re5.992e6_aoa2p26
+  reynolds: 5991526.977
+  aoa_deg: 2.261
+  digits:
+  - 3
+  - 4
+  - 14
+- name: mf_dataset_2_001_naca47114_re2.349e6_aoa11p96
+  reynolds: 2348637.213
+  aoa_deg: 11.956
+  digits:
+  - 4
+  - 7
+  - 1
+  - 14
+- name: mf_dataset_2_002_naca6509_re3.785e6_aoa11p38
+  reynolds: 3785434.947
+  aoa_deg: 11.375
+  digits:
+  - 6
+  - 5
+  - 9
+- name: mf_dataset_2_003_naca14009_re5.019e6_aoam2p13
+  reynolds: 5018974.472
+  aoa_deg: -2.128
+  digits:
+  - 1
+  - 4
+  - 0
+  - 9
+- name: mf_dataset_2_004_naca04111_re2.394e6_aoa5p06
+  reynolds: 2393527.157
+  aoa_deg: 5.057
+  digits:
+  - 0
+  - 4
+  - 1
+  - 11
+- name: mf_dataset_2_005_naca33017_re4.271e6_aoa6p21
+  reynolds: 4270727.371
+  aoa_deg: 6.209
+  digits:
+  - 3
+  - 3
+  - 0
+  - 17
+- name: mf_dataset_2_006_naca1008_re5.324e6_aoa8p36
+  reynolds: 5324045.496
+  aoa_deg: 8.363
+  digits:
+  - 1
+  - 0
+  - 8
+- name: mf_dataset_2_007_naca18009_re2.943e6_aoa12p84
+  reynolds: 2943134.928
+  aoa_deg: 12.838
+  digits:
+  - 1
+  - 8
+  - 0
+  - 9
+- name: mf_dataset_2_008_naca14111_re2.899e6_aoa7p53
+  reynolds: 2898603.832
+  aoa_deg: 7.527
+  digits:
+  - 1
+  - 4
+  - 1
+  - 11
+- name: mf_dataset_2_009_naca43106_re4.043e6_aoam2p74
+  reynolds: 4042851.941
+  aoa_deg: -2.736
+  digits:
+  - 4
+  - 3
+  - 1
+  - 6
+- name: mf_dataset_2_010_naca5211_re4.557e6_aoa8p73
+  reynolds: 4556934.59
+  aoa_deg: 8.731
+  digits:
+  - 5
+  - 2
+  - 11
+- name: mf_dataset_2_011_naca26119_re5.913e6_aoa13p46
+  reynolds: 5912748.105
+  aoa_deg: 13.46
+  digits:
+  - 2
+  - 6
+  - 1
+  - 19
+- name: mf_dataset_2_012_naca4612_re2.868e6_aoam0p42
+  reynolds: 2868493.266
+  aoa_deg: -0.421
+  digits:
+  - 4
+  - 6
+  - 12
+- name: mf_dataset_2_013_naca4314_re4.532e6_aoa13p60
+  reynolds: 4532399.887
+  aoa_deg: 13.597
+  digits:
+  - 4
+  - 3
+  - 14
+- name: mf_dataset_2_014_naca1007_re4.364e6_aoa11p76
+  reynolds: 4364382.0
+  aoa_deg: 11.755
+  digits:
+  - 1
+  - 0
+  - 7
+- name: mf_dataset_2_015_naca5417_re4.518e6_aoa14p39
+  reynolds: 4517683.441
+  aoa_deg: 14.391
+  digits:
+  - 5
+  - 4
+  - 17
+- name: mf_dataset_2_016_naca24015_re5.168e6_aoa3p15
+  reynolds: 5168301.161
+  aoa_deg: 3.151
+  digits:
+  - 2
+  - 4
+  - 0
+  - 15
+- name: mf_dataset_2_017_naca24009_re3.105e6_aoam2p42
+  reynolds: 3104563.081
+  aoa_deg: -2.423
+  digits:
+  - 2
+  - 4
+  - 0
+  - 9
+- name: mf_dataset_2_018_naca3417_re3.986e6_aoa12p47
+  reynolds: 3986141.158
+  aoa_deg: 12.475
+  digits:
+  - 3
+  - 4
+  - 17
+- name: mf_dataset_2_019_naca16115_re3.983e6_aoam2p45
+  reynolds: 3983056.562
+  aoa_deg: -2.447
+  digits:
+  - 1
+  - 6
+  - 1
+  - 15
+- name: mf_dataset_2_020_naca6008_re2.226e6_aoa3p08
+  reynolds: 2226342.915
+  aoa_deg: 3.079
+  digits:
+  - 6
+  - 0
+  - 8
+- name: mf_dataset_2_021_naca0310_re4.108e6_aoa2p25
+  reynolds: 4107979.209
+  aoa_deg: 2.247
+  digits:
+  - 0
+  - 3
+  - 10
+- name: mf_dataset_2_022_naca37014_re2.698e6_aoam3p00
+  reynolds: 2697724.3
+  aoa_deg: -3.0
+  digits:
+  - 3
+  - 7
+  - 0
+  - 14
+- name: mf_dataset_2_023_naca24107_re3.491e6_aoa14p37
+  reynolds: 3491197.112
+  aoa_deg: 14.37
+  digits:
+  - 2
+  - 4
+  - 1
+  - 7
+- name: mf_dataset_2_024_naca15010_re3.722e6_aoa7p85
+  reynolds: 3722232.908
+  aoa_deg: 7.849
+  digits:
+  - 1
+  - 5
+  - 0
+  - 10
+- name: mf_dataset_2_025_naca47116_re2.691e6_aoa11p35
+  reynolds: 2691358.893
+  aoa_deg: 11.347
+  digits:
+  - 4
+  - 7
+  - 1
+  - 16
+- name: mf_dataset_2_026_naca1518_re2.262e6_aoa3p45
+  reynolds: 2262032.912
+  aoa_deg: 3.448
+  digits:
+  - 1
+  - 5
+  - 18
+- name: mf_dataset_2_027_naca4311_re3.616e6_aoam1p89
+  reynolds: 3615526.547
+  aoa_deg: -1.892
+  digits:
+  - 4
+  - 3
+  - 11
+- name: mf_dataset_2_028_naca3309_re4.002e6_aoa14p34
+  reynolds: 4002306.407
+  aoa_deg: 14.339
+  digits:
+  - 3
+  - 3
+  - 9
+- name: mf_dataset_2_029_naca0308_re5.932e6_aoam4p88
+  reynolds: 5932418.272
+  aoa_deg: -4.884
+  digits:
+  - 0
+  - 3
+  - 8
+- name: mf_dataset_2_030_naca34118_re3.041e6_aoa10p92
+  reynolds: 3040683.362
+  aoa_deg: 10.921
+  digits:
+  - 3
+  - 4
+  - 1
+  - 18
+- name: mf_dataset_2_031_naca1316_re5.137e6_aoa9p25
+  reynolds: 5136534.71
+  aoa_deg: 9.252
+  digits:
+  - 1
+  - 3
+  - 16
+- name: mf_dataset_2_032_naca06009_re4.622e6_aoa9p81
+  reynolds: 4622487.005
+  aoa_deg: 9.81
+  digits:
+  - 0
+  - 6
+  - 0
+  - 9
+- name: mf_dataset_2_033_naca5011_re3.975e6_aoa12p10
+  reynolds: 3975472.404
+  aoa_deg: 12.099
+  digits:
+  - 5
+  - 0
+  - 11
+- name: mf_dataset_2_034_naca27018_re3.583e6_aoa8p88
+  reynolds: 3583079.912
+  aoa_deg: 8.884
+  digits:
+  - 2
+  - 7
+  - 0
+  - 18
+- name: mf_dataset_2_035_naca37007_re4.752e6_aoa5p08
+  reynolds: 4752452.409
+  aoa_deg: 5.085
+  digits:
+  - 3
+  - 7
+  - 0
+  - 7
+- name: mf_dataset_2_036_naca25109_re3.507e6_aoa2p70
+  reynolds: 3507062.52
+  aoa_deg: 2.697
+  digits:
+  - 2
+  - 5
+  - 1
+  - 9
+- name: mf_dataset_2_037_naca5007_re2.231e6_aoa14p89
+  reynolds: 2230636.43
+  aoa_deg: 14.887
+  digits:
+  - 5
+  - 0
+  - 7
+- name: mf_dataset_2_038_naca2007_re5.89e6_aoa6p90
+  reynolds: 5890196.673
+  aoa_deg: 6.904
+  digits:
+  - 2
+  - 0
+  - 7
+- name: mf_dataset_2_039_naca35018_re3.055e6_aoa6p42
+  reynolds: 3054881.286
+  aoa_deg: 6.415
+  digits:
+  - 3
+  - 5
+  - 0
+  - 18
+- name: mf_dataset_2_040_naca17114_re2.09e6_aoa1p07
+  reynolds: 2089668.418
+  aoa_deg: 1.075
+  digits:
+  - 1
+  - 7
+  - 1
+  - 14
+- name: mf_dataset_2_041_naca2611_re2.028e6_aoa5p70
+  reynolds: 2027699.39
+  aoa_deg: 5.704
+  digits:
+  - 2
+  - 6
+  - 11
+- name: mf_dataset_2_042_naca4512_re3.051e6_aoam2p31
+  reynolds: 3050862.928
+  aoa_deg: -2.307
+  digits:
+  - 4
+  - 5
+  - 12
+- name: mf_dataset_2_043_naca25020_re2.635e6_aoa1p18
+  reynolds: 2634809.349
+  aoa_deg: 1.176
+  digits:
+  - 2
+  - 5
+  - 0
+  - 20
+- name: mf_dataset_2_044_naca23012_re2.402e6_aoam3p46
+  reynolds: 2402357.203
+  aoa_deg: -3.465
+  digits:
+  - 2
+  - 3
+  - 0
+  - 12
+- name: mf_dataset_2_045_naca0019_re4.156e6_aoa2p67
+  reynolds: 4156495.271
+  aoa_deg: 2.671
+  digits:
+  - 0
+  - 0
+  - 19
+- name: mf_dataset_2_046_naca7019_re3.813e6_aoa14p06
+  reynolds: 3812812.12
+  aoa_deg: 14.059
+  digits:
+  - 7
+  - 0
+  - 19
+- name: mf_dataset_2_047_naca26015_re4.78e6_aoa9p05
+  reynolds: 4780376.794
+  aoa_deg: 9.054
+  digits:
+  - 2
+  - 6
+  - 0
+  - 15
+- name: mf_dataset_2_048_naca14110_re3.231e6_aoa5p32
+  reynolds: 3231324.361
+  aoa_deg: 5.315
+  digits:
+  - 1
+  - 4
+  - 1
+  - 10
+- name: mf_dataset_2_049_naca17108_re5.897e6_aoam4p42
+  reynolds: 5896587.822
+  aoa_deg: -4.422
+  digits:
+  - 1
+  - 7
+  - 1
+  - 8
+- name: mf_dataset_2_050_naca23010_re5.089e6_aoa4p38
+  reynolds: 5089087.205
+  aoa_deg: 4.384
+  digits:
+  - 2
+  - 3
+  - 0
+  - 10
+- name: mf_dataset_2_051_naca1013_re3.321e6_aoa13p31
+  reynolds: 3321473.069
+  aoa_deg: 13.31
+  digits:
+  - 1
+  - 0
+  - 13
+- name: mf_dataset_2_052_naca2214_re3.671e6_aoa3p87
+  reynolds: 3671345.341
+  aoa_deg: 3.865
+  digits:
+  - 2
+  - 2
+  - 14
+- name: mf_dataset_2_053_naca6218_re2.212e6_aoam1p50
+  reynolds: 2211525.729
+  aoa_deg: -1.496
+  digits:
+  - 6
+  - 2
+  - 18
+- name: mf_dataset_2_054_naca44009_re5.95e6_aoa2p00
+  reynolds: 5949924.427
+  aoa_deg: 1.997
+  digits:
+  - 4
+  - 4
+  - 0
+  - 9
+- name: mf_dataset_2_055_naca47112_re2.091e6_aoa14p73
+  reynolds: 2091078.452
+  aoa_deg: 14.726
+  digits:
+  - 4
+  - 7
+  - 1
+  - 12
+- name: mf_dataset_2_056_naca4311_re3.942e6_aoa10p39
+  reynolds: 3941954.184
+  aoa_deg: 10.387
+  digits:
+  - 4
+  - 3
+  - 11
+- name: mf_dataset_2_057_naca27107_re3.3e6_aoa9p14
+  reynolds: 3300019.414
+  aoa_deg: 9.136
+  digits:
+  - 2
+  - 7
+  - 1
+  - 7
+- name: mf_dataset_2_058_naca04113_re5.3e6_aoa2p93
+  reynolds: 5300189.559
+  aoa_deg: 2.934
+  digits:
+  - 0
+  - 4
+  - 1
+  - 13
+- name: mf_dataset_2_059_naca3418_re5.507e6_aoa3p19
+  reynolds: 5506539.219
+  aoa_deg: 3.188
+  digits:
+  - 3
+  - 4
+  - 18
+- name: mf_dataset_2_060_naca2414_re4.064e6_aoa7p19
+  reynolds: 4064209.799
+  aoa_deg: 7.186
+  digits:
+  - 2
+  - 4
+  - 14
+- name: mf_dataset_2_061_naca13019_re3.128e6_aoa14p08
+  reynolds: 3128210.921
+  aoa_deg: 14.077
+  digits:
+  - 1
+  - 3
+  - 0
+  - 19
+- name: mf_dataset_2_062_naca35008_re2.243e6_aoam1p77
+  reynolds: 2243150.403
+  aoa_deg: -1.771
+  digits:
+  - 3
+  - 5
+  - 0
+  - 8
+- name: mf_dataset_2_063_naca15111_re4.125e6_aoa4p01
+  reynolds: 4124656.49
+  aoa_deg: 4.011
+  digits:
+  - 1
+  - 5
+  - 1
+  - 11
+- name: mf_dataset_2_064_naca43114_re4.676e6_aoam4p55
+  reynolds: 4675738.716
+  aoa_deg: -4.555
+  digits:
+  - 4
+  - 3
+  - 1
+  - 14
+- name: mf_dataset_2_065_naca7018_re3.55e6_aoam0p10
+  reynolds: 3550000.147
+  aoa_deg: -0.098
+  digits:
+  - 7
+  - 0
+  - 18
+- name: mf_dataset_2_066_naca16112_re2.192e6_aoa2p27
+  reynolds: 2192317.245
+  aoa_deg: 2.272
+  digits:
+  - 1
+  - 6
+  - 1
+  - 12
+- name: mf_dataset_2_067_naca34111_re3.563e6_aoa14p64
+  reynolds: 3562637.006
+  aoa_deg: 14.637
+  digits:
+  - 3
+  - 4
+  - 1
+  - 11
+- name: mf_dataset_2_068_naca05017_re2.882e6_aoa14p57
+  reynolds: 2882298.049
+  aoa_deg: 14.571
+  digits:
+  - 0
+  - 5
+  - 0
+  - 17
+- name: mf_dataset_2_069_naca36115_re3.999e6_aoa2p68
+  reynolds: 3999213.593
+  aoa_deg: 2.676
+  digits:
+  - 3
+  - 6
+  - 1
+  - 15
+- name: mf_dataset_2_070_naca17011_re5.023e6_aoa5p48
+  reynolds: 5023248.962
+  aoa_deg: 5.478
+  digits:
+  - 1
+  - 7
+  - 0
+  - 11
+- name: mf_dataset_2_071_naca35108_re4.855e6_aoa1p69
+  reynolds: 4854985.15
+  aoa_deg: 1.693
+  digits:
+  - 3
+  - 5
+  - 1
+  - 8
+- name: mf_dataset_2_072_naca4620_re2.456e6_aoa0p12
+  reynolds: 2456279.064
+  aoa_deg: 0.12
+  digits:
+  - 4
+  - 6
+  - 20
+- name: mf_dataset_2_073_naca26007_re3.069e6_aoam4p32
+  reynolds: 3069183.477
+  aoa_deg: -4.319
+  digits:
+  - 2
+  - 6
+  - 0
+  - 7
+- name: mf_dataset_2_074_naca7707_re3.984e6_aoam2p46
+  reynolds: 3983883.018
+  aoa_deg: -2.457
+  digits:
+  - 7
+  - 7
+  - 7
+- name: mf_dataset_2_075_naca3410_re3.363e6_aoam0p17
+  reynolds: 3362631.902
+  aoa_deg: -0.174
+  digits:
+  - 3
+  - 4
+  - 10
+- name: mf_dataset_2_076_naca6516_re4.426e6_aoa3p44
+  reynolds: 4425858.579
+  aoa_deg: 3.44
+  digits:
+  - 6
+  - 5
+  - 16
+- name: mf_dataset_2_077_naca1305_re4.076e6_aoa11p09
+  reynolds: 4076088.885
+  aoa_deg: 11.092
+  digits:
+  - 1
+  - 3
+  - 5
+- name: mf_dataset_2_078_naca15116_re2.962e6_aoa10p24
+  reynolds: 2961562.351
+  aoa_deg: 10.241
+  digits:
+  - 1
+  - 5
+  - 1
+  - 16
+- name: mf_dataset_2_079_naca1613_re5.649e6_aoa5p02
+  reynolds: 5649344.83
+  aoa_deg: 5.023
+  digits:
+  - 1
+  - 6
+  - 13
+- name: mf_dataset_2_080_naca4611_re5.914e6_aoa9p94
+  reynolds: 5914266.407
+  aoa_deg: 9.936
+  digits:
+  - 4
+  - 6
+  - 11
+- name: mf_dataset_2_081_naca15020_re4.69e6_aoa7p71
+  reynolds: 4690411.501
+  aoa_deg: 7.712
+  digits:
+  - 1
+  - 5
+  - 0
+  - 20
+- name: mf_dataset_2_082_naca24013_re4.945e6_aoa3p35
+  reynolds: 4945097.098
+  aoa_deg: 3.353
+  digits:
+  - 2
+  - 4
+  - 0
+  - 13
+- name: mf_dataset_2_083_naca16013_re5.388e6_aoam3p20
+  reynolds: 5387756.916
+  aoa_deg: -3.201
+  digits:
+  - 1
+  - 6
+  - 0
+  - 13
+- name: mf_dataset_2_084_naca18108_re2.41e6_aoam4p87
+  reynolds: 2409557.251
+  aoa_deg: -4.87
+  digits:
+  - 1
+  - 8
+  - 1
+  - 8
+- name: mf_dataset_2_085_naca7314_re4.776e6_aoa4p80
+  reynolds: 4775833.386
+  aoa_deg: 4.799
+  digits:
+  - 7
+  - 3
+  - 14
+- name: mf_dataset_2_086_naca16018_re3.732e6_aoa11p23
+  reynolds: 3732210.361
+  aoa_deg: 11.233
+  digits:
+  - 1
+  - 6
+  - 0
+  - 18
+- name: mf_dataset_2_087_naca4310_re3.234e6_aoa13p39
+  reynolds: 3233641.577
+  aoa_deg: 13.386
+  digits:
+  - 4
+  - 3
+  - 10
+- name: mf_dataset_2_088_naca1210_re4.212e6_aoa12p50
+  reynolds: 4211739.464
+  aoa_deg: 12.5
+  digits:
+  - 1
+  - 2
+  - 10
+- name: mf_dataset_2_089_naca46118_re4.092e6_aoam1p70
+  reynolds: 4091621.386
+  aoa_deg: -1.7
+  digits:
+  - 4
+  - 6
+  - 1
+  - 18
+- name: mf_dataset_2_090_naca23109_re3.288e6_aoa9p48
+  reynolds: 3288326.206
+  aoa_deg: 9.482
+  digits:
+  - 2
+  - 3
+  - 1
+  - 9
+- name: mf_dataset_2_091_naca33116_re5.77e6_aoam4p70
+  reynolds: 5770343.183
+  aoa_deg: -4.702
+  digits:
+  - 3
+  - 3
+  - 1
+  - 16
+- name: mf_dataset_2_092_naca0513_re2.465e6_aoa9p28
+  reynolds: 2465094.182
+  aoa_deg: 9.28
+  digits:
+  - 0
+  - 5
+  - 13
+- name: mf_dataset_2_093_naca43114_re3.87e6_aoa8p44
+  reynolds: 3869528.249
+  aoa_deg: 8.443
+  digits:
+  - 4
+  - 3
+  - 1
+  - 14
+- name: mf_dataset_2_094_naca4612_re5.845e6_aoa6p23
+  reynolds: 5844595.491
+  aoa_deg: 6.228
+  digits:
+  - 4
+  - 6
+  - 12
+- name: mf_dataset_2_095_naca2707_re5.367e6_aoa8p35
+  reynolds: 5367459.304
+  aoa_deg: 8.346
+  digits:
+  - 2
+  - 7
+  - 7
+- name: mf_dataset_2_096_naca3417_re2.848e6_aoa11p03
+  reynolds: 2848411.569
+  aoa_deg: 11.034
+  digits:
+  - 3
+  - 4
+  - 17
+- name: mf_dataset_2_097_naca4707_re4.426e6_aoa1p22
+  reynolds: 4426020.554
+  aoa_deg: 1.216
+  digits:
+  - 4
+  - 7
+  - 7
+- name: mf_dataset_2_098_naca16012_re3.233e6_aoa11p87
+  reynolds: 3233026.546
+  aoa_deg: 11.87
+  digits:
+  - 1
+  - 6
+  - 0
+  - 12
+- name: mf_dataset_2_099_naca36115_re4.955e6_aoa7p29
+  reynolds: 4955210.063
+  aoa_deg: 7.295
+  digits:
+  - 3
+  - 6
+  - 1
+  - 15
+- name: mf_dataset_2_100_naca2506_re4.011e6_aoa12p92
+  reynolds: 4010723.592
+  aoa_deg: 12.923
+  digits:
+  - 2
+  - 5
+  - 6
+- name: mf_dataset_2_101_naca1605_re4.425e6_aoa9p49
+  reynolds: 4425257.749
+  aoa_deg: 9.493
+  digits:
+  - 1
+  - 6
+  - 5
+- name: mf_dataset_2_102_naca6315_re4.151e6_aoam3p84
+  reynolds: 4150562.235
+  aoa_deg: -3.843
+  digits:
+  - 6
+  - 3
+  - 15
+- name: mf_dataset_2_103_naca46010_re2.043e6_aoa10p33
+  reynolds: 2042549.097
+  aoa_deg: 10.327
+  digits:
+  - 4
+  - 6
+  - 0
+  - 10
+- name: mf_dataset_2_104_naca7014_re2.133e6_aoam1p01
+  reynolds: 2133410.617
+  aoa_deg: -1.009
+  digits:
+  - 7
+  - 0
+  - 14
+- name: mf_dataset_2_105_naca5007_re2.585e6_aoa1p35
+  reynolds: 2585292.848
+  aoa_deg: 1.355
+  digits:
+  - 5
+  - 0
+  - 7
+- name: mf_dataset_2_106_naca45112_re2.942e6_aoam0p70
+  reynolds: 2942436.582
+  aoa_deg: -0.697
+  digits:
+  - 4
+  - 5
+  - 1
+  - 12
+- name: mf_dataset_2_107_naca28109_re4.165e6_aoam1p32
+  reynolds: 4165270.19
+  aoa_deg: -1.321
+  digits:
+  - 2
+  - 8
+  - 1
+  - 9
+- name: mf_dataset_2_108_naca13016_re3.915e6_aoa3p95
+  reynolds: 3915031.13
+  aoa_deg: 3.946
+  digits:
+  - 1
+  - 3
+  - 0
+  - 16
+- name: mf_dataset_2_109_naca45116_re3.851e6_aoa0p77
+  reynolds: 3850629.617
+  aoa_deg: 0.771
+  digits:
+  - 4
+  - 5
+  - 1
+  - 16
+- name: mf_dataset_2_110_naca2516_re2.395e6_aoam2p00
+  reynolds: 2395427.181
+  aoa_deg: -1.999
+  digits:
+  - 2
+  - 5
+  - 16
+- name: mf_dataset_2_111_naca0606_re5.091e6_aoa1p74
+  reynolds: 5090579.743
+  aoa_deg: 1.744
+  digits:
+  - 0
+  - 6
+  - 6
+- name: mf_dataset_2_112_naca47111_re2.766e6_aoa2p34
+  reynolds: 2765903.254
+  aoa_deg: 2.338
+  digits:
+  - 4
+  - 7
+  - 1
+  - 11
+- name: mf_dataset_2_113_naca3318_re5.515e6_aoam1p75
+  reynolds: 5515264.877
+  aoa_deg: -1.753
+  digits:
+  - 3
+  - 3
+  - 18
+- name: mf_dataset_2_114_naca4316_re2.491e6_aoa7p34
+  reynolds: 2490764.113
+  aoa_deg: 7.339
+  digits:
+  - 4
+  - 3
+  - 16
+- name: mf_dataset_2_115_naca46013_re5.937e6_aoa6p43
+  reynolds: 5936929.18
+  aoa_deg: 6.434
+  digits:
+  - 4
+  - 6
+  - 0
+  - 13
+- name: mf_dataset_2_116_naca05008_re2.42e6_aoa4p54
+  reynolds: 2420236.149
+  aoa_deg: 4.535
+  digits:
+  - 0
+  - 5
+  - 0
+  - 8
+- name: mf_dataset_2_117_naca35110_re5.799e6_aoa13p49
+  reynolds: 5798523.653
+  aoa_deg: 13.494
+  digits:
+  - 3
+  - 5
+  - 1
+  - 10
+- name: mf_dataset_2_118_naca24007_re4.478e6_aoa8p12
+  reynolds: 4477883.347
+  aoa_deg: 8.116
+  digits:
+  - 2
+  - 4
+  - 0
+  - 7
+- name: mf_dataset_2_119_naca4610_re5.357e6_aoa1p76
+  reynolds: 5356850.33
+  aoa_deg: 1.765
+  digits:
+  - 4
+  - 6
+  - 10
+- name: mf_dataset_2_120_naca1310_re3.449e6_aoa10p88
+  reynolds: 3449420.241
+  aoa_deg: 10.876
+  digits:
+  - 1
+  - 3
+  - 10
+- name: mf_dataset_2_121_naca17107_re3.431e6_aoam0p65
+  reynolds: 3430891.554
+  aoa_deg: -0.65
+  digits:
+  - 1
+  - 7
+  - 1
+  - 7
+- name: mf_dataset_2_122_naca26018_re4.655e6_aoa1p28
+  reynolds: 4654792.01
+  aoa_deg: 1.285
+  digits:
+  - 2
+  - 6
+  - 0
+  - 18
+- name: mf_dataset_2_123_naca3606_re5.032e6_aoa13p46
+  reynolds: 5032145.604
+  aoa_deg: 13.463
+  digits:
+  - 3
+  - 6
+  - 6
+- name: mf_dataset_2_124_naca3007_re4.68e6_aoa13p75
+  reynolds: 4680271.144
+  aoa_deg: 13.754
+  digits:
+  - 3
+  - 0
+  - 7
+- name: mf_dataset_2_125_naca3205_re2.966e6_aoa12p27
+  reynolds: 2966477.462
+  aoa_deg: 12.265
+  digits:
+  - 3
+  - 2
+  - 5
+- name: mf_dataset_2_126_naca1605_re5.118e6_aoa6p21
+  reynolds: 5118003.444
+  aoa_deg: 6.214
+  digits:
+  - 1
+  - 6
+  - 5
+- name: mf_dataset_2_127_naca5409_re3.571e6_aoa8p41
+  reynolds: 3570772.047
+  aoa_deg: 8.412
+  digits:
+  - 5
+  - 4
+  - 9
+- name: mf_dataset_2_128_naca7606_re5.173e6_aoa12p14
+  reynolds: 5173137.404
+  aoa_deg: 12.145
+  digits:
+  - 7
+  - 6
+  - 6
+- name: mf_dataset_2_129_naca2008_re3.204e6_aoa6p48
+  reynolds: 3203760.873
+  aoa_deg: 6.48
+  digits:
+  - 2
+  - 0
+  - 8
+- name: mf_dataset_2_130_naca06009_re4.095e6_aoa5p09
+  reynolds: 4094712.823
+  aoa_deg: 5.088
+  digits:
+  - 0
+  - 6
+  - 0
+  - 9
+- name: mf_dataset_2_131_naca5406_re5.045e6_aoa12p23
+  reynolds: 5044795.352
+  aoa_deg: 12.235
+  digits:
+  - 5
+  - 4
+  - 6
+- name: mf_dataset_2_132_naca1316_re3.54e6_aoa1p04
+  reynolds: 3540428.132
+  aoa_deg: 1.039
+  digits:
+  - 1
+  - 3
+  - 16
+- name: mf_dataset_2_133_naca3510_re3.783e6_aoa9p43
+  reynolds: 3783369.097
+  aoa_deg: 9.434
+  digits:
+  - 3
+  - 5
+  - 10
+- name: mf_dataset_2_134_naca44007_re4.037e6_aoa13p37
+  reynolds: 4036571.623
+  aoa_deg: 13.37
+  digits:
+  - 4
+  - 4
+  - 0
+  - 7
+- name: mf_dataset_2_135_naca48016_re3.254e6_aoa14p04
+  reynolds: 3253837.478
+  aoa_deg: 14.043
+  digits:
+  - 4
+  - 8
+  - 0
+  - 16
+- name: mf_dataset_2_136_naca1506_re4.831e6_aoam1p61
+  reynolds: 4831114.363
+  aoa_deg: -1.606
+  digits:
+  - 1
+  - 5
+  - 6
+- name: mf_dataset_2_137_naca6606_re3.779e6_aoa14p90
+  reynolds: 3779389.269
+  aoa_deg: 14.9
+  digits:
+  - 6
+  - 6
+  - 6
+- name: mf_dataset_2_138_naca07115_re3.873e6_aoa7p81
+  reynolds: 3872827.33
+  aoa_deg: 7.812
+  digits:
+  - 0
+  - 7
+  - 1
+  - 15
+- name: mf_dataset_2_139_naca35113_re3.21e6_aoa0p86
+  reynolds: 3210184.02
+  aoa_deg: 0.865
+  digits:
+  - 3
+  - 5
+  - 1
+  - 13
+- name: mf_dataset_2_140_naca05120_re3.366e6_aoa14p98
+  reynolds: 3365577.123
+  aoa_deg: 14.976
+  digits:
+  - 0
+  - 5
+  - 1
+  - 20
+- name: mf_dataset_2_141_naca14010_re3.438e6_aoa3p36
+  reynolds: 3438062.504
+  aoa_deg: 3.359
+  digits:
+  - 1
+  - 4
+  - 0
+  - 10
+- name: mf_dataset_2_142_naca46009_re4.862e6_aoa3p56
+  reynolds: 4862093.901
+  aoa_deg: 3.556
+  digits:
+  - 4
+  - 6
+  - 0
+  - 9
+- name: mf_dataset_2_143_naca04015_re4.337e6_aoam3p23
+  reynolds: 4337232.408
+  aoa_deg: -3.233
+  digits:
+  - 0
+  - 4
+  - 0
+  - 15
+- name: mf_dataset_2_144_naca5013_re2.135e6_aoam1p59
+  reynolds: 2135058.617
+  aoa_deg: -1.593
+  digits:
+  - 5
+  - 0
+  - 13
+- name: mf_dataset_2_145_naca18111_re5.279e6_aoa7p50
+  reynolds: 5279379.186
+  aoa_deg: 7.505
+  digits:
+  - 1
+  - 8
+  - 1
+  - 11
+- name: mf_dataset_2_146_naca6413_re5.703e6_aoa1p93
+  reynolds: 5703315.422
+  aoa_deg: 1.926
+  digits:
+  - 6
+  - 4
+  - 13
+- name: mf_dataset_2_147_naca1319_re5.007e6_aoa13p51
+  reynolds: 5007169.087
+  aoa_deg: 13.514
+  digits:
+  - 1
+  - 3
+  - 19
+- name: mf_dataset_2_148_naca48115_re2.57e6_aoa12p34
+  reynolds: 2570477.473
+  aoa_deg: 12.341
+  digits:
+  - 4
+  - 8
+  - 1
+  - 15
+- name: mf_dataset_2_149_naca16115_re5.988e6_aoa11p05
+  reynolds: 5988207.594
+  aoa_deg: 11.051
+  digits:
+  - 1
+  - 6
+  - 1
+  - 15
+- name: mf_dataset_2_150_naca2508_re2.583e6_aoa12p53
+  reynolds: 2582775.338
+  aoa_deg: 12.533
+  digits:
+  - 2
+  - 5
+  - 8
+- name: mf_dataset_2_151_naca5019_re4.586e6_aoa4p82
+  reynolds: 4585916.159
+  aoa_deg: 4.822
+  digits:
+  - 5
+  - 0
+  - 19
+- name: mf_dataset_2_152_naca44107_re5.02e6_aoa6p97
+  reynolds: 5019652.942
+  aoa_deg: 6.974
+  digits:
+  - 4
+  - 4
+  - 1
+  - 7
+- name: mf_dataset_2_153_naca06017_re4.257e6_aoa1p48
+  reynolds: 4256575.541
+  aoa_deg: 1.478
+  digits:
+  - 0
+  - 6
+  - 0
+  - 17
+- name: mf_dataset_2_154_naca2313_re5.527e6_aoam2p69
+  reynolds: 5526919.596
+  aoa_deg: -2.69
+  digits:
+  - 2
+  - 3
+  - 13
+- name: mf_dataset_2_155_naca4512_re5.708e6_aoa8p79
+  reynolds: 5707738.944
+  aoa_deg: 8.79
+  digits:
+  - 4
+  - 5
+  - 12
+- name: mf_dataset_2_156_naca6207_re3.256e6_aoa6p11
+  reynolds: 3256125.183
+  aoa_deg: 6.106
+  digits:
+  - 6
+  - 2
+  - 7
+- name: mf_dataset_2_157_naca3519_re3.343e6_aoa1p52
+  reynolds: 3343330.488
+  aoa_deg: 1.518
+  digits:
+  - 3
+  - 5
+  - 19
+- name: mf_dataset_2_158_naca6718_re2.525e6_aoam4p67
+  reynolds: 2525092.716
+  aoa_deg: -4.67
+  digits:
+  - 6
+  - 7
+  - 18
+- name: mf_dataset_2_159_naca0006_re3.598e6_aoam2p37
+  reynolds: 3598027.05
+  aoa_deg: -2.372
+  digits:
+  - 0
+  - 0
+  - 6
+- name: mf_dataset_2_160_naca23120_re2.202e6_aoa13p88
+  reynolds: 2202296.864
+  aoa_deg: 13.884
+  digits:
+  - 2
+  - 3
+  - 1
+  - 20
+- name: mf_dataset_2_161_naca4215_re2.672e6_aoa13p42
+  reynolds: 2672081.773
+  aoa_deg: 13.421
+  digits:
+  - 4
+  - 2
+  - 15
+- name: mf_dataset_2_162_naca4611_re2.967e6_aoam3p37
+  reynolds: 2967114.934
+  aoa_deg: -3.374
+  digits:
+  - 4
+  - 6
+  - 11
+- name: mf_dataset_2_163_naca47011_re3.256e6_aoam4p24
+  reynolds: 3256217.325
+  aoa_deg: -4.242
+  digits:
+  - 4
+  - 7
+  - 0
+  - 11
+- name: mf_dataset_2_164_naca43111_re2.157e6_aoa2p75
+  reynolds: 2157240.968
+  aoa_deg: 2.749
+  digits:
+  - 4
+  - 3
+  - 1
+  - 11
+- name: mf_dataset_2_165_naca46113_re4.642e6_aoa12p57
+  reynolds: 4641985.519
+  aoa_deg: 12.569
+  digits:
+  - 4
+  - 6
+  - 1
+  - 13
+- name: mf_dataset_2_166_naca04007_re3.563e6_aoa7p75
+  reynolds: 3562924.964
+  aoa_deg: 7.751
+  digits:
+  - 0
+  - 4
+  - 0
+  - 7
+- name: mf_dataset_2_167_naca47118_re4.695e6_aoa8p69
+  reynolds: 4694770.942
+  aoa_deg: 8.69
+  digits:
+  - 4
+  - 7
+  - 1
+  - 18
+- name: mf_dataset_2_168_naca03114_re4.484e6_aoa0p45
+  reynolds: 4484017.879
+  aoa_deg: 0.448
+  digits:
+  - 0
+  - 3
+  - 1
+  - 14
+- name: mf_dataset_2_169_naca36018_re5.331e6_aoa3p19
+  reynolds: 5331066.708
+  aoa_deg: 3.194
+  digits:
+  - 3
+  - 6
+  - 0
+  - 18
+- name: mf_dataset_2_170_naca08106_re3.682e6_aoa6p51
+  reynolds: 3681875.01
+  aoa_deg: 6.515
+  digits:
+  - 0
+  - 8
+  - 1
+  - 6
+- name: mf_dataset_2_171_naca6515_re4.402e6_aoa11p44
+  reynolds: 4401990.008
+  aoa_deg: 11.443
+  digits:
+  - 6
+  - 5
+  - 15
+- name: mf_dataset_2_172_naca2215_re3.288e6_aoam3p38
+  reynolds: 3287804.147
+  aoa_deg: -3.385
+  digits:
+  - 2
+  - 2
+  - 15
+- name: mf_dataset_2_173_naca7011_re4.822e6_aoam0p45
+  reynolds: 4822098.425
+  aoa_deg: -0.445
+  digits:
+  - 7
+  - 0
+  - 11
+- name: mf_dataset_2_174_naca17011_re4.892e6_aoa11p52
+  reynolds: 4891709.388
+  aoa_deg: 11.515
+  digits:
+  - 1
+  - 7
+  - 0
+  - 11
+- name: mf_dataset_2_175_naca18106_re3.652e6_aoa14p63
+  reynolds: 3652187.582
+  aoa_deg: 14.629
+  digits:
+  - 1
+  - 8
+  - 1
+  - 6
+- name: mf_dataset_2_176_naca6018_re2.199e6_aoa7p73
+  reynolds: 2199081.322
+  aoa_deg: 7.729
+  digits:
+  - 6
+  - 0
+  - 18
+- name: mf_dataset_2_177_naca2307_re5.676e6_aoam3p83
+  reynolds: 5675958.28
+  aoa_deg: -3.834
+  digits:
+  - 2
+  - 3
+  - 7
+- name: mf_dataset_2_178_naca0411_re5.834e6_aoa9p38
+  reynolds: 5834263.706
+  aoa_deg: 9.38
+  digits:
+  - 0
+  - 4
+  - 11
+- name: mf_dataset_2_179_naca34113_re5.011e6_aoa8p68
+  reynolds: 5011254.276
+  aoa_deg: 8.677
+  digits:
+  - 3
+  - 4
+  - 1
+  - 13
+- name: mf_dataset_2_180_naca4709_re2.579e6_aoa3p57
+  reynolds: 2578850.5
+  aoa_deg: 3.573
+  digits:
+  - 4
+  - 7
+  - 9
+- name: mf_dataset_2_181_naca16106_re3.781e6_aoa1p98
+  reynolds: 3781398.378
+  aoa_deg: 1.982
+  digits:
+  - 1
+  - 6
+  - 1
+  - 6
+- name: mf_dataset_2_182_naca2506_re2.296e6_aoam4p63
+  reynolds: 2296223.446
+  aoa_deg: -4.626
+  digits:
+  - 2
+  - 5
+  - 6
+- name: mf_dataset_2_183_naca2619_re2.883e6_aoa11p85
+  reynolds: 2882847.426
+  aoa_deg: 11.846
+  digits:
+  - 2
+  - 6
+  - 19
+- name: mf_dataset_2_184_naca34019_re4.325e6_aoa9p70
+  reynolds: 4324501.147
+  aoa_deg: 9.698
+  digits:
+  - 3
+  - 4
+  - 0
+  - 19
+- name: mf_dataset_2_185_naca16014_re4.75e6_aoa1p91
+  reynolds: 4749876.143
+  aoa_deg: 1.905
+  digits:
+  - 1
+  - 6
+  - 0
+  - 14
+- name: mf_dataset_2_186_naca2211_re5.736e6_aoam2p70
+  reynolds: 5736261.359
+  aoa_deg: -2.703
+  digits:
+  - 2
+  - 2
+  - 11
+- name: mf_dataset_2_187_naca6416_re4.244e6_aoam1p63
+  reynolds: 4244173.468
+  aoa_deg: -1.63
+  digits:
+  - 6
+  - 4
+  - 16
+- name: mf_dataset_2_188_naca1519_re2.715e6_aoa10p60
+  reynolds: 2715039.893
+  aoa_deg: 10.602
+  digits:
+  - 1
+  - 5
+  - 19
+- name: mf_dataset_2_189_naca3208_re2.815e6_aoam1p51
+  reynolds: 2814732.767
+  aoa_deg: -1.506
+  digits:
+  - 3
+  - 2
+  - 8
+- name: mf_dataset_2_190_naca6508_re3.01e6_aoa5p37
+  reynolds: 3010266.156
+  aoa_deg: 5.367
+  digits:
+  - 6
+  - 5
+  - 8
+- name: mf_dataset_2_191_naca06016_re4.007e6_aoa0p70
+  reynolds: 4006618.689
+  aoa_deg: 0.701
+  digits:
+  - 0
+  - 6
+  - 0
+  - 16
+- name: mf_dataset_2_192_naca1717_re2.905e6_aoam3p68
+  reynolds: 2904644.827
+  aoa_deg: -3.678
+  digits:
+  - 1
+  - 7
+  - 17
+- name: mf_dataset_2_193_naca4618_re3.804e6_aoa12p87
+  reynolds: 3803881.517
+  aoa_deg: 12.87
+  digits:
+  - 4
+  - 6
+  - 18
+- name: mf_dataset_2_194_naca2417_re4.44e6_aoam4p58
+  reynolds: 4440185.293
+  aoa_deg: -4.578
+  digits:
+  - 2
+  - 4
+  - 17
+- name: mf_dataset_2_195_naca1017_re3.804e6_aoa3p59
+  reynolds: 3804125.548
+  aoa_deg: 3.588
+  digits:
+  - 1
+  - 0
+  - 17
+- name: mf_dataset_2_196_naca48016_re2.197e6_aoa8p56
+  reynolds: 2196977.232
+  aoa_deg: 8.557
+  digits:
+  - 4
+  - 8
+  - 0
+  - 16
+- name: mf_dataset_2_197_naca26019_re2.537e6_aoam0p08
+  reynolds: 2537375.643
+  aoa_deg: -0.081
+  digits:
+  - 2
+  - 6
+  - 0
+  - 19
+- name: mf_dataset_2_198_naca37005_re4.557e6_aoa14p23
+  reynolds: 4557190.179
+  aoa_deg: 14.227
+  digits:
+  - 3
+  - 7
+  - 0
+  - 5
+- name: mf_dataset_2_199_naca13006_re5.479e6_aoa1p57
+  reynolds: 5478781.996
+  aoa_deg: 1.568
+  digits:
+  - 1
+  - 3
+  - 0
+  - 6
+- name: mf_dataset_2_200_naca44014_re2.071e6_aoa9p03
+  reynolds: 2071258.896
+  aoa_deg: 9.025
+  digits:
+  - 4
+  - 4
+  - 0
+  - 14
+- name: mf_dataset_2_201_naca4713_re2.811e6_aoa10p88
+  reynolds: 2810703.921
+  aoa_deg: 10.878
+  digits:
+  - 4
+  - 7
+  - 13
+- name: mf_dataset_2_202_naca2214_re3.567e6_aoa5p74
+  reynolds: 3567154.094
+  aoa_deg: 5.736
+  digits:
+  - 2
+  - 2
+  - 14
+- name: mf_dataset_2_203_naca14006_re3.127e6_aoam3p02
+  reynolds: 3127453.392
+  aoa_deg: -3.016
+  digits:
+  - 1
+  - 4
+  - 0
+  - 6
+- name: mf_dataset_2_204_naca14008_re4.972e6_aoa10p05
+  reynolds: 4971793.257
+  aoa_deg: 10.047
+  digits:
+  - 1
+  - 4
+  - 0
+  - 8
+- name: mf_dataset_2_205_naca4213_re5.917e6_aoa1p28
+  reynolds: 5917167.074
+  aoa_deg: 1.279
+  digits:
+  - 4
+  - 2
+  - 13
+- name: mf_dataset_2_206_naca4312_re2.505e6_aoa5p40
+  reynolds: 2504549.876
+  aoa_deg: 5.401
+  digits:
+  - 4
+  - 3
+  - 12
+- name: mf_dataset_2_207_naca26120_re3.939e6_aoa4p48
+  reynolds: 3939493.409
+  aoa_deg: 4.478
+  digits:
+  - 2
+  - 6
+  - 1
+  - 20
+- name: mf_dataset_2_208_naca6011_re5.542e6_aoam4p91
+  reynolds: 5541571.024
+  aoa_deg: -4.911
+  digits:
+  - 6
+  - 0
+  - 11
+- name: mf_dataset_2_209_naca0707_re5.839e6_aoa13p47
+  reynolds: 5839246.194
+  aoa_deg: 13.47
+  digits:
+  - 0
+  - 7
+  - 7
+- name: mf_dataset_2_210_naca28118_re4.694e6_aoam3p57
+  reynolds: 4693939.365
+  aoa_deg: -3.571
+  digits:
+  - 2
+  - 8
+  - 1
+  - 18
+- name: mf_dataset_2_211_naca3310_re5.821e6_aoa0p25
+  reynolds: 5821258.317
+  aoa_deg: 0.249
+  digits:
+  - 3
+  - 3
+  - 10
+- name: mf_dataset_2_212_naca15019_re4.247e6_aoa14p77
+  reynolds: 4246977.691
+  aoa_deg: 14.773
+  digits:
+  - 1
+  - 5
+  - 0
+  - 19
+- name: mf_dataset_2_213_naca4606_re4.14e6_aoa8p68
+  reynolds: 4139561.493
+  aoa_deg: 8.675
+  digits:
+  - 4
+  - 6
+  - 6
+- name: mf_dataset_2_214_naca5619_re4.548e6_aoam1p39
+  reynolds: 4547806.284
+  aoa_deg: -1.394
+  digits:
+  - 5
+  - 6
+  - 19
+- name: mf_dataset_2_215_naca33109_re2.324e6_aoa13p30
+  reynolds: 2323974.311
+  aoa_deg: 13.301
+  digits:
+  - 3
+  - 3
+  - 1
+  - 9
+- name: mf_dataset_2_216_naca1308_re2.988e6_aoa5p18
+  reynolds: 2987736.809
+  aoa_deg: 5.185
+  digits:
+  - 1
+  - 3
+  - 8
+- name: mf_dataset_2_217_naca36012_re5.535e6_aoa1p77
+  reynolds: 5534706.932
+  aoa_deg: 1.774
+  digits:
+  - 3
+  - 6
+  - 0
+  - 12
+- name: mf_dataset_2_218_naca03017_re4.413e6_aoam1p03
+  reynolds: 4413249.082
+  aoa_deg: -1.03
+  digits:
+  - 0
+  - 3
+  - 0
+  - 17
+- name: mf_dataset_2_219_naca6319_re4.79e6_aoa14p46
+  reynolds: 4789588.0
+  aoa_deg: 14.462
+  digits:
+  - 6
+  - 3
+  - 19
+- name: mf_dataset_2_220_naca35006_re4.764e6_aoa7p72
+  reynolds: 4764226.569
+  aoa_deg: 7.716
+  digits:
+  - 3
+  - 5
+  - 0
+  - 6
+- name: mf_dataset_2_221_naca2314_re4.484e6_aoam0p43
+  reynolds: 4483549.454
+  aoa_deg: -0.435
+  digits:
+  - 2
+  - 3
+  - 14
+- name: mf_dataset_2_222_naca2220_re2.76e6_aoa6p03
+  reynolds: 2759538.938
+  aoa_deg: 6.033
+  digits:
+  - 2
+  - 2
+  - 20
+- name: mf_dataset_2_223_naca17015_re5.954e6_aoam3p48
+  reynolds: 5954195.702
+  aoa_deg: -3.484
+  digits:
+  - 1
+  - 7
+  - 0
+  - 15
+- name: mf_dataset_2_224_naca6706_re2.126e6_aoa13p86
+  reynolds: 2126196.43
+  aoa_deg: 13.855
+  digits:
+  - 6
+  - 7
+  - 6
+- name: mf_dataset_2_225_naca4517_re3.126e6_aoam4p40
+  reynolds: 3126005.278
+  aoa_deg: -4.401
+  digits:
+  - 4
+  - 5
+  - 17
+- name: mf_dataset_2_226_naca45119_re2.555e6_aoa12p88
+  reynolds: 2555110.605
+  aoa_deg: 12.88
+  digits:
+  - 4
+  - 5
+  - 1
+  - 19
+- name: mf_dataset_2_227_naca4708_re4.297e6_aoa2p07
+  reynolds: 4296524.875
+  aoa_deg: 2.069
+  digits:
+  - 4
+  - 7
+  - 8
+- name: mf_dataset_2_228_naca05109_re2.519e6_aoam2p00
+  reynolds: 2519294.259
+  aoa_deg: -1.999
+  digits:
+  - 0
+  - 5
+  - 1
+  - 9
+- name: mf_dataset_2_229_naca4317_re4.607e6_aoa8p60
+  reynolds: 4607234.431
+  aoa_deg: 8.599
+  digits:
+  - 4
+  - 3
+  - 17
+- name: mf_dataset_2_230_naca26108_re3.134e6_aoa1p62
+  reynolds: 3133819.862
+  aoa_deg: 1.618
+  digits:
+  - 2
+  - 6
+  - 1
+  - 8
+- name: mf_dataset_2_231_naca3217_re3.201e6_aoam0p38
+  reynolds: 3201324.954
+  aoa_deg: -0.384
+  digits:
+  - 3
+  - 2
+  - 17
+- name: mf_dataset_2_232_naca1010_re5.45e6_aoa12p48
+  reynolds: 5449814.864
+  aoa_deg: 12.484
+  digits:
+  - 1
+  - 0
+  - 10
+- name: mf_dataset_2_233_naca3015_re4.243e6_aoa2p25
+  reynolds: 4243234.916
+  aoa_deg: 2.254
+  digits:
+  - 3
+  - 0
+  - 15
+- name: mf_dataset_2_234_naca5017_re5.011e6_aoa4p43
+  reynolds: 5010988.844
+  aoa_deg: 4.428
+  digits:
+  - 5
+  - 0
+  - 17
+- name: mf_dataset_2_235_naca5219_re2.463e6_aoam0p93
+  reynolds: 2462907.964
+  aoa_deg: -0.932
+  digits:
+  - 5
+  - 2
+  - 19
+- name: mf_dataset_2_236_naca6017_re2.721e6_aoa14p61
+  reynolds: 2721497.804
+  aoa_deg: 14.612
+  digits:
+  - 6
+  - 0
+  - 17
+- name: mf_dataset_2_237_naca35106_re4.787e6_aoam4p50
+  reynolds: 4787366.584
+  aoa_deg: -4.496
+  digits:
+  - 3
+  - 5
+  - 1
+  - 6
+- name: mf_dataset_2_238_naca5613_re5.056e6_aoa1p92
+  reynolds: 5056091.361
+  aoa_deg: 1.917
+  digits:
+  - 5
+  - 6
+  - 13
+- name: mf_dataset_2_239_naca17015_re5.865e6_aoa11p43
+  reynolds: 5865154.634
+  aoa_deg: 11.431
+  digits:
+  - 1
+  - 7
+  - 0
+  - 15
+- name: mf_dataset_2_240_naca27016_re5.835e6_aoa7p33
+  reynolds: 5834729.031
+  aoa_deg: 7.332
+  digits:
+  - 2
+  - 7
+  - 0
+  - 16
+- name: mf_dataset_2_241_naca37111_re5.809e6_aoa7p73
+  reynolds: 5808893.248
+  aoa_deg: 7.728
+  digits:
+  - 3
+  - 7
+  - 1
+  - 11
+- name: mf_dataset_2_242_naca5716_re4.883e6_aoa8p03
+  reynolds: 4883291.954
+  aoa_deg: 8.028
+  digits:
+  - 5
+  - 7
+  - 16
+- name: mf_dataset_2_243_naca6314_re2.016e6_aoa7p91
+  reynolds: 2015845.455
+  aoa_deg: 7.907
+  digits:
+  - 6
+  - 3
+  - 14
+- name: mf_dataset_2_244_naca37005_re5.604e6_aoa7p26
+  reynolds: 5603971.407
+  aoa_deg: 7.263
+  digits:
+  - 3
+  - 7
+  - 0
+  - 5
+- name: mf_dataset_2_245_naca2018_re3.809e6_aoam3p23
+  reynolds: 3808546.033
+  aoa_deg: -3.225
+  digits:
+  - 2
+  - 0
+  - 18
+- name: mf_dataset_2_246_naca3208_re5.733e6_aoam1p01
+  reynolds: 5732658.657
+  aoa_deg: -1.011
+  digits:
+  - 3
+  - 2
+  - 8
+- name: mf_dataset_2_247_naca5516_re3.597e6_aoa3p33
+  reynolds: 3597141.081
+  aoa_deg: 3.333
+  digits:
+  - 5
+  - 5
+  - 16
+- name: mf_dataset_2_248_naca35019_re4.434e6_aoa12p27
+  reynolds: 4434367.556
+  aoa_deg: 12.272
+  digits:
+  - 3
+  - 5
+  - 0
+  - 19
+- name: mf_dataset_2_249_naca3619_re3.662e6_aoa10p39
+  reynolds: 3661918.215
+  aoa_deg: 10.395
+  digits:
+  - 3
+  - 6
+  - 19
+- name: mf_dataset_2_250_naca13006_re5.646e6_aoam1p35
+  reynolds: 5646124.258
+  aoa_deg: -1.35
+  digits:
+  - 1
+  - 3
+  - 0
+  - 6
+- name: mf_dataset_2_251_naca6507_re3.209e6_aoam0p60
+  reynolds: 3209195.031
+  aoa_deg: -0.605
+  digits:
+  - 6
+  - 5
+  - 7
+- name: mf_dataset_2_252_naca18118_re2.265e6_aoam1p12
+  reynolds: 2264936.853
+  aoa_deg: -1.119
+  digits:
+  - 1
+  - 8
+  - 1
+  - 18
+- name: mf_dataset_2_253_naca1515_re5.768e6_aoam2p74
+  reynolds: 5767630.67
+  aoa_deg: -2.743
+  digits:
+  - 1
+  - 5
+  - 15
+- name: mf_dataset_2_254_naca26105_re3.45e6_aoam2p21
+  reynolds: 3449839.163
+  aoa_deg: -2.206
+  digits:
+  - 2
+  - 6
+  - 1
+  - 5
+- name: mf_dataset_2_255_naca25117_re2.738e6_aoa1p96
+  reynolds: 2738028.928
+  aoa_deg: 1.957
+  digits:
+  - 2
+  - 5
+  - 1
+  - 17
+- name: mf_dataset_2_256_naca2206_re3.2e6_aoa14p95
+  reynolds: 3200077.159
+  aoa_deg: 14.949
+  digits:
+  - 2
+  - 2
+  - 6
+- name: mf_dataset_2_257_naca13012_re5.982e6_aoa7p35
+  reynolds: 5982330.646
+  aoa_deg: 7.346
+  digits:
+  - 1
+  - 3
+  - 0
+  - 12
+- name: mf_dataset_2_258_naca17116_re3.537e6_aoam2p40
+  reynolds: 3537404.47
+  aoa_deg: -2.396
+  digits:
+  - 1
+  - 7
+  - 1
+  - 16
+- name: mf_dataset_2_259_naca2312_re3.297e6_aoa13p06
+  reynolds: 3296702.46
+  aoa_deg: 13.059
+  digits:
+  - 2
+  - 3
+  - 12
+- name: mf_dataset_2_260_naca4018_re5.311e6_aoam2p79
+  reynolds: 5311113.292
+  aoa_deg: -2.794
+  digits:
+  - 4
+  - 0
+  - 18
+- name: mf_dataset_2_261_naca5605_re4.621e6_aoa13p32
+  reynolds: 4621015.814
+  aoa_deg: 13.32
+  digits:
+  - 5
+  - 6
+  - 5
+- name: mf_dataset_2_262_naca18114_re2.919e6_aoa10p31
+  reynolds: 2918674.128
+  aoa_deg: 10.306
+  digits:
+  - 1
+  - 8
+  - 1
+  - 14
+- name: mf_dataset_2_263_naca34106_re4.604e6_aoam4p69
+  reynolds: 4603956.546
+  aoa_deg: -4.69
+  digits:
+  - 3
+  - 4
+  - 1
+  - 6
+- name: mf_dataset_2_264_naca44107_re3.328e6_aoam1p98
+  reynolds: 3328240.417
+  aoa_deg: -1.977
+  digits:
+  - 4
+  - 4
+  - 1
+  - 7
+- name: mf_dataset_2_265_naca6014_re2.498e6_aoam0p91
+  reynolds: 2497658.311
+  aoa_deg: -0.909
+  digits:
+  - 6
+  - 0
+  - 14
+- name: mf_dataset_2_266_naca2011_re3.115e6_aoam4p04
+  reynolds: 3114532.102
+  aoa_deg: -4.038
+  digits:
+  - 2
+  - 0
+  - 11
+- name: mf_dataset_2_267_naca17005_re2.354e6_aoam4p68
+  reynolds: 2353714.289
+  aoa_deg: -4.682
+  digits:
+  - 1
+  - 7
+  - 0
+  - 5
+- name: mf_dataset_2_268_naca6019_re2.193e6_aoam0p69
+  reynolds: 2192765.845
+  aoa_deg: -0.689
+  digits:
+  - 6
+  - 0
+  - 19
+- name: mf_dataset_2_269_naca2619_re3.916e6_aoa1p40
+  reynolds: 3916172.02
+  aoa_deg: 1.397
+  digits:
+  - 2
+  - 6
+  - 19
+- name: mf_dataset_2_270_naca1215_re2.213e6_aoa11p47
+  reynolds: 2212640.024
+  aoa_deg: 11.468
+  digits:
+  - 1
+  - 2
+  - 15
+- name: mf_dataset_2_271_naca3010_re5.388e6_aoa9p64
+  reynolds: 5388447.449
+  aoa_deg: 9.644
+  digits:
+  - 3
+  - 0
+  - 10
+- name: mf_dataset_2_272_naca3310_re2.7e6_aoam2p13
+  reynolds: 2699569.317
+  aoa_deg: -2.133
+  digits:
+  - 3
+  - 3
+  - 10
+- name: mf_dataset_2_273_naca3610_re4.81e6_aoa8p94
+  reynolds: 4809947.737
+  aoa_deg: 8.943
+  digits:
+  - 3
+  - 6
+  - 10
+- name: mf_dataset_2_274_naca24016_re4.526e6_aoam4p72
+  reynolds: 4526411.307
+  aoa_deg: -4.718
+  digits:
+  - 2
+  - 4
+  - 0
+  - 16
+- name: mf_dataset_2_275_naca44109_re2.808e6_aoa1p84
+  reynolds: 2807755.913
+  aoa_deg: 1.841
+  digits:
+  - 4
+  - 4
+  - 1
+  - 9
+- name: mf_dataset_2_276_naca4009_re5.956e6_aoam3p43
+  reynolds: 5955803.387
+  aoa_deg: -3.428
+  digits:
+  - 4
+  - 0
+  - 9
+- name: mf_dataset_2_277_naca04016_re3.2e6_aoa11p96
+  reynolds: 3199565.39
+  aoa_deg: 11.955
+  digits:
+  - 0
+  - 4
+  - 0
+  - 16
+- name: mf_dataset_2_278_naca03120_re2.793e6_aoa3p77
+  reynolds: 2792683.668
+  aoa_deg: 3.768
+  digits:
+  - 0
+  - 3
+  - 1
+  - 20
+- name: mf_dataset_2_279_naca15018_re5.075e6_aoam4p40
+  reynolds: 5075388.613
+  aoa_deg: -4.401
+  digits:
+  - 1
+  - 5
+  - 0
+  - 18
+- name: mf_dataset_2_280_naca4520_re3.713e6_aoa10p46
+  reynolds: 3712845.42
+  aoa_deg: 10.463
+  digits:
+  - 4
+  - 5
+  - 20
+- name: mf_dataset_2_281_naca3413_re5.814e6_aoa8p44
+  reynolds: 5813812.086
+  aoa_deg: 8.443
+  digits:
+  - 3
+  - 4
+  - 13
+- name: mf_dataset_2_282_naca07017_re5.68e6_aoa13p62
+  reynolds: 5679552.743
+  aoa_deg: 13.622
+  digits:
+  - 0
+  - 7
+  - 0
+  - 17
+- name: mf_dataset_2_283_naca3520_re2.977e6_aoa3p21
+  reynolds: 2976800.545
+  aoa_deg: 3.214
+  digits:
+  - 3
+  - 5
+  - 20
+- name: mf_dataset_2_284_naca27015_re3.49e6_aoa12p34
+  reynolds: 3489829.507
+  aoa_deg: 12.343
+  digits:
+  - 2
+  - 7
+  - 0
+  - 15
+- name: mf_dataset_2_285_naca24009_re4.973e6_aoa2p60
+  reynolds: 4973452.338
+  aoa_deg: 2.605
+  digits:
+  - 2
+  - 4
+  - 0
+  - 9
+- name: mf_dataset_2_286_naca14106_re4.649e6_aoa7p41
+  reynolds: 4649150.57
+  aoa_deg: 7.41
+  digits:
+  - 1
+  - 4
+  - 1
+  - 6
+- name: mf_dataset_2_287_naca35113_re3.025e6_aoa7p89
+  reynolds: 3025019.686
+  aoa_deg: 7.894
+  digits:
+  - 3
+  - 5
+  - 1
+  - 13
+- name: mf_dataset_2_288_naca15117_re2.574e6_aoa8p58
+  reynolds: 2574404.046
+  aoa_deg: 8.58
+  digits:
+  - 1
+  - 5
+  - 1
+  - 17
+- name: mf_dataset_2_289_naca6008_re3.688e6_aoa12p82
+  reynolds: 3687998.299
+  aoa_deg: 12.817
+  digits:
+  - 6
+  - 0
+  - 8
+- name: mf_dataset_2_290_naca6508_re5.973e6_aoa10p72
+  reynolds: 5972903.975
+  aoa_deg: 10.724
+  digits:
+  - 6
+  - 5
+  - 8
+- name: mf_dataset_2_291_naca4006_re4.714e6_aoa9p25
+  reynolds: 4714390.637
+  aoa_deg: 9.249
+  digits:
+  - 4
+  - 0
+  - 6
+- name: mf_dataset_2_292_naca34015_re3.461e6_aoa13p67
+  reynolds: 3461056.975
+  aoa_deg: 13.669
+  digits:
+  - 3
+  - 4
+  - 0
+  - 15
+- name: mf_dataset_2_293_naca2306_re3.257e6_aoa7p18
+  reynolds: 3257000.692
+  aoa_deg: 7.184
+  digits:
+  - 2
+  - 3
+  - 6
+- name: mf_dataset_2_294_naca1512_re5.217e6_aoa4p19
+  reynolds: 5217187.168
+  aoa_deg: 4.192
+  digits:
+  - 1
+  - 5
+  - 12
+- name: mf_dataset_2_295_naca5017_re5.417e6_aoa2p35
+  reynolds: 5416802.411
+  aoa_deg: 2.347
+  digits:
+  - 5
+  - 0
+  - 17
+- name: mf_dataset_2_296_naca4506_re5.302e6_aoa9p19
+  reynolds: 5301859.762
+  aoa_deg: 9.193
+  digits:
+  - 4
+  - 5
+  - 6
+- name: mf_dataset_2_297_naca2313_re2.336e6_aoam3p51
+  reynolds: 2336421.226
+  aoa_deg: -3.512
+  digits:
+  - 2
+  - 3
+  - 13
+- name: mf_dataset_2_298_naca17007_re5.991e6_aoa10p37
+  reynolds: 5991368.163
+  aoa_deg: 10.368
+  digits:
+  - 1
+  - 7
+  - 0
+  - 7
+- name: mf_dataset_2_299_naca33015_re2.652e6_aoam4p62
+  reynolds: 2652439.981
+  aoa_deg: -4.619
+  digits:
+  - 3
+  - 3
+  - 0
+  - 15
+- name: mf_dataset_2_300_naca15006_re3.073e6_aoam4p26
+  reynolds: 3072524.389
+  aoa_deg: -4.256
+  digits:
+  - 1
+  - 5
+  - 0
+  - 6
+- name: mf_dataset_2_301_naca46108_re4.508e6_aoa10p76
+  reynolds: 4507612.102
+  aoa_deg: 10.76
+  digits:
+  - 4
+  - 6
+  - 1
+  - 8
+- name: mf_dataset_2_302_naca35107_re5.159e6_aoa1p31
+  reynolds: 5159055.123
+  aoa_deg: 1.315
+  digits:
+  - 3
+  - 5
+  - 1
+  - 7
+- name: mf_dataset_2_303_naca18015_re3.859e6_aoa3p79
+  reynolds: 3859022.958
+  aoa_deg: 3.794
+  digits:
+  - 1
+  - 8
+  - 0
+  - 15
+- name: mf_dataset_2_304_naca6519_re5.523e6_aoa13p31
+  reynolds: 5523423.244
+  aoa_deg: 13.308
+  digits:
+  - 6
+  - 5
+  - 19
+- name: mf_dataset_2_305_naca44107_re3.71e6_aoa3p00
+  reynolds: 3710359.368
+  aoa_deg: 3.001
+  digits:
+  - 4
+  - 4
+  - 1
+  - 7
+- name: mf_dataset_2_306_naca24006_re4.884e6_aoam4p00
+  reynolds: 4884269.523
+  aoa_deg: -3.996
+  digits:
+  - 2
+  - 4
+  - 0
+  - 6
+- name: mf_dataset_2_307_naca3514_re5.781e6_aoam0p45
+  reynolds: 5780506.721
+  aoa_deg: -0.454
+  digits:
+  - 3
+  - 5
+  - 14
+- name: mf_dataset_2_308_naca7611_re4.636e6_aoam0p48
+  reynolds: 4635622.959
+  aoa_deg: -0.482
+  digits:
+  - 7
+  - 6
+  - 11
+- name: mf_dataset_2_309_naca14120_re2.095e6_aoa10p68
+  reynolds: 2094594.221
+  aoa_deg: 10.684
+  digits:
+  - 1
+  - 4
+  - 1
+  - 20
+- name: mf_dataset_2_310_naca33013_re5.485e6_aoa3p17
+  reynolds: 5484929.956
+  aoa_deg: 3.172
+  digits:
+  - 3
+  - 3
+  - 0
+  - 13
+- name: mf_dataset_2_311_naca6019_re2.196e6_aoam2p04
+  reynolds: 2195613.583
+  aoa_deg: -2.043
+  digits:
+  - 6
+  - 0
+  - 19
+- name: mf_dataset_2_312_naca07118_re4.662e6_aoa12p56
+  reynolds: 4661954.169
+  aoa_deg: 12.564
+  digits:
+  - 0
+  - 7
+  - 1
+  - 18
+- name: mf_dataset_2_313_naca34019_re4.097e6_aoa14p63
+  reynolds: 4097437.443
+  aoa_deg: 14.628
+  digits:
+  - 3
+  - 4
+  - 0
+  - 19
+- name: mf_dataset_2_314_naca14107_re2.715e6_aoa1p39
+  reynolds: 2714824.492
+  aoa_deg: 1.388
+  digits:
+  - 1
+  - 4
+  - 1
+  - 7
+- name: mf_dataset_2_315_naca3211_re5.21e6_aoam1p06
+  reynolds: 5210465.113
+  aoa_deg: -1.059
+  digits:
+  - 3
+  - 2
+  - 11
+- name: mf_dataset_2_316_naca27013_re5.078e6_aoa9p50
+  reynolds: 5078002.84
+  aoa_deg: 9.499
+  digits:
+  - 2
+  - 7
+  - 0
+  - 13
+- name: mf_dataset_2_317_naca7015_re4.807e6_aoa12p34
+  reynolds: 4807369.541
+  aoa_deg: 12.338
+  digits:
+  - 7
+  - 0
+  - 15
+- name: mf_dataset_2_318_naca0312_re2.349e6_aoam2p53
+  reynolds: 2348575.06
+  aoa_deg: -2.527
+  digits:
+  - 0
+  - 3
+  - 12
+- name: mf_dataset_2_319_naca14019_re3.773e6_aoa6p71
+  reynolds: 3773166.212
+  aoa_deg: 6.715
+  digits:
+  - 1
+  - 4
+  - 0
+  - 19
+- name: mf_dataset_2_320_naca26115_re4.217e6_aoa11p21
+  reynolds: 4216562.594
+  aoa_deg: 11.21
+  digits:
+  - 2
+  - 6
+  - 1
+  - 15
+- name: mf_dataset_2_321_naca1020_re2.477e6_aoa0p42
+  reynolds: 2476682.097
+  aoa_deg: 0.419
+  digits:
+  - 1
+  - 0
+  - 20
+- name: mf_dataset_2_322_naca16109_re4.492e6_aoa7p40
+  reynolds: 4492034.879
+  aoa_deg: 7.404
+  digits:
+  - 1
+  - 6
+  - 1
+  - 9
+- name: mf_dataset_2_323_naca26105_re3.92e6_aoa2p21
+  reynolds: 3920205.758
+  aoa_deg: 2.213
+  digits:
+  - 2
+  - 6
+  - 1
+  - 5
+- name: mf_dataset_2_324_naca15016_re3.352e6_aoam4p06
+  reynolds: 3352296.232
+  aoa_deg: -4.062
+  digits:
+  - 1
+  - 5
+  - 0
+  - 16
+- name: mf_dataset_2_325_naca33011_re4.707e6_aoa7p38
+  reynolds: 4707398.105
+  aoa_deg: 7.378
+  digits:
+  - 3
+  - 3
+  - 0
+  - 11
+- name: mf_dataset_2_326_naca26117_re2.077e6_aoa14p71
+  reynolds: 2076854.642
+  aoa_deg: 14.715
+  digits:
+  - 2
+  - 6
+  - 1
+  - 17
+- name: mf_dataset_2_327_naca3617_re2.372e6_aoa2p78
+  reynolds: 2372091.589
+  aoa_deg: 2.781
+  digits:
+  - 3
+  - 6
+  - 17
+- name: mf_dataset_2_328_naca36006_re3.62e6_aoa1p65
+  reynolds: 3619881.366
+  aoa_deg: 1.645
+  digits:
+  - 3
+  - 6
+  - 0
+  - 6
+- name: mf_dataset_2_329_naca27009_re5.992e6_aoa3p46
+  reynolds: 5991986.459
+  aoa_deg: 3.459
+  digits:
+  - 2
+  - 7
+  - 0
+  - 9
+- name: mf_dataset_2_330_naca17018_re4.267e6_aoa1p15
+  reynolds: 4266731.261
+  aoa_deg: 1.152
+  digits:
+  - 1
+  - 7
+  - 0
+  - 18
+- name: mf_dataset_2_331_naca34109_re2.525e6_aoam4p91
+  reynolds: 2524666.67
+  aoa_deg: -4.909
+  digits:
+  - 3
+  - 4
+  - 1
+  - 9
+- name: mf_dataset_2_332_naca5509_re5.729e6_aoa7p29
+  reynolds: 5729071.852
+  aoa_deg: 7.286
+  digits:
+  - 5
+  - 5
+  - 9
+- name: mf_dataset_2_333_naca4020_re3.735e6_aoa7p86
+  reynolds: 3735444.683
+  aoa_deg: 7.858
+  digits:
+  - 4
+  - 0
+  - 20
+- name: mf_dataset_2_334_naca27118_re3.593e6_aoa6p25
+  reynolds: 3593412.756
+  aoa_deg: 6.249
+  digits:
+  - 2
+  - 7
+  - 1
+  - 18
+- name: mf_dataset_2_335_naca4011_re5.374e6_aoa6p33
+  reynolds: 5374039.229
+  aoa_deg: 6.335
+  digits:
+  - 4
+  - 0
+  - 11
+- name: mf_dataset_2_336_naca44117_re5.211e6_aoam3p95
+  reynolds: 5210536.515
+  aoa_deg: -3.947
+  digits:
+  - 4
+  - 4
+  - 1
+  - 17
+- name: mf_dataset_2_337_naca16105_re2.338e6_aoa13p06
+  reynolds: 2338282.435
+  aoa_deg: 13.063
+  digits:
+  - 1
+  - 6
+  - 1
+  - 5
+- name: mf_dataset_2_338_naca47118_re4.411e6_aoa4p28
+  reynolds: 4411348.405
+  aoa_deg: 4.275
+  digits:
+  - 4
+  - 7
+  - 1
+  - 18
+- name: mf_dataset_2_339_naca3608_re3.987e6_aoa7p82
+  reynolds: 3987355.179
+  aoa_deg: 7.823
+  digits:
+  - 3
+  - 6
+  - 8
+- name: mf_dataset_2_340_naca1312_re2.127e6_aoa9p47
+  reynolds: 2127454.365
+  aoa_deg: 9.474
+  digits:
+  - 1
+  - 3
+  - 12
+- name: mf_dataset_2_341_naca17109_re3.587e6_aoam1p98
+  reynolds: 3586582.392
+  aoa_deg: -1.975
+  digits:
+  - 1
+  - 7
+  - 1
+  - 9
+- name: mf_dataset_2_342_naca44019_re4.772e6_aoa8p61
+  reynolds: 4772231.19
+  aoa_deg: 8.614
+  digits:
+  - 4
+  - 4
+  - 0
+  - 19
+- name: mf_dataset_2_343_naca24119_re5.964e6_aoam0p85
+  reynolds: 5963581.078
+  aoa_deg: -0.854
+  digits:
+  - 2
+  - 4
+  - 1
+  - 19
+- name: mf_dataset_2_344_naca1211_re4.795e6_aoa5p74
+  reynolds: 4795171.822
+  aoa_deg: 5.738
+  digits:
+  - 1
+  - 2
+  - 11
+- name: mf_dataset_2_345_naca6712_re2.716e6_aoa7p66
+  reynolds: 2715587.473
+  aoa_deg: 7.659
+  digits:
+  - 6
+  - 7
+  - 12
+- name: mf_dataset_2_346_naca1007_re4.362e6_aoa5p93
+  reynolds: 4361830.758
+  aoa_deg: 5.929
+  digits:
+  - 1
+  - 0
+  - 7
+- name: mf_dataset_2_347_naca6307_re5.451e6_aoa0p22
+  reynolds: 5451059.668
+  aoa_deg: 0.223
+  digits:
+  - 6
+  - 3
+  - 7
+- name: mf_dataset_2_348_naca15012_re4.866e6_aoa12p27
+  reynolds: 4866479.569
+  aoa_deg: 12.272
+  digits:
+  - 1
+  - 5
+  - 0
+  - 12
+- name: mf_dataset_2_349_naca17018_re5.974e6_aoa6p44
+  reynolds: 5973673.902
+  aoa_deg: 6.441
+  digits:
+  - 1
+  - 7
+  - 0
+  - 18
+- name: mf_dataset_2_350_naca3013_re2.815e6_aoam1p69
+  reynolds: 2814776.318
+  aoa_deg: -1.687
+  digits:
+  - 3
+  - 0
+  - 13
+- name: mf_dataset_2_351_naca2708_re5.895e6_aoam3p56
+  reynolds: 5894984.612
+  aoa_deg: -3.559
+  digits:
+  - 2
+  - 7
+  - 8
+- name: mf_dataset_2_352_naca36013_re5.369e6_aoa8p93
+  reynolds: 5369294.248
+  aoa_deg: 8.933
+  digits:
+  - 3
+  - 6
+  - 0
+  - 13
+- name: mf_dataset_2_353_naca5320_re4.133e6_aoam3p74
+  reynolds: 4132700.632
+  aoa_deg: -3.741
+  digits:
+  - 5
+  - 3
+  - 20
+- name: mf_dataset_2_354_naca07006_re5.87e6_aoa6p86
+  reynolds: 5869527.982
+  aoa_deg: 6.862
+  digits:
+  - 0
+  - 7
+  - 0
+  - 6
+- name: mf_dataset_2_355_naca7515_re4.159e6_aoa13p57
+  reynolds: 4159352.473
+  aoa_deg: 13.574
+  digits:
+  - 7
+  - 5
+  - 15
+- name: mf_dataset_2_356_naca28015_re3.884e6_aoa7p67
+  reynolds: 3884275.311
+  aoa_deg: 7.675
+  digits:
+  - 2
+  - 8
+  - 0
+  - 15
+- name: mf_dataset_2_357_naca24014_re2.889e6_aoam4p87
+  reynolds: 2889354.113
+  aoa_deg: -4.872
+  digits:
+  - 2
+  - 4
+  - 0
+  - 14
+- name: mf_dataset_2_358_naca6012_re2.326e6_aoam3p01
+  reynolds: 2326295.008
+  aoa_deg: -3.007
+  digits:
+  - 6
+  - 0
+  - 12
+- name: mf_dataset_2_359_naca48107_re5.043e6_aoa10p42
+  reynolds: 5043096.913
+  aoa_deg: 10.421
+  digits:
+  - 4
+  - 8
+  - 1
+  - 7
+- name: mf_dataset_2_360_naca3607_re2.161e6_aoa14p70
+  reynolds: 2161363.076
+  aoa_deg: 14.699
+  digits:
+  - 3
+  - 6
+  - 7
+- name: mf_dataset_2_361_naca23010_re2.64e6_aoa5p46
+  reynolds: 2639573.917
+  aoa_deg: 5.457
+  digits:
+  - 2
+  - 3
+  - 0
+  - 10
+- name: mf_dataset_2_362_naca3019_re4.251e6_aoam2p69
+  reynolds: 4251454.68
+  aoa_deg: -2.693
+  digits:
+  - 3
+  - 0
+  - 19
+- name: mf_dataset_2_363_naca05115_re5.105e6_aoam4p06
+  reynolds: 5105332.415
+  aoa_deg: -4.057
+  digits:
+  - 0
+  - 5
+  - 1
+  - 15
+- name: mf_dataset_2_364_naca5715_re4.718e6_aoa9p94
+  reynolds: 4718123.413
+  aoa_deg: 9.938
+  digits:
+  - 5
+  - 7
+  - 15
+- name: mf_dataset_2_365_naca36013_re2.422e6_aoa0p25
+  reynolds: 2421910.118
+  aoa_deg: 0.252
+  digits:
+  - 3
+  - 6
+  - 0
+  - 13
+- name: mf_dataset_2_366_naca5414_re2.026e6_aoa8p12
+  reynolds: 2025726.008
+  aoa_deg: 8.124
+  digits:
+  - 5
+  - 4
+  - 14
+- name: mf_dataset_2_367_naca28016_re4.759e6_aoam3p19
+  reynolds: 4759305.723
+  aoa_deg: -3.19
+  digits:
+  - 2
+  - 8
+  - 0
+  - 16
+- name: mf_dataset_2_368_naca04020_re2.151e6_aoam3p10
+  reynolds: 2151176.986
+  aoa_deg: -3.096
+  digits:
+  - 0
+  - 4
+  - 0
+  - 20
+- name: mf_dataset_2_369_naca3313_re5.363e6_aoa0p63
+  reynolds: 5363280.497
+  aoa_deg: 0.63
+  digits:
+  - 3
+  - 3
+  - 13
+- name: mf_dataset_2_370_naca0715_re3.451e6_aoa5p13
+  reynolds: 3451474.027
+  aoa_deg: 5.126
+  digits:
+  - 0
+  - 7
+  - 15
+- name: mf_dataset_2_371_naca2607_re4.884e6_aoam1p58
+  reynolds: 4883836.308
+  aoa_deg: -1.579
+  digits:
+  - 2
+  - 6
+  - 7
+- name: mf_dataset_2_372_naca14111_re2.272e6_aoa4p13
+  reynolds: 2271874.884
+  aoa_deg: 4.131
+  digits:
+  - 1
+  - 4
+  - 1
+  - 11
+- name: mf_dataset_2_373_naca37120_re5.513e6_aoa11p36
+  reynolds: 5513169.338
+  aoa_deg: 11.358
+  digits:
+  - 3
+  - 7
+  - 1
+  - 20
+- name: mf_dataset_2_374_naca4018_re3.515e6_aoa11p86
+  reynolds: 3515116.989
+  aoa_deg: 11.857
+  digits:
+  - 4
+  - 0
+  - 18
+- name: mf_dataset_2_375_naca05018_re3.158e6_aoa10p12
+  reynolds: 3157553.696
+  aoa_deg: 10.12
+  digits:
+  - 0
+  - 5
+  - 0
+  - 18
+- name: mf_dataset_2_376_naca35117_re5.33e6_aoa10p43
+  reynolds: 5330105.657
+  aoa_deg: 10.432
+  digits:
+  - 3
+  - 5
+  - 1
+  - 17
+- name: mf_dataset_2_377_naca0013_re2.147e6_aoa0p93
+  reynolds: 2147382.722
+  aoa_deg: 0.931
+  digits:
+  - 0
+  - 0
+  - 13
+- name: mf_dataset_2_378_naca15008_re2.891e6_aoa11p95
+  reynolds: 2890534.403
+  aoa_deg: 11.953
+  digits:
+  - 1
+  - 5
+  - 0
+  - 8
+- name: mf_dataset_2_379_naca3519_re4.923e6_aoa1p60
+  reynolds: 4922754.872
+  aoa_deg: 1.596
+  digits:
+  - 3
+  - 5
+  - 19
+- name: mf_dataset_2_380_naca4410_re4.323e6_aoam4p25
+  reynolds: 4322530.718
+  aoa_deg: -4.25
+  digits:
+  - 4
+  - 4
+  - 10
+- name: mf_dataset_2_381_naca07116_re3.682e6_aoa7p64
+  reynolds: 3681866.921
+  aoa_deg: 7.64
+  digits:
+  - 0
+  - 7
+  - 1
+  - 16
+- name: mf_dataset_2_382_naca25007_re3.531e6_aoa11p62
+  reynolds: 3530579.99
+  aoa_deg: 11.617
+  digits:
+  - 2
+  - 5
+  - 0
+  - 7
+- name: mf_dataset_2_383_naca45012_re2.473e6_aoam0p60
+  reynolds: 2472768.256
+  aoa_deg: -0.604
+  digits:
+  - 4
+  - 5
+  - 0
+  - 12
+- name: mf_dataset_2_384_naca37012_re3.677e6_aoa14p20
+  reynolds: 3677242.202
+  aoa_deg: 14.2
+  digits:
+  - 3
+  - 7
+  - 0
+  - 12
+- name: mf_dataset_2_385_naca25017_re4.754e6_aoa13p16
+  reynolds: 4753922.633
+  aoa_deg: 13.157
+  digits:
+  - 2
+  - 5
+  - 0
+  - 17
+- name: mf_dataset_2_386_naca45115_re3.867e6_aoa12p78
+  reynolds: 3867035.698
+  aoa_deg: 12.781
+  digits:
+  - 4
+  - 5
+  - 1
+  - 15
+- name: mf_dataset_2_387_naca6009_re3.68e6_aoa13p25
+  reynolds: 3679911.639
+  aoa_deg: 13.253
+  digits:
+  - 6
+  - 0
+  - 9
+- name: mf_dataset_2_388_naca4616_re2.844e6_aoa9p21
+  reynolds: 2843529.117
+  aoa_deg: 9.21
+  digits:
+  - 4
+  - 6
+  - 16
+- name: mf_dataset_2_389_naca2010_re2.474e6_aoa13p20
+  reynolds: 2474242.408
+  aoa_deg: 13.199
+  digits:
+  - 2
+  - 0
+  - 10
+- name: mf_dataset_2_390_naca33105_re3.707e6_aoa1p81
+  reynolds: 3706668.148
+  aoa_deg: 1.807
+  digits:
+  - 3
+  - 3
+  - 1
+  - 5
+- name: mf_dataset_2_391_naca0217_re4.548e6_aoa3p34
+  reynolds: 4548049.011
+  aoa_deg: 3.337
+  digits:
+  - 0
+  - 2
+  - 17
+- name: mf_dataset_2_392_naca5207_re5.571e6_aoa3p56
+  reynolds: 5570579.502
+  aoa_deg: 3.556
+  digits:
+  - 5
+  - 2
+  - 7
+- name: mf_dataset_2_393_naca14105_re3.655e6_aoam1p56
+  reynolds: 3654704.437
+  aoa_deg: -1.557
+  digits:
+  - 1
+  - 4
+  - 1
+  - 5
+- name: mf_dataset_2_394_naca3615_re4.431e6_aoa14p43
+  reynolds: 4430639.457
+  aoa_deg: 14.425
+  digits:
+  - 3
+  - 6
+  - 15
+- name: mf_dataset_2_395_naca5016_re2.507e6_aoa8p52
+  reynolds: 2507330.447
+  aoa_deg: 8.516
+  digits:
+  - 5
+  - 0
+  - 16
+- name: mf_dataset_2_396_naca28005_re4.229e6_aoa13p26
+  reynolds: 4228970.064
+  aoa_deg: 13.264
+  digits:
+  - 2
+  - 8
+  - 0
+  - 5
+- name: mf_dataset_2_397_naca25017_re2.331e6_aoa3p71
+  reynolds: 2331229.466
+  aoa_deg: 3.707
+  digits:
+  - 2
+  - 5
+  - 0
+  - 17
+- name: mf_dataset_2_398_naca7013_re5.656e6_aoa6p84
+  reynolds: 5655535.149
+  aoa_deg: 6.844
+  digits:
+  - 7
+  - 0
+  - 13
+- name: mf_dataset_2_399_naca2409_re3.995e6_aoa9p08
+  reynolds: 3995219.14
+  aoa_deg: 9.081
+  digits:
+  - 2
+  - 4
+  - 9
+- name: mf_dataset_2_400_naca26112_re3.507e6_aoa6p59
+  reynolds: 3506937.397
+  aoa_deg: 6.587
+  digits:
+  - 2
+  - 6
+  - 1
+  - 12
+- name: mf_dataset_2_401_naca37016_re5.228e6_aoa12p17
+  reynolds: 5228287.534
+  aoa_deg: 12.172
+  digits:
+  - 3
+  - 7
+  - 0
+  - 16
+- name: mf_dataset_2_402_naca15112_re4.165e6_aoa8p71
+  reynolds: 4165227.833
+  aoa_deg: 8.708
+  digits:
+  - 1
+  - 5
+  - 1
+  - 12
+- name: mf_dataset_2_403_naca46009_re5.359e6_aoa1p41
+  reynolds: 5359300.131
+  aoa_deg: 1.409
+  digits:
+  - 4
+  - 6
+  - 0
+  - 9
+- name: mf_dataset_2_404_naca7220_re5.372e6_aoa4p26
+  reynolds: 5372329.254
+  aoa_deg: 4.259
+  digits:
+  - 7
+  - 2
+  - 20
+- name: mf_dataset_2_405_naca45008_re2.058e6_aoa4p06
+  reynolds: 2057778.526
+  aoa_deg: 4.062
+  digits:
+  - 4
+  - 5
+  - 0
+  - 8
+- name: mf_dataset_2_406_naca4310_re2.04e6_aoam1p60
+  reynolds: 2039850.969
+  aoa_deg: -1.6
+  digits:
+  - 4
+  - 3
+  - 10
+- name: mf_dataset_2_407_naca25108_re4.064e6_aoam3p32
+  reynolds: 4064296.9
+  aoa_deg: -3.318
+  digits:
+  - 2
+  - 5
+  - 1
+  - 8
+- name: mf_dataset_2_408_naca1516_re2.463e6_aoam2p04
+  reynolds: 2463334.435
+  aoa_deg: -2.04
+  digits:
+  - 1
+  - 5
+  - 16
+- name: mf_dataset_2_409_naca6014_re4.427e6_aoa13p75
+  reynolds: 4426739.201
+  aoa_deg: 13.754
+  digits:
+  - 6
+  - 0
+  - 14
+- name: mf_dataset_2_410_naca45011_re2.027e6_aoa7p56
+  reynolds: 2026733.099
+  aoa_deg: 7.562
+  digits:
+  - 4
+  - 5
+  - 0
+  - 11
+- name: mf_dataset_2_411_naca3510_re4.255e6_aoa7p01
+  reynolds: 4254758.825
+  aoa_deg: 7.01
+  digits:
+  - 3
+  - 5
+  - 10
+- name: mf_dataset_2_412_naca34113_re3.967e6_aoam3p34
+  reynolds: 3967344.073
+  aoa_deg: -3.337
+  digits:
+  - 3
+  - 4
+  - 1
+  - 13
+- name: mf_dataset_2_413_naca2013_re2.331e6_aoa0p42
+  reynolds: 2330979.427
+  aoa_deg: 0.419
+  digits:
+  - 2
+  - 0
+  - 13
+- name: mf_dataset_2_414_naca27113_re2.542e6_aoa5p29
+  reynolds: 2541808.355
+  aoa_deg: 5.29
+  digits:
+  - 2
+  - 7
+  - 1
+  - 13
+- name: mf_dataset_2_415_naca2320_re3.114e6_aoa11p13
+  reynolds: 3114137.191
+  aoa_deg: 11.126
+  digits:
+  - 2
+  - 3
+  - 20
+- name: mf_dataset_2_416_naca5018_re5.053e6_aoa6p10
+  reynolds: 5052988.152
+  aoa_deg: 6.103
+  digits:
+  - 5
+  - 0
+  - 18
+- name: mf_dataset_2_417_naca6214_re2.375e6_aoa6p81
+  reynolds: 2374769.605
+  aoa_deg: 6.813
+  digits:
+  - 6
+  - 2
+  - 14
+- name: mf_dataset_2_418_naca1509_re4.919e6_aoam3p98
+  reynolds: 4919237.855
+  aoa_deg: -3.977
+  digits:
+  - 1
+  - 5
+  - 9
+- name: mf_dataset_2_419_naca6013_re4.786e6_aoa9p82
+  reynolds: 4786485.326
+  aoa_deg: 9.823
+  digits:
+  - 6
+  - 0
+  - 13
+- name: mf_dataset_2_420_naca14114_re5.033e6_aoa4p08
+  reynolds: 5032727.396
+  aoa_deg: 4.082
+  digits:
+  - 1
+  - 4
+  - 1
+  - 14
+- name: mf_dataset_2_421_naca3017_re2.928e6_aoa4p08
+  reynolds: 2927966.199
+  aoa_deg: 4.077
+  digits:
+  - 3
+  - 0
+  - 17
+- name: mf_dataset_2_422_naca5015_re4.441e6_aoam4p21
+  reynolds: 4440924.92
+  aoa_deg: -4.209
+  digits:
+  - 5
+  - 0
+  - 15
+- name: mf_dataset_2_423_naca16017_re2.067e6_aoa6p34
+  reynolds: 2067321.253
+  aoa_deg: 6.341
+  digits:
+  - 1
+  - 6
+  - 0
+  - 17
+- name: mf_dataset_2_424_naca6611_re2.028e6_aoa2p41
+  reynolds: 2028294.171
+  aoa_deg: 2.41
+  digits:
+  - 6
+  - 6
+  - 11
+- name: mf_dataset_2_425_naca6419_re5.292e6_aoa9p66
+  reynolds: 5292324.914
+  aoa_deg: 9.661
+  digits:
+  - 6
+  - 4
+  - 19
+- name: mf_dataset_2_426_naca16120_re3.75e6_aoa11p14
+  reynolds: 3749954.868
+  aoa_deg: 11.139
+  digits:
+  - 1
+  - 6
+  - 1
+  - 20
+- name: mf_dataset_2_427_naca13115_re5.495e6_aoa3p31
+  reynolds: 5494526.324
+  aoa_deg: 3.307
+  digits:
+  - 1
+  - 3
+  - 1
+  - 15
+- name: mf_dataset_2_428_naca16112_re4.816e6_aoam0p02
+  reynolds: 4815522.808
+  aoa_deg: -0.024
+  digits:
+  - 1
+  - 6
+  - 1
+  - 12
+- name: mf_dataset_2_429_naca6217_re3.711e6_aoam1p36
+  reynolds: 3710993.568
+  aoa_deg: -1.356
+  digits:
+  - 6
+  - 2
+  - 17
+- name: mf_dataset_2_430_naca7020_re4.228e6_aoa9p46
+  reynolds: 4227559.244
+  aoa_deg: 9.463
+  digits:
+  - 7
+  - 0
+  - 20
+- name: mf_dataset_2_431_naca6317_re3.968e6_aoam4p29
+  reynolds: 3968056.15
+  aoa_deg: -4.295
+  digits:
+  - 6
+  - 3
+  - 17
+- name: mf_dataset_2_432_naca2620_re2.351e6_aoa8p11
+  reynolds: 2350675.217
+  aoa_deg: 8.112
+  digits:
+  - 2
+  - 6
+  - 20
+- name: mf_dataset_2_433_naca37118_re4.943e6_aoa8p15
+  reynolds: 4942849.424
+  aoa_deg: 8.153
+  digits:
+  - 3
+  - 7
+  - 1
+  - 18
+- name: mf_dataset_2_434_naca1409_re2.731e6_aoam2p13
+  reynolds: 2730980.958
+  aoa_deg: -2.13
+  digits:
+  - 1
+  - 4
+  - 9
+- name: mf_dataset_2_435_naca34107_re3.384e6_aoa6p58
+  reynolds: 3383645.83
+  aoa_deg: 6.576
+  digits:
+  - 3
+  - 4
+  - 1
+  - 7
+- name: mf_dataset_2_436_naca25017_re2.495e6_aoa9p82
+  reynolds: 2495147.951
+  aoa_deg: 9.818
+  digits:
+  - 2
+  - 5
+  - 0
+  - 17
+- name: mf_dataset_2_437_naca5412_re5.642e6_aoam3p64
+  reynolds: 5641900.359
+  aoa_deg: -3.643
+  digits:
+  - 5
+  - 4
+  - 12
+- name: mf_dataset_2_438_naca14120_re5.648e6_aoa4p63
+  reynolds: 5647975.624
+  aoa_deg: 4.632
+  digits:
+  - 1
+  - 4
+  - 1
+  - 20
+- name: mf_dataset_2_439_naca7309_re4.322e6_aoa8p36
+  reynolds: 4322077.728
+  aoa_deg: 8.364
+  digits:
+  - 7
+  - 3
+  - 9
+- name: mf_dataset_2_440_naca4417_re3.382e6_aoam4p81
+  reynolds: 3381813.232
+  aoa_deg: -4.809
+  digits:
+  - 4
+  - 4
+  - 17
+- name: mf_dataset_2_441_naca4014_re4.778e6_aoa11p58
+  reynolds: 4778305.112
+  aoa_deg: 11.584
+  digits:
+  - 4
+  - 0
+  - 14
+- name: mf_dataset_2_442_naca1713_re2.801e6_aoam3p19
+  reynolds: 2800667.835
+  aoa_deg: -3.189
+  digits:
+  - 1
+  - 7
+  - 13
+- name: mf_dataset_2_443_naca2016_re2.899e6_aoam3p52
+  reynolds: 2898694.732
+  aoa_deg: -3.52
+  digits:
+  - 2
+  - 0
+  - 16
+- name: mf_dataset_2_444_naca28107_re4.539e6_aoa5p81
+  reynolds: 4538691.213
+  aoa_deg: 5.812
+  digits:
+  - 2
+  - 8
+  - 1
+  - 7
+- name: mf_dataset_2_445_naca3612_re3.3e6_aoa14p67
+  reynolds: 3299610.015
+  aoa_deg: 14.667
+  digits:
+  - 3
+  - 6
+  - 12
+- name: mf_dataset_2_446_naca6020_re5.017e6_aoa7p60
+  reynolds: 5017202.729
+  aoa_deg: 7.603
+  digits:
+  - 6
+  - 0
+  - 20
+- name: mf_dataset_2_447_naca15013_re3.907e6_aoa8p93
+  reynolds: 3907092.29
+  aoa_deg: 8.934
+  digits:
+  - 1
+  - 5
+  - 0
+  - 13
+- name: mf_dataset_2_448_naca14111_re2.453e6_aoa4p89
+  reynolds: 2453113.704
+  aoa_deg: 4.893
+  digits:
+  - 1
+  - 4
+  - 1
+  - 11
+- name: mf_dataset_2_449_naca26106_re4.039e6_aoa6p66
+  reynolds: 4039319.409
+  aoa_deg: 6.655
+  digits:
+  - 2
+  - 6
+  - 1
+  - 6
+- name: mf_dataset_2_450_naca0318_re2.785e6_aoa9p21
+  reynolds: 2784769.974
+  aoa_deg: 9.213
+  digits:
+  - 0
+  - 3
+  - 18
+- name: mf_dataset_2_451_naca46106_re4.828e6_aoa14p77
+  reynolds: 4827574.415
+  aoa_deg: 14.769
+  digits:
+  - 4
+  - 6
+  - 1
+  - 6
+- name: mf_dataset_2_452_naca2011_re5.014e6_aoam4p13
+  reynolds: 5013801.037
+  aoa_deg: -4.128
+  digits:
+  - 2
+  - 0
+  - 11
+- name: mf_dataset_2_453_naca17114_re5.112e6_aoa8p48
+  reynolds: 5111727.713
+  aoa_deg: 8.481
+  digits:
+  - 1
+  - 7
+  - 1
+  - 14
+- name: mf_dataset_2_454_naca14018_re5.785e6_aoa11p94
+  reynolds: 5784982.272
+  aoa_deg: 11.937
+  digits:
+  - 1
+  - 4
+  - 0
+  - 18
+- name: mf_dataset_2_455_naca6019_re5.139e6_aoa14p95
+  reynolds: 5139012.548
+  aoa_deg: 14.952
+  digits:
+  - 6
+  - 0
+  - 19
+- name: mf_dataset_2_456_naca4209_re5.447e6_aoa11p51
+  reynolds: 5447223.281
+  aoa_deg: 11.512
+  digits:
+  - 4
+  - 2
+  - 9
+- name: mf_dataset_2_457_naca26106_re4.117e6_aoam4p27
+  reynolds: 4116635.665
+  aoa_deg: -4.268
+  digits:
+  - 2
+  - 6
+  - 1
+  - 6
+- name: mf_dataset_2_458_naca3717_re3.626e6_aoa1p94
+  reynolds: 3626053.875
+  aoa_deg: 1.938
+  digits:
+  - 3
+  - 7
+  - 17
+- name: mf_dataset_2_459_naca16010_re4.503e6_aoa13p14
+  reynolds: 4502972.052
+  aoa_deg: 13.137
+  digits:
+  - 1
+  - 6
+  - 0
+  - 10
+- name: mf_dataset_2_460_naca04015_re5.807e6_aoam0p85
+  reynolds: 5806699.977
+  aoa_deg: -0.846
+  digits:
+  - 0
+  - 4
+  - 0
+  - 15
+- name: mf_dataset_2_461_naca3406_re3.957e6_aoa1p50
+  reynolds: 3956856.395
+  aoa_deg: 1.504
+  digits:
+  - 3
+  - 4
+  - 6
+- name: mf_dataset_2_462_naca6209_re3.698e6_aoam1p89
+  reynolds: 3697996.774
+  aoa_deg: -1.892
+  digits:
+  - 6
+  - 2
+  - 9
+- name: mf_dataset_2_463_naca14118_re2.515e6_aoa11p00
+  reynolds: 2514925.396
+  aoa_deg: 10.997
+  digits:
+  - 1
+  - 4
+  - 1
+  - 18
+- name: mf_dataset_2_464_naca15011_re5.627e6_aoa6p13
+  reynolds: 5626673.253
+  aoa_deg: 6.134
+  digits:
+  - 1
+  - 5
+  - 0
+  - 11
+- name: mf_dataset_2_465_naca04115_re5.708e6_aoam0p97
+  reynolds: 5708198.299
+  aoa_deg: -0.966
+  digits:
+  - 0
+  - 4
+  - 1
+  - 15
+- name: mf_dataset_2_466_naca37117_re3.493e6_aoa11p07
+  reynolds: 3492526.176
+  aoa_deg: 11.074
+  digits:
+  - 3
+  - 7
+  - 1
+  - 17
+- name: mf_dataset_2_467_naca14020_re2.587e6_aoa9p08
+  reynolds: 2586815.454
+  aoa_deg: 9.082
+  digits:
+  - 1
+  - 4
+  - 0
+  - 20
+- name: mf_dataset_2_468_naca4314_re3.947e6_aoam2p78
+  reynolds: 3946881.13
+  aoa_deg: -2.784
+  digits:
+  - 4
+  - 3
+  - 14
+- name: mf_dataset_2_469_naca4006_re4.593e6_aoa9p11
+  reynolds: 4592771.901
+  aoa_deg: 9.114
+  digits:
+  - 4
+  - 0
+  - 6
+- name: mf_dataset_2_470_naca1412_re3.832e6_aoa14p80
+  reynolds: 3832308.875
+  aoa_deg: 14.797
+  digits:
+  - 1
+  - 4
+  - 12
+- name: mf_dataset_2_471_naca16114_re5.086e6_aoam4p11
+  reynolds: 5086219.564
+  aoa_deg: -4.112
+  digits:
+  - 1
+  - 6
+  - 1
+  - 14
+- name: mf_dataset_2_472_naca43011_re3.315e6_aoam4p24
+  reynolds: 3315295.769
+  aoa_deg: -4.238
+  digits:
+  - 4
+  - 3
+  - 0
+  - 11
+- name: mf_dataset_2_473_naca3505_re5.669e6_aoa2p68
+  reynolds: 5668515.988
+  aoa_deg: 2.68
+  digits:
+  - 3
+  - 5
+  - 5
+- name: mf_dataset_2_474_naca2213_re5.072e6_aoa8p42
+  reynolds: 5071501.493
+  aoa_deg: 8.416
+  digits:
+  - 2
+  - 2
+  - 13
+- name: mf_dataset_2_475_naca5207_re2.567e6_aoa2p02
+  reynolds: 2567248.912
+  aoa_deg: 2.022
+  digits:
+  - 5
+  - 2
+  - 7
+- name: mf_dataset_2_476_naca17013_re2.238e6_aoa2p86
+  reynolds: 2238342.097
+  aoa_deg: 2.864
+  digits:
+  - 1
+  - 7
+  - 0
+  - 13
+- name: mf_dataset_2_477_naca27015_re3.616e6_aoa10p62
+  reynolds: 3616150.443
+  aoa_deg: 10.624
+  digits:
+  - 2
+  - 7
+  - 0
+  - 15
+- name: mf_dataset_2_478_naca6713_re2.373e6_aoa9p33
+  reynolds: 2373255.369
+  aoa_deg: 9.329
+  digits:
+  - 6
+  - 7
+  - 13
+- name: mf_dataset_2_479_naca33118_re4.408e6_aoam0p60
+  reynolds: 4407747.82
+  aoa_deg: -0.603
+  digits:
+  - 3
+  - 3
+  - 1
+  - 18
+- name: mf_dataset_2_480_naca18018_re4.965e6_aoa9p59
+  reynolds: 4965464.978
+  aoa_deg: 9.587
+  digits:
+  - 1
+  - 8
+  - 0
+  - 18
+- name: mf_dataset_2_481_naca7006_re3.793e6_aoa2p31
+  reynolds: 3793274.426
+  aoa_deg: 2.308
+  digits:
+  - 7
+  - 0
+  - 6
+- name: mf_dataset_2_482_naca13112_re4.487e6_aoa11p28
+  reynolds: 4487182.523
+  aoa_deg: 11.282
+  digits:
+  - 1
+  - 3
+  - 1
+  - 12
+- name: mf_dataset_2_483_naca35018_re4.496e6_aoa5p45
+  reynolds: 4496408.124
+  aoa_deg: 5.45
+  digits:
+  - 3
+  - 5
+  - 0
+  - 18
+- name: mf_dataset_2_484_naca7605_re4.349e6_aoa12p36
+  reynolds: 4348572.19
+  aoa_deg: 12.36
+  digits:
+  - 7
+  - 6
+  - 5
+- name: mf_dataset_2_485_naca7706_re3.111e6_aoa5p73
+  reynolds: 3110688.878
+  aoa_deg: 5.727
+  digits:
+  - 7
+  - 7
+  - 6
+- name: mf_dataset_2_486_naca4006_re5.12e6_aoa11p28
+  reynolds: 5119831.246
+  aoa_deg: 11.281
+  digits:
+  - 4
+  - 0
+  - 6
+- name: mf_dataset_2_487_naca6320_re4.838e6_aoa13p65
+  reynolds: 4837675.323
+  aoa_deg: 13.653
+  digits:
+  - 6
+  - 3
+  - 20
+- name: mf_dataset_2_488_naca1508_re2.828e6_aoa6p91
+  reynolds: 2827852.235
+  aoa_deg: 6.907
+  digits:
+  - 1
+  - 5
+  - 8
+- name: mf_dataset_2_489_naca5718_re2.051e6_aoa14p37
+  reynolds: 2050814.329
+  aoa_deg: 14.368
+  digits:
+  - 5
+  - 7
+  - 18
+- name: mf_dataset_2_490_naca4617_re5.102e6_aoa1p22
+  reynolds: 5101962.469
+  aoa_deg: 1.217
+  digits:
+  - 4
+  - 6
+  - 17
+- name: mf_dataset_2_491_naca36112_re3.889e6_aoa6p32
+  reynolds: 3889276.335
+  aoa_deg: 6.316
+  digits:
+  - 3
+  - 6
+  - 1
+  - 12
+- name: mf_dataset_2_492_naca1215_re3.562e6_aoa11p87
+  reynolds: 3561613.2
+  aoa_deg: 11.868
+  digits:
+  - 1
+  - 2
+  - 15
+- name: mf_dataset_2_493_naca26106_re4.645e6_aoa0p47
+  reynolds: 4644766.249
+  aoa_deg: 0.469
+  digits:
+  - 2
+  - 6
+  - 1
+  - 6
+- name: mf_dataset_2_494_naca6417_re5.262e6_aoa7p14
+  reynolds: 5262214.175
+  aoa_deg: 7.143
+  digits:
+  - 6
+  - 4
+  - 17
+- name: mf_dataset_2_495_naca1417_re5.011e6_aoam3p56
+  reynolds: 5010604.175
+  aoa_deg: -3.558
+  digits:
+  - 1
+  - 4
+  - 17
+- name: mf_dataset_2_496_naca4619_re3.607e6_aoa4p45
+  reynolds: 3607046.36
+  aoa_deg: 4.449
+  digits:
+  - 4
+  - 6
+  - 19
+- name: mf_dataset_2_497_naca07005_re5.818e6_aoam3p26
+  reynolds: 5817583.975
+  aoa_deg: -3.263
+  digits:
+  - 0
+  - 7
+  - 0
+  - 5
+- name: mf_dataset_2_498_naca0612_re5.201e6_aoa14p11
+  reynolds: 5201316.154
+  aoa_deg: 14.109
+  digits:
+  - 0
+  - 6
+  - 12
+- name: mf_dataset_2_499_naca0414_re4.553e6_aoa11p46
+  reynolds: 4552691.002
+  aoa_deg: 11.463
+  digits:
+  - 0
+  - 4
+  - 14
+- name: mf_dataset_2_500_naca5207_re5.771e6_aoam4p88
+  reynolds: 5771471.674
+  aoa_deg: -4.879
+  digits:
+  - 5
+  - 2
+  - 7
+- name: mf_dataset_2_501_naca37107_re2.677e6_aoa11p77
+  reynolds: 2676523.104
+  aoa_deg: 11.765
+  digits:
+  - 3
+  - 7
+  - 1
+  - 7
+- name: mf_dataset_2_502_naca3012_re5.588e6_aoam0p24
+  reynolds: 5588215.446
+  aoa_deg: -0.244
+  digits:
+  - 3
+  - 0
+  - 12
+- name: mf_dataset_2_503_naca7716_re5.345e6_aoa13p29
+  reynolds: 5345417.001
+  aoa_deg: 13.288
+  digits:
+  - 7
+  - 7
+  - 16
+- name: mf_dataset_2_504_naca5009_re3.228e6_aoa7p40
+  reynolds: 3227972.041
+  aoa_deg: 7.4
+  digits:
+  - 5
+  - 0
+  - 9
+- name: mf_dataset_2_505_naca17107_re5.257e6_aoa0p31
+  reynolds: 5257160.124
+  aoa_deg: 0.312
+  digits:
+  - 1
+  - 7
+  - 1
+  - 7
+- name: mf_dataset_2_506_naca44111_re5.296e6_aoa3p91
+  reynolds: 5295778.858
+  aoa_deg: 3.91
+  digits:
+  - 4
+  - 4
+  - 1
+  - 11
+- name: mf_dataset_2_507_naca36017_re4.186e6_aoa1p46
+  reynolds: 4185527.345
+  aoa_deg: 1.463
+  digits:
+  - 3
+  - 6
+  - 0
+  - 17
+- name: mf_dataset_2_508_naca6009_re3.88e6_aoa13p15
+  reynolds: 3879966.583
+  aoa_deg: 13.155
+  digits:
+  - 6
+  - 0
+  - 9
+- name: mf_dataset_2_509_naca34116_re3.722e6_aoa14p32
+  reynolds: 3721601.637
+  aoa_deg: 14.324
+  digits:
+  - 3
+  - 4
+  - 1
+  - 16
+- name: mf_dataset_2_510_naca16116_re5.459e6_aoa4p32
+  reynolds: 5459225.987
+  aoa_deg: 4.321
+  digits:
+  - 1
+  - 6
+  - 1
+  - 16
+- name: mf_dataset_2_511_naca16114_re3.292e6_aoam1p50
+  reynolds: 3292273.458
+  aoa_deg: -1.503
+  digits:
+  - 1
+  - 6
+  - 1
+  - 14
+- name: mf_dataset_2_512_naca37016_re4.199e6_aoa1p83
+  reynolds: 4198828.334
+  aoa_deg: 1.834
+  digits:
+  - 3
+  - 7
+  - 0
+  - 16
+- name: mf_dataset_2_513_naca05010_re3.773e6_aoam3p69
+  reynolds: 3772797.146
+  aoa_deg: -3.688
+  digits:
+  - 0
+  - 5
+  - 0
+  - 10
+- name: mf_dataset_2_514_naca5219_re3.189e6_aoa14p29
+  reynolds: 3189401.54
+  aoa_deg: 14.286
+  digits:
+  - 5
+  - 2
+  - 19
+- name: mf_dataset_2_515_naca26119_re5.251e6_aoa13p20
+  reynolds: 5251178.398
+  aoa_deg: 13.2
+  digits:
+  - 2
+  - 6
+  - 1
+  - 19
+- name: mf_dataset_2_516_naca35015_re4.335e6_aoam2p45
+  reynolds: 4335398.869
+  aoa_deg: -2.452
+  digits:
+  - 3
+  - 5
+  - 0
+  - 15
+- name: mf_dataset_2_517_naca38108_re4.344e6_aoa3p09
+  reynolds: 4343608.599
+  aoa_deg: 3.086
+  digits:
+  - 3
+  - 8
+  - 1
+  - 8
+- name: mf_dataset_2_518_naca36008_re5.309e6_aoa8p29
+  reynolds: 5309332.23
+  aoa_deg: 8.288
+  digits:
+  - 3
+  - 6
+  - 0
+  - 8
+- name: mf_dataset_2_519_naca3215_re4.304e6_aoa1p98
+  reynolds: 4304120.637
+  aoa_deg: 1.982
+  digits:
+  - 3
+  - 2
+  - 15
+- name: mf_dataset_2_520_naca08112_re4.163e6_aoa9p57
+  reynolds: 4163315.108
+  aoa_deg: 9.573
+  digits:
+  - 0
+  - 8
+  - 1
+  - 12
+- name: mf_dataset_2_521_naca1617_re3.184e6_aoam2p96
+  reynolds: 3183643.014
+  aoa_deg: -2.964
+  digits:
+  - 1
+  - 6
+  - 17
+- name: mf_dataset_2_522_naca7212_re3.324e6_aoa2p86
+  reynolds: 3324373.018
+  aoa_deg: 2.863
+  digits:
+  - 7
+  - 2
+  - 12
+- name: mf_dataset_2_523_naca37120_re4.902e6_aoa5p61
+  reynolds: 4902249.243
+  aoa_deg: 5.605
+  digits:
+  - 3
+  - 7
+  - 1
+  - 20
+- name: mf_dataset_2_524_naca23111_re5.404e6_aoam3p81
+  reynolds: 5403834.615
+  aoa_deg: -3.809
+  digits:
+  - 2
+  - 3
+  - 1
+  - 11
+- name: mf_dataset_2_525_naca1414_re5.253e6_aoam4p20
+  reynolds: 5253254.35
+  aoa_deg: -4.199
+  digits:
+  - 1
+  - 4
+  - 14
+- name: mf_dataset_2_526_naca17118_re4.996e6_aoa7p89
+  reynolds: 4995571.071
+  aoa_deg: 7.893
+  digits:
+  - 1
+  - 7
+  - 1
+  - 18
+- name: mf_dataset_2_527_naca35016_re5.845e6_aoa7p36
+  reynolds: 5845365.667
+  aoa_deg: 7.364
+  digits:
+  - 3
+  - 5
+  - 0
+  - 16
+- name: mf_dataset_2_528_naca4605_re5.719e6_aoa8p05
+  reynolds: 5718930.846
+  aoa_deg: 8.052
+  digits:
+  - 4
+  - 6
+  - 5
+- name: mf_dataset_2_529_naca34006_re3.418e6_aoa14p99
+  reynolds: 3417883.752
+  aoa_deg: 14.991
+  digits:
+  - 3
+  - 4
+  - 0
+  - 6
+- name: mf_dataset_2_530_naca44012_re2.128e6_aoa13p79
+  reynolds: 2127585.276
+  aoa_deg: 13.789
+  digits:
+  - 4
+  - 4
+  - 0
+  - 12
+- name: mf_dataset_2_531_naca27109_re5.541e6_aoa10p87
+  reynolds: 5540583.53
+  aoa_deg: 10.874
+  digits:
+  - 2
+  - 7
+  - 1
+  - 9
+- name: mf_dataset_2_532_naca6411_re5.372e6_aoa10p47
+  reynolds: 5372017.571
+  aoa_deg: 10.475
+  digits:
+  - 6
+  - 4
+  - 11
+- name: mf_dataset_2_533_naca0419_re3.089e6_aoa4p19
+  reynolds: 3089382.424
+  aoa_deg: 4.186
+  digits:
+  - 0
+  - 4
+  - 19
+- name: mf_dataset_2_534_naca4014_re3.045e6_aoa8p86
+  reynolds: 3044836.88
+  aoa_deg: 8.859
+  digits:
+  - 4
+  - 0
+  - 14
+- name: mf_dataset_2_535_naca26116_re3.461e6_aoa13p48
+  reynolds: 3461338.029
+  aoa_deg: 13.483
+  digits:
+  - 2
+  - 6
+  - 1
+  - 16
+- name: mf_dataset_2_536_naca43108_re2.553e6_aoa9p46
+  reynolds: 2552762.164
+  aoa_deg: 9.46
+  digits:
+  - 4
+  - 3
+  - 1
+  - 8
+- name: mf_dataset_2_537_naca36119_re5.321e6_aoam0p75
+  reynolds: 5320925.099
+  aoa_deg: -0.748
+  digits:
+  - 3
+  - 6
+  - 1
+  - 19
+- name: mf_dataset_2_538_naca48109_re5.908e6_aoa7p77
+  reynolds: 5907729.132
+  aoa_deg: 7.767
+  digits:
+  - 4
+  - 8
+  - 1
+  - 9
+- name: mf_dataset_2_539_naca25114_re4.428e6_aoa11p36
+  reynolds: 4428192.319
+  aoa_deg: 11.363
+  digits:
+  - 2
+  - 5
+  - 1
+  - 14
+- name: mf_dataset_2_540_naca6213_re2.997e6_aoa12p68
+  reynolds: 2996781.166
+  aoa_deg: 12.684
+  digits:
+  - 6
+  - 2
+  - 13
+- name: mf_dataset_2_541_naca27118_re3.456e6_aoa10p83
+  reynolds: 3456301.436
+  aoa_deg: 10.828
+  digits:
+  - 2
+  - 7
+  - 1
+  - 18
+- name: mf_dataset_2_542_naca26115_re5.027e6_aoam0p06
+  reynolds: 5026509.605
+  aoa_deg: -0.055
+  digits:
+  - 2
+  - 6
+  - 1
+  - 15
+- name: mf_dataset_2_543_naca0007_re2.775e6_aoa0p72
+  reynolds: 2775178.214
+  aoa_deg: 0.723
+  digits:
+  - 0
+  - 0
+  - 7
+- name: mf_dataset_2_544_naca04018_re4.047e6_aoa1p39
+  reynolds: 4046594.512
+  aoa_deg: 1.392
+  digits:
+  - 0
+  - 4
+  - 0
+  - 18
+- name: mf_dataset_2_545_naca4613_re5.035e6_aoa9p96
+  reynolds: 5035341.168
+  aoa_deg: 9.959
+  digits:
+  - 4
+  - 6
+  - 13
+- name: mf_dataset_2_546_naca15113_re5.375e6_aoa10p23
+  reynolds: 5374811.524
+  aoa_deg: 10.23
+  digits:
+  - 1
+  - 5
+  - 1
+  - 13
+- name: mf_dataset_2_547_naca3513_re3.82e6_aoa6p53
+  reynolds: 3820357.272
+  aoa_deg: 6.533
+  digits:
+  - 3
+  - 5
+  - 13
+- name: mf_dataset_2_548_naca14017_re2.449e6_aoa10p43
+  reynolds: 2448630.102
+  aoa_deg: 10.431
+  digits:
+  - 1
+  - 4
+  - 0
+  - 17
+- name: mf_dataset_2_549_naca28112_re5.64e6_aoa4p97
+  reynolds: 5640229.895
+  aoa_deg: 4.972
+  digits:
+  - 2
+  - 8
+  - 1
+  - 12
+- name: mf_dataset_2_550_naca34020_re5.204e6_aoa14p23
+  reynolds: 5204272.824
+  aoa_deg: 14.227
+  digits:
+  - 3
+  - 4
+  - 0
+  - 20
+- name: mf_dataset_2_551_naca17007_re5.679e6_aoam0p31
+  reynolds: 5679432.933
+  aoa_deg: -0.307
+  digits:
+  - 1
+  - 7
+  - 0
+  - 7
+- name: mf_dataset_2_552_naca4010_re3.218e6_aoa2p83
+  reynolds: 3217538.997
+  aoa_deg: 2.833
+  digits:
+  - 4
+  - 0
+  - 10
+- name: mf_dataset_2_553_naca6515_re3.975e6_aoa13p63
+  reynolds: 3975265.084
+  aoa_deg: 13.63
+  digits:
+  - 6
+  - 5
+  - 15
+- name: mf_dataset_2_554_naca6507_re4.352e6_aoa5p73
+  reynolds: 4351985.602
+  aoa_deg: 5.727
+  digits:
+  - 6
+  - 5
+  - 7
+- name: mf_dataset_2_555_naca1008_re3.217e6_aoa3p81
+  reynolds: 3217016.349
+  aoa_deg: 3.81
+  digits:
+  - 1
+  - 0
+  - 8
+- name: mf_dataset_2_556_naca26006_re4.934e6_aoam2p65
+  reynolds: 4933896.202
+  aoa_deg: -2.649
+  digits:
+  - 2
+  - 6
+  - 0
+  - 6
+- name: mf_dataset_2_557_naca47112_re4.232e6_aoa8p80
+  reynolds: 4231728.775
+  aoa_deg: 8.798
+  digits:
+  - 4
+  - 7
+  - 1
+  - 12
+- name: mf_dataset_2_558_naca6309_re2.969e6_aoa1p67
+  reynolds: 2968537.469
+  aoa_deg: 1.671
+  digits:
+  - 6
+  - 3
+  - 9
+- name: mf_dataset_2_559_naca0609_re3.763e6_aoa1p01
+  reynolds: 3763150.081
+  aoa_deg: 1.015
+  digits:
+  - 0
+  - 6
+  - 9
+- name: mf_dataset_2_560_naca37015_re3.041e6_aoa6p62
+  reynolds: 3041144.273
+  aoa_deg: 6.621
+  digits:
+  - 3
+  - 7
+  - 0
+  - 15
+- name: mf_dataset_2_561_naca2411_re3.933e6_aoa3p95
+  reynolds: 3933398.486
+  aoa_deg: 3.947
+  digits:
+  - 2
+  - 4
+  - 11
+- name: mf_dataset_2_562_naca0015_re5.316e6_aoa10p27
+  reynolds: 5316128.475
+  aoa_deg: 10.267
+  digits:
+  - 0
+  - 0
+  - 15
+- name: mf_dataset_2_563_naca3616_re2.661e6_aoa11p31
+  reynolds: 2660673.82
+  aoa_deg: 11.308
+  digits:
+  - 3
+  - 6
+  - 16
+- name: mf_dataset_2_564_naca3016_re2.34e6_aoam4p14
+  reynolds: 2339915.856
+  aoa_deg: -4.139
+  digits:
+  - 3
+  - 0
+  - 16
+- name: mf_dataset_2_565_naca2218_re5.398e6_aoa0p20
+  reynolds: 5397903.499
+  aoa_deg: 0.198
+  digits:
+  - 2
+  - 2
+  - 18
+- name: mf_dataset_2_566_naca04118_re2.591e6_aoam1p61
+  reynolds: 2591318.831
+  aoa_deg: -1.614
+  digits:
+  - 0
+  - 4
+  - 1
+  - 18
+- name: mf_dataset_2_567_naca38007_re4.746e6_aoa2p97
+  reynolds: 4746361.176
+  aoa_deg: 2.972
+  digits:
+  - 3
+  - 8
+  - 0
+  - 7
+- name: mf_dataset_2_568_naca27120_re2.416e6_aoa9p97
+  reynolds: 2416047.928
+  aoa_deg: 9.973
+  digits:
+  - 2
+  - 7
+  - 1
+  - 20
+- name: mf_dataset_2_569_naca1019_re3.236e6_aoa12p75
+  reynolds: 3235695.071
+  aoa_deg: 12.753
+  digits:
+  - 1
+  - 0
+  - 19
+- name: mf_dataset_2_570_naca34009_re4.659e6_aoa14p76
+  reynolds: 4659178.15
+  aoa_deg: 14.761
+  digits:
+  - 3
+  - 4
+  - 0
+  - 9
+- name: mf_dataset_2_571_naca05007_re3.858e6_aoa11p08
+  reynolds: 3857796.856
+  aoa_deg: 11.077
+  digits:
+  - 0
+  - 5
+  - 0
+  - 7
+- name: mf_dataset_2_572_naca4613_re5.515e6_aoa3p07
+  reynolds: 5515430.457
+  aoa_deg: 3.067
+  digits:
+  - 4
+  - 6
+  - 13
+- name: mf_dataset_2_573_naca28107_re4.872e6_aoa8p93
+  reynolds: 4872027.226
+  aoa_deg: 8.933
+  digits:
+  - 2
+  - 8
+  - 1
+  - 7
+- name: mf_dataset_2_574_naca07019_re3.319e6_aoam4p89
+  reynolds: 3319250.763
+  aoa_deg: -4.893
+  digits:
+  - 0
+  - 7
+  - 0
+  - 19
+- name: mf_dataset_2_575_naca28005_re4.93e6_aoa13p42
+  reynolds: 4930352.414
+  aoa_deg: 13.422
+  digits:
+  - 2
+  - 8
+  - 0
+  - 5
+- name: mf_dataset_2_576_naca0016_re5.613e6_aoa8p37
+  reynolds: 5613418.282
+  aoa_deg: 8.371
+  digits:
+  - 0
+  - 0
+  - 16
+- name: mf_dataset_2_577_naca17006_re3.45e6_aoa14p35
+  reynolds: 3449611.446
+  aoa_deg: 14.347
+  digits:
+  - 1
+  - 7
+  - 0
+  - 6
+- name: mf_dataset_2_578_naca44114_re4.465e6_aoam0p44
+  reynolds: 4464770.275
+  aoa_deg: -0.444
+  digits:
+  - 4
+  - 4
+  - 1
+  - 14
+- name: mf_dataset_2_579_naca1213_re3.676e6_aoam2p62
+  reynolds: 3676246.322
+  aoa_deg: -2.619
+  digits:
+  - 1
+  - 2
+  - 13
+- name: mf_dataset_2_580_naca0712_re3.68e6_aoa13p47
+  reynolds: 3679962.1
+  aoa_deg: 13.471
+  digits:
+  - 0
+  - 7
+  - 12
+- name: mf_dataset_2_581_naca27014_re2.189e6_aoam0p54
+  reynolds: 2189048.311
+  aoa_deg: -0.544
+  digits:
+  - 2
+  - 7
+  - 0
+  - 14
+- name: mf_dataset_2_582_naca34115_re2.094e6_aoa3p89
+  reynolds: 2093566.667
+  aoa_deg: 3.89
+  digits:
+  - 3
+  - 4
+  - 1
+  - 15
+- name: mf_dataset_2_583_naca7218_re5.306e6_aoa12p85
+  reynolds: 5305586.79
+  aoa_deg: 12.853
+  digits:
+  - 7
+  - 2
+  - 18
+- name: mf_dataset_2_584_naca0715_re2.635e6_aoa0p90
+  reynolds: 2635054.377
+  aoa_deg: 0.903
+  digits:
+  - 0
+  - 7
+  - 15
+- name: mf_dataset_2_585_naca2008_re3.197e6_aoam3p48
+  reynolds: 3196992.985
+  aoa_deg: -3.478
+  digits:
+  - 2
+  - 0
+  - 8
+- name: mf_dataset_2_586_naca7314_re4.019e6_aoa12p77
+  reynolds: 4018940.035
+  aoa_deg: 12.772
+  digits:
+  - 7
+  - 3
+  - 14
+- name: mf_dataset_2_587_naca1410_re5.568e6_aoam2p02
+  reynolds: 5567606.677
+  aoa_deg: -2.025
+  digits:
+  - 1
+  - 4
+  - 10
+- name: mf_dataset_2_588_naca34112_re5.603e6_aoa0p43
+  reynolds: 5603173.852
+  aoa_deg: 0.435
+  digits:
+  - 3
+  - 4
+  - 1
+  - 12
+- name: mf_dataset_2_589_naca26009_re3.659e6_aoa6p84
+  reynolds: 3658904.711
+  aoa_deg: 6.843
+  digits:
+  - 2
+  - 6
+  - 0
+  - 9
+- name: mf_dataset_2_590_naca2510_re4.955e6_aoam3p49
+  reynolds: 4954597.421
+  aoa_deg: -3.49
+  digits:
+  - 2
+  - 5
+  - 10
+- name: mf_dataset_2_591_naca4216_re3.671e6_aoa11p45
+  reynolds: 3671068.16
+  aoa_deg: 11.447
+  digits:
+  - 4
+  - 2
+  - 16
+- name: mf_dataset_2_592_naca6413_re5.465e6_aoam3p12
+  reynolds: 5464799.078
+  aoa_deg: -3.124
+  digits:
+  - 6
+  - 4
+  - 13
+- name: mf_dataset_2_593_naca36111_re5.144e6_aoam0p40
+  reynolds: 5144467.617
+  aoa_deg: -0.4
+  digits:
+  - 3
+  - 6
+  - 1
+  - 11
+- name: mf_dataset_2_594_naca0217_re3.288e6_aoa8p25
+  reynolds: 3287766.531
+  aoa_deg: 8.249
+  digits:
+  - 0
+  - 2
+  - 17
+- name: mf_dataset_2_595_naca34020_re5.427e6_aoa1p56
+  reynolds: 5426770.948
+  aoa_deg: 1.557
+  digits:
+  - 3
+  - 4
+  - 0
+  - 20
+- name: mf_dataset_2_596_naca0414_re4.205e6_aoam4p15
+  reynolds: 4205106.432
+  aoa_deg: -4.154
+  digits:
+  - 0
+  - 4
+  - 14
+- name: mf_dataset_2_597_naca2415_re5.871e6_aoa2p02
+  reynolds: 5870651.312
+  aoa_deg: 2.016
+  digits:
+  - 2
+  - 4
+  - 15
+- name: mf_dataset_2_598_naca6306_re3.133e6_aoa13p82
+  reynolds: 3133437.199
+  aoa_deg: 13.816
+  digits:
+  - 6
+  - 3
+  - 6
+- name: mf_dataset_2_599_naca16118_re3.851e6_aoam2p12
+  reynolds: 3850597.909
+  aoa_deg: -2.119
+  digits:
+  - 1
+  - 6
+  - 1
+  - 18
+- name: mf_dataset_2_600_naca5517_re3.511e6_aoa5p23
+  reynolds: 3510604.645
+  aoa_deg: 5.234
+  digits:
+  - 5
+  - 5
+  - 17
+- name: mf_dataset_2_601_naca23009_re4.82e6_aoa1p07
+  reynolds: 4820458.398
+  aoa_deg: 1.066
+  digits:
+  - 2
+  - 3
+  - 0
+  - 9
+- name: mf_dataset_2_602_naca6618_re4.696e6_aoa4p13
+  reynolds: 4696302.373
+  aoa_deg: 4.131
+  digits:
+  - 6
+  - 6
+  - 18
+- name: mf_dataset_2_603_naca3517_re2.59e6_aoa11p99
+  reynolds: 2590094.786
+  aoa_deg: 11.995
+  digits:
+  - 3
+  - 5
+  - 17
+- name: mf_dataset_2_604_naca1520_re3.939e6_aoa14p69
+  reynolds: 3939397.144
+  aoa_deg: 14.686
+  digits:
+  - 1
+  - 5
+  - 20
+- name: mf_dataset_2_605_naca08118_re3.427e6_aoa11p16
+  reynolds: 3426963.432
+  aoa_deg: 11.162
+  digits:
+  - 0
+  - 8
+  - 1
+  - 18
+- name: mf_dataset_2_606_naca6617_re3.155e6_aoa11p03
+  reynolds: 3155185.041
+  aoa_deg: 11.029
+  digits:
+  - 6
+  - 6
+  - 17
+- name: mf_dataset_2_607_naca6313_re3.004e6_aoa14p10
+  reynolds: 3004279.277
+  aoa_deg: 14.101
+  digits:
+  - 6
+  - 3
+  - 13
+- name: mf_dataset_2_608_naca6310_re4.633e6_aoa3p50
+  reynolds: 4632697.156
+  aoa_deg: 3.504
+  digits:
+  - 6
+  - 3
+  - 10
+- name: mf_dataset_2_609_naca0311_re4.827e6_aoa11p86
+  reynolds: 4826603.718
+  aoa_deg: 11.863
+  digits:
+  - 0
+  - 3
+  - 11
+- name: mf_dataset_2_610_naca6016_re3.636e6_aoam3p75
+  reynolds: 3636355.758
+  aoa_deg: -3.753
+  digits:
+  - 6
+  - 0
+  - 16
+- name: mf_dataset_2_611_naca16011_re4.516e6_aoa8p87
+  reynolds: 4516067.014
+  aoa_deg: 8.874
+  digits:
+  - 1
+  - 6
+  - 0
+  - 11
+- name: mf_dataset_2_612_naca35014_re2.228e6_aoa6p84
+  reynolds: 2227884.103
+  aoa_deg: 6.836
+  digits:
+  - 3
+  - 5
+  - 0
+  - 14
+- name: mf_dataset_2_613_naca16014_re5.045e6_aoam2p99
+  reynolds: 5044951.35
+  aoa_deg: -2.99
+  digits:
+  - 1
+  - 6
+  - 0
+  - 14
+- name: mf_dataset_2_614_naca38118_re2.146e6_aoa3p43
+  reynolds: 2145739.733
+  aoa_deg: 3.432
+  digits:
+  - 3
+  - 8
+  - 1
+  - 18
+- name: mf_dataset_2_615_naca6314_re5.781e6_aoam4p16
+  reynolds: 5780863.05
+  aoa_deg: -4.155
+  digits:
+  - 6
+  - 3
+  - 14
+- name: mf_dataset_2_616_naca15020_re3.459e6_aoa8p85
+  reynolds: 3459408.281
+  aoa_deg: 8.85
+  digits:
+  - 1
+  - 5
+  - 0
+  - 20
+- name: mf_dataset_2_617_naca3317_re2.143e6_aoa5p50
+  reynolds: 2142945.512
+  aoa_deg: 5.495
+  digits:
+  - 3
+  - 3
+  - 17
+- name: mf_dataset_2_618_naca0210_re4.893e6_aoam3p58
+  reynolds: 4893407.619
+  aoa_deg: -3.583
+  digits:
+  - 0
+  - 2
+  - 10
+- name: mf_dataset_2_619_naca1211_re3.402e6_aoam1p39
+  reynolds: 3402364.637
+  aoa_deg: -1.393
+  digits:
+  - 1
+  - 2
+  - 11
+- name: mf_dataset_2_620_naca3616_re3.382e6_aoa7p36
+  reynolds: 3382004.837
+  aoa_deg: 7.362
+  digits:
+  - 3
+  - 6
+  - 16
+- name: mf_dataset_2_621_naca15013_re4.705e6_aoa1p48
+  reynolds: 4705120.445
+  aoa_deg: 1.478
+  digits:
+  - 1
+  - 5
+  - 0
+  - 13
+- name: mf_dataset_2_622_naca2020_re4.259e6_aoam0p82
+  reynolds: 4258882.145
+  aoa_deg: -0.822
+  digits:
+  - 2
+  - 0
+  - 20
+- name: mf_dataset_2_623_naca24117_re2.327e6_aoa3p41
+  reynolds: 2326714.695
+  aoa_deg: 3.413
+  digits:
+  - 2
+  - 4
+  - 1
+  - 17
+- name: mf_dataset_2_624_naca2316_re4.99e6_aoam0p95
+  reynolds: 4990076.356
+  aoa_deg: -0.95
+  digits:
+  - 2
+  - 3
+  - 16
+- name: mf_dataset_2_625_naca08013_re2.179e6_aoa10p51
+  reynolds: 2178655.322
+  aoa_deg: 10.511
+  digits:
+  - 0
+  - 8
+  - 0
+  - 13
+- name: mf_dataset_2_626_naca36117_re5.665e6_aoam2p36
+  reynolds: 5665300.168
+  aoa_deg: -2.363
+  digits:
+  - 3
+  - 6
+  - 1
+  - 17
+- name: mf_dataset_2_627_naca6516_re3.124e6_aoa2p34
+  reynolds: 3124098.274
+  aoa_deg: 2.337
+  digits:
+  - 6
+  - 5
+  - 16
+- name: mf_dataset_2_628_naca26005_re2.618e6_aoa12p94
+  reynolds: 2617719.69
+  aoa_deg: 12.943
+  digits:
+  - 2
+  - 6
+  - 0
+  - 5
+- name: mf_dataset_2_629_naca25109_re3.787e6_aoa14p60
+  reynolds: 3786570.157
+  aoa_deg: 14.595
+  digits:
+  - 2
+  - 5
+  - 1
+  - 9
+- name: mf_dataset_2_630_naca2507_re4.285e6_aoa14p65
+  reynolds: 4285381.704
+  aoa_deg: 14.649
+  digits:
+  - 2
+  - 5
+  - 7
+- name: mf_dataset_2_631_naca1011_re5.678e6_aoa2p83
+  reynolds: 5677944.356
+  aoa_deg: 2.827
+  digits:
+  - 1
+  - 0
+  - 11
+- name: mf_dataset_2_632_naca2211_re3.584e6_aoa0p36
+  reynolds: 3584228.205
+  aoa_deg: 0.356
+  digits:
+  - 2
+  - 2
+  - 11
+- name: mf_dataset_2_633_naca6210_re4.748e6_aoa5p96
+  reynolds: 4748153.643
+  aoa_deg: 5.964
+  digits:
+  - 6
+  - 2
+  - 10
+- name: mf_dataset_2_634_naca0705_re3.674e6_aoa6p75
+  reynolds: 3673520.99
+  aoa_deg: 6.754
+  digits:
+  - 0
+  - 7
+  - 5
+- name: mf_dataset_2_635_naca33015_re4.375e6_aoa5p26
+  reynolds: 4375292.47
+  aoa_deg: 5.256
+  digits:
+  - 3
+  - 3
+  - 0
+  - 15
+- name: mf_dataset_2_636_naca1410_re3.488e6_aoa10p93
+  reynolds: 3487991.715
+  aoa_deg: 10.93
+  digits:
+  - 1
+  - 4
+  - 10
+- name: mf_dataset_2_637_naca5507_re4.778e6_aoam1p84
+  reynolds: 4777924.86
+  aoa_deg: -1.842
+  digits:
+  - 5
+  - 5
+  - 7
+- name: mf_dataset_2_638_naca2016_re2.808e6_aoa1p83
+  reynolds: 2807601.622
+  aoa_deg: 1.83
+  digits:
+  - 2
+  - 0
+  - 16
+- name: mf_dataset_2_639_naca2611_re2.03e6_aoa14p70
+  reynolds: 2029877.214
+  aoa_deg: 14.698
+  digits:
+  - 2
+  - 6
+  - 11
+- name: mf_dataset_2_640_naca24115_re2.137e6_aoa9p15
+  reynolds: 2136809.499
+  aoa_deg: 9.154
+  digits:
+  - 2
+  - 4
+  - 1
+  - 15
+- name: mf_dataset_2_641_naca1505_re4.107e6_aoa9p09
+  reynolds: 4107362.84
+  aoa_deg: 9.087
+  digits:
+  - 1
+  - 5
+  - 5
+- name: mf_dataset_2_642_naca27008_re5.365e6_aoa3p80
+  reynolds: 5364522.195
+  aoa_deg: 3.798
+  digits:
+  - 2
+  - 7
+  - 0
+  - 8
+- name: mf_dataset_2_643_naca2410_re4.204e6_aoam4p89
+  reynolds: 4204180.362
+  aoa_deg: -4.887
+  digits:
+  - 2
+  - 4
+  - 10
+- name: mf_dataset_2_644_naca06119_re2.744e6_aoam4p58
+  reynolds: 2743626.867
+  aoa_deg: -4.58
+  digits:
+  - 0
+  - 6
+  - 1
+  - 19
+- name: mf_dataset_2_645_naca0312_re2.256e6_aoa5p37
+  reynolds: 2255531.632
+  aoa_deg: 5.374
+  digits:
+  - 0
+  - 3
+  - 12
+- name: mf_dataset_2_646_naca36115_re3.275e6_aoa9p37
+  reynolds: 3274777.54
+  aoa_deg: 9.366
+  digits:
+  - 3
+  - 6
+  - 1
+  - 15
+- name: mf_dataset_2_647_naca6007_re4.351e6_aoa6p38
+  reynolds: 4350825.653
+  aoa_deg: 6.377
+  digits:
+  - 6
+  - 0
+  - 7
+- name: mf_dataset_2_648_naca43016_re5.725e6_aoa14p76
+  reynolds: 5724656.123
+  aoa_deg: 14.762
+  digits:
+  - 4
+  - 3
+  - 0
+  - 16
+- name: mf_dataset_2_649_naca3215_re3.626e6_aoa12p03
+  reynolds: 3625528.91
+  aoa_deg: 12.029
+  digits:
+  - 3
+  - 2
+  - 15
+- name: mf_dataset_2_650_naca4415_re5.872e6_aoa5p54
+  reynolds: 5871684.789
+  aoa_deg: 5.536
+  digits:
+  - 4
+  - 4
+  - 15
+- name: mf_dataset_2_651_naca3407_re2.016e6_aoa3p17
+  reynolds: 2016310.9
+  aoa_deg: 3.167
+  digits:
+  - 3
+  - 4
+  - 7
+- name: mf_dataset_2_652_naca5006_re2.528e6_aoa0p82
+  reynolds: 2527696.857
+  aoa_deg: 0.816
+  digits:
+  - 5
+  - 0
+  - 6
+- name: mf_dataset_2_653_naca6305_re2.175e6_aoa9p62
+  reynolds: 2175101.295
+  aoa_deg: 9.622
+  digits:
+  - 6
+  - 3
+  - 5
+- name: mf_dataset_2_654_naca3717_re4.018e6_aoa7p84
+  reynolds: 4018206.997
+  aoa_deg: 7.84
+  digits:
+  - 3
+  - 7
+  - 17
+- name: mf_dataset_2_655_naca36112_re4.614e6_aoa14p96
+  reynolds: 4613591.776
+  aoa_deg: 14.963
+  digits:
+  - 3
+  - 6
+  - 1
+  - 12
+- name: mf_dataset_2_656_naca4616_re2.069e6_aoam2p29
+  reynolds: 2068773.34
+  aoa_deg: -2.287
+  digits:
+  - 4
+  - 6
+  - 16
+- name: mf_dataset_2_657_naca3208_re5.732e6_aoam2p60
+  reynolds: 5731809.81
+  aoa_deg: -2.601
+  digits:
+  - 3
+  - 2
+  - 8
+- name: mf_dataset_2_658_naca16009_re3.359e6_aoa13p97
+  reynolds: 3359407.98
+  aoa_deg: 13.975
+  digits:
+  - 1
+  - 6
+  - 0
+  - 9
+- name: mf_dataset_2_659_naca36113_re5.363e6_aoa0p57
+  reynolds: 5363492.535
+  aoa_deg: 0.572
+  digits:
+  - 3
+  - 6
+  - 1
+  - 13
+- name: mf_dataset_2_660_naca3408_re2.582e6_aoam0p99
+  reynolds: 2582433.126
+  aoa_deg: -0.994
+  digits:
+  - 3
+  - 4
+  - 8
+- name: mf_dataset_2_661_naca6309_re3.979e6_aoa0p32
+  reynolds: 3978693.746
+  aoa_deg: 0.315
+  digits:
+  - 6
+  - 3
+  - 9
+- name: mf_dataset_2_662_naca3316_re5.176e6_aoa7p83
+  reynolds: 5175730.1
+  aoa_deg: 7.83
+  digits:
+  - 3
+  - 3
+  - 16
+- name: mf_dataset_2_663_naca0206_re2.096e6_aoa8p59
+  reynolds: 2096121.788
+  aoa_deg: 8.588
+  digits:
+  - 0
+  - 2
+  - 6
+- name: mf_dataset_2_664_naca6607_re4.152e6_aoam2p85
+  reynolds: 4152202.522
+  aoa_deg: -2.845
+  digits:
+  - 6
+  - 6
+  - 7
+- name: mf_dataset_2_665_naca4008_re4.61e6_aoa3p31
+  reynolds: 4609515.654
+  aoa_deg: 3.31
+  digits:
+  - 4
+  - 0
+  - 8
+- name: mf_dataset_2_666_naca24015_re5.548e6_aoa9p22
+  reynolds: 5547805.145
+  aoa_deg: 9.223
+  digits:
+  - 2
+  - 4
+  - 0
+  - 15
+- name: mf_dataset_2_667_naca15107_re3.932e6_aoam2p24
+  reynolds: 3931924.688
+  aoa_deg: -2.237
+  digits:
+  - 1
+  - 5
+  - 1
+  - 7
+- name: mf_dataset_2_668_naca46119_re5.727e6_aoa6p93
+  reynolds: 5726721.068
+  aoa_deg: 6.934
+  digits:
+  - 4
+  - 6
+  - 1
+  - 19
+- name: mf_dataset_2_669_naca06013_re2.655e6_aoa4p78
+  reynolds: 2655226.125
+  aoa_deg: 4.775
+  digits:
+  - 0
+  - 6
+  - 0
+  - 13
+- name: mf_dataset_2_670_naca1212_re2.365e6_aoa12p57
+  reynolds: 2364798.288
+  aoa_deg: 12.567
+  digits:
+  - 1
+  - 2
+  - 12
+- name: mf_dataset_2_671_naca3512_re4.449e6_aoa4p59
+  reynolds: 4448662.427
+  aoa_deg: 4.592
+  digits:
+  - 3
+  - 5
+  - 12
+- name: mf_dataset_2_672_naca27013_re3.174e6_aoa12p68
+  reynolds: 3173682.147
+  aoa_deg: 12.677
+  digits:
+  - 2
+  - 7
+  - 0
+  - 13
+- name: mf_dataset_2_673_naca0020_re3.63e6_aoam2p86
+  reynolds: 3630095.581
+  aoa_deg: -2.861
+  digits:
+  - 0
+  - 0
+  - 20
+- name: mf_dataset_2_674_naca16016_re3.62e6_aoam1p23
+  reynolds: 3620098.105
+  aoa_deg: -1.227
+  digits:
+  - 1
+  - 6
+  - 0
+  - 16
+- name: mf_dataset_2_675_naca5506_re3.741e6_aoa4p42
+  reynolds: 3740747.772
+  aoa_deg: 4.419
+  digits:
+  - 5
+  - 5
+  - 6
+- name: mf_dataset_2_676_naca14016_re3.918e6_aoam1p53
+  reynolds: 3918439.735
+  aoa_deg: -1.528
+  digits:
+  - 1
+  - 4
+  - 0
+  - 16
+- name: mf_dataset_2_677_naca15118_re4.551e6_aoa12p26
+  reynolds: 4550644.264
+  aoa_deg: 12.255
+  digits:
+  - 1
+  - 5
+  - 1
+  - 18
+- name: mf_dataset_2_678_naca44019_re4.91e6_aoa6p99
+  reynolds: 4909933.648
+  aoa_deg: 6.989
+  digits:
+  - 4
+  - 4
+  - 0
+  - 19
+- name: mf_dataset_2_679_naca7408_re5.308e6_aoa10p99
+  reynolds: 5308423.317
+  aoa_deg: 10.994
+  digits:
+  - 7
+  - 4
+  - 8
+- name: mf_dataset_2_680_naca1507_re4.566e6_aoa7p59
+  reynolds: 4566107.355
+  aoa_deg: 7.592
+  digits:
+  - 1
+  - 5
+  - 7
+- name: mf_dataset_2_681_naca24113_re5.786e6_aoa1p27
+  reynolds: 5785500.091
+  aoa_deg: 1.271
+  digits:
+  - 2
+  - 4
+  - 1
+  - 13
+- name: mf_dataset_2_682_naca6309_re4.034e6_aoam0p60
+  reynolds: 4033719.293
+  aoa_deg: -0.602
+  digits:
+  - 6
+  - 3
+  - 9
+- name: mf_dataset_2_683_naca26107_re5.369e6_aoa5p61
+  reynolds: 5369319.562
+  aoa_deg: 5.607
+  digits:
+  - 2
+  - 6
+  - 1
+  - 7
+- name: mf_dataset_2_684_naca26111_re4.564e6_aoam1p40
+  reynolds: 4563781.518
+  aoa_deg: -1.398
+  digits:
+  - 2
+  - 6
+  - 1
+  - 11
+- name: mf_dataset_2_685_naca35115_re3.166e6_aoa7p59
+  reynolds: 3166260.305
+  aoa_deg: 7.59
+  digits:
+  - 3
+  - 5
+  - 1
+  - 15
+- name: mf_dataset_2_686_naca24105_re4.501e6_aoam1p79
+  reynolds: 4501499.132
+  aoa_deg: -1.791
+  digits:
+  - 2
+  - 4
+  - 1
+  - 5
+- name: mf_dataset_2_687_naca35016_re3.911e6_aoa7p92
+  reynolds: 3911311.686
+  aoa_deg: 7.921
+  digits:
+  - 3
+  - 5
+  - 0
+  - 16
+- name: mf_dataset_2_688_naca3209_re4.109e6_aoa6p56
+  reynolds: 4108949.137
+  aoa_deg: 6.563
+  digits:
+  - 3
+  - 2
+  - 9
+- name: mf_dataset_2_689_naca36006_re2.182e6_aoa7p74
+  reynolds: 2181615.157
+  aoa_deg: 7.741
+  digits:
+  - 3
+  - 6
+  - 0
+  - 6
+- name: mf_dataset_2_690_naca26118_re3.694e6_aoa5p12
+  reynolds: 3693572.035
+  aoa_deg: 5.116
+  digits:
+  - 2
+  - 6
+  - 1
+  - 18
+- name: mf_dataset_2_691_naca2408_re5.498e6_aoam0p83
+  reynolds: 5497848.997
+  aoa_deg: -0.833
+  digits:
+  - 2
+  - 4
+  - 8
+- name: mf_dataset_2_692_naca1608_re3.242e6_aoam4p07
+  reynolds: 3241927.809
+  aoa_deg: -4.068
+  digits:
+  - 1
+  - 6
+  - 8
+- name: mf_dataset_2_693_naca14117_re5.135e6_aoam0p99
+  reynolds: 5134795.053
+  aoa_deg: -0.992
+  digits:
+  - 1
+  - 4
+  - 1
+  - 17
+- name: mf_dataset_2_694_naca17115_re3.477e6_aoam1p88
+  reynolds: 3477121.023
+  aoa_deg: -1.883
+  digits:
+  - 1
+  - 7
+  - 1
+  - 15
+- name: mf_dataset_2_695_naca5013_re3.121e6_aoa0p93
+  reynolds: 3121084.412
+  aoa_deg: 0.932
+  digits:
+  - 5
+  - 0
+  - 13
+- name: mf_dataset_2_696_naca2007_re4.609e6_aoam2p83
+  reynolds: 4609197.051
+  aoa_deg: -2.832
+  digits:
+  - 2
+  - 0
+  - 7
+- name: mf_dataset_2_697_naca1613_re5.409e6_aoa1p20
+  reynolds: 5409137.034
+  aoa_deg: 1.197
+  digits:
+  - 1
+  - 6
+  - 13
+- name: mf_dataset_2_698_naca23114_re2.297e6_aoam4p43
+  reynolds: 2296643.931
+  aoa_deg: -4.429
+  digits:
+  - 2
+  - 3
+  - 1
+  - 14
+- name: mf_dataset_2_699_naca46006_re4.5e6_aoa13p63
+  reynolds: 4499641.141
+  aoa_deg: 13.629
+  digits:
+  - 4
+  - 6
+  - 0
+  - 6
+- name: mf_dataset_2_700_naca05015_re4.549e6_aoa7p64
+  reynolds: 4549185.74
+  aoa_deg: 7.639
+  digits:
+  - 0
+  - 5
+  - 0
+  - 15
+- name: mf_dataset_2_701_naca14108_re4.617e6_aoam3p52
+  reynolds: 4617448.592
+  aoa_deg: -3.515
+  digits:
+  - 1
+  - 4
+  - 1
+  - 8
+- name: mf_dataset_2_702_naca5418_re2.331e6_aoam1p44
+  reynolds: 2331486.064
+  aoa_deg: -1.438
+  digits:
+  - 5
+  - 4
+  - 18
+- name: mf_dataset_2_703_naca14015_re5.398e6_aoa14p12
+  reynolds: 5397741.196
+  aoa_deg: 14.124
+  digits:
+  - 1
+  - 4
+  - 0
+  - 15
+- name: mf_dataset_2_704_naca3209_re2.493e6_aoa2p68
+  reynolds: 2493175.206
+  aoa_deg: 2.679
+  digits:
+  - 3
+  - 2
+  - 9
+- name: mf_dataset_2_705_naca0406_re4.561e6_aoa12p72
+  reynolds: 4561122.653
+  aoa_deg: 12.721
+  digits:
+  - 0
+  - 4
+  - 6
+- name: mf_dataset_2_706_naca36007_re2.695e6_aoam0p37
+  reynolds: 2695404.477
+  aoa_deg: -0.368
+  digits:
+  - 3
+  - 6
+  - 0
+  - 7
+- name: mf_dataset_2_707_naca25110_re5.945e6_aoa1p51
+  reynolds: 5944639.003
+  aoa_deg: 1.51
+  digits:
+  - 2
+  - 5
+  - 1
+  - 10
+- name: mf_dataset_2_708_naca13117_re3.922e6_aoam3p65
+  reynolds: 3921732.407
+  aoa_deg: -3.646
+  digits:
+  - 1
+  - 3
+  - 1
+  - 17
+- name: mf_dataset_2_709_naca2316_re5.634e6_aoa2p54
+  reynolds: 5634413.489
+  aoa_deg: 2.54
+  digits:
+  - 2
+  - 3
+  - 16
+- name: mf_dataset_2_710_naca3306_re3.638e6_aoam3p38
+  reynolds: 3637771.627
+  aoa_deg: -3.384
+  digits:
+  - 3
+  - 3
+  - 6
+- name: mf_dataset_2_711_naca4010_re3.726e6_aoa12p36
+  reynolds: 3726413.443
+  aoa_deg: 12.355
+  digits:
+  - 4
+  - 0
+  - 10
+- name: mf_dataset_2_712_naca6309_re2.895e6_aoa11p82
+  reynolds: 2894822.457
+  aoa_deg: 11.82
+  digits:
+  - 6
+  - 3
+  - 9
+- name: mf_dataset_2_713_naca16105_re5.834e6_aoa13p30
+  reynolds: 5834060.191
+  aoa_deg: 13.296
+  digits:
+  - 1
+  - 6
+  - 1
+  - 5
+- name: mf_dataset_2_714_naca16106_re5.699e6_aoa0p08
+  reynolds: 5698549.989
+  aoa_deg: 0.081
+  digits:
+  - 1
+  - 6
+  - 1
+  - 6
+- name: mf_dataset_2_715_naca14017_re5.103e6_aoa1p07
+  reynolds: 5103118.733
+  aoa_deg: 1.071
+  digits:
+  - 1
+  - 4
+  - 0
+  - 17
+- name: mf_dataset_2_716_naca3710_re2.638e6_aoa0p48
+  reynolds: 2637699.558
+  aoa_deg: 0.479
+  digits:
+  - 3
+  - 7
+  - 10
+- name: mf_dataset_2_717_naca04111_re4.294e6_aoam3p87
+  reynolds: 4293698.053
+  aoa_deg: -3.874
+  digits:
+  - 0
+  - 4
+  - 1
+  - 11
+- name: mf_dataset_2_718_naca27014_re2.199e6_aoam1p53
+  reynolds: 2199185.465
+  aoa_deg: -1.529
+  digits:
+  - 2
+  - 7
+  - 0
+  - 14
+- name: mf_dataset_2_719_naca1516_re4.374e6_aoa13p01
+  reynolds: 4374145.983
+  aoa_deg: 13.009
+  digits:
+  - 1
+  - 5
+  - 16
+- name: mf_dataset_2_720_naca3212_re3.658e6_aoam0p49
+  reynolds: 3658244.007
+  aoa_deg: -0.487
+  digits:
+  - 3
+  - 2
+  - 12
+- name: mf_dataset_2_721_naca1508_re5.807e6_aoa7p72
+  reynolds: 5807016.066
+  aoa_deg: 7.717
+  digits:
+  - 1
+  - 5
+  - 8
+- name: mf_dataset_2_722_naca5608_re5.652e6_aoa13p79
+  reynolds: 5651757.235
+  aoa_deg: 13.79
+  digits:
+  - 5
+  - 6
+  - 8
+- name: mf_dataset_2_723_naca2011_re4.192e6_aoa4p50
+  reynolds: 4191959.554
+  aoa_deg: 4.496
+  digits:
+  - 2
+  - 0
+  - 11
+- name: mf_dataset_2_724_naca4006_re2.056e6_aoa9p73
+  reynolds: 2056295.819
+  aoa_deg: 9.73
+  digits:
+  - 4
+  - 0
+  - 6
+- name: mf_dataset_2_725_naca3305_re3.508e6_aoa8p10
+  reynolds: 3508455.837
+  aoa_deg: 8.098
+  digits:
+  - 3
+  - 3
+  - 5
+- name: mf_dataset_2_726_naca26120_re2.956e6_aoa2p27
+  reynolds: 2955788.997
+  aoa_deg: 2.275
+  digits:
+  - 2
+  - 6
+  - 1
+  - 20
+- name: mf_dataset_2_727_naca24109_re2.99e6_aoa3p27
+  reynolds: 2989891.212
+  aoa_deg: 3.27
+  digits:
+  - 2
+  - 4
+  - 1
+  - 9
+- name: mf_dataset_2_728_naca2313_re4.987e6_aoa6p37
+  reynolds: 4987075.806
+  aoa_deg: 6.365
+  digits:
+  - 2
+  - 3
+  - 13
+- name: mf_dataset_2_729_naca2006_re5.203e6_aoa9p45
+  reynolds: 5202872.936
+  aoa_deg: 9.449
+  digits:
+  - 2
+  - 0
+  - 6
+- name: mf_dataset_2_730_naca7410_re5.95e6_aoa6p09
+  reynolds: 5950350.413
+  aoa_deg: 6.095
+  digits:
+  - 7
+  - 4
+  - 10
+- name: mf_dataset_2_731_naca24009_re3.421e6_aoam2p63
+  reynolds: 3420647.255
+  aoa_deg: -2.627
+  digits:
+  - 2
+  - 4
+  - 0
+  - 9
+- name: mf_dataset_2_732_naca26117_re2.194e6_aoam4p51
+  reynolds: 2194242.331
+  aoa_deg: -4.513
+  digits:
+  - 2
+  - 6
+  - 1
+  - 17
+- name: mf_dataset_2_733_naca4608_re5.906e6_aoa0p02
+  reynolds: 5906415.509
+  aoa_deg: 0.023
+  digits:
+  - 4
+  - 6
+  - 8
+- name: mf_dataset_2_734_naca48114_re4.905e6_aoa4p71
+  reynolds: 4905188.044
+  aoa_deg: 4.708
+  digits:
+  - 4
+  - 8
+  - 1
+  - 14
+- name: mf_dataset_2_735_naca3006_re4.006e6_aoam4p29
+  reynolds: 4005753.267
+  aoa_deg: -4.286
+  digits:
+  - 3
+  - 0
+  - 6
+- name: mf_dataset_2_736_naca7206_re2.958e6_aoa0p46
+  reynolds: 2957814.13
+  aoa_deg: 0.463
+  digits:
+  - 7
+  - 2
+  - 6
+- name: mf_dataset_2_737_naca5213_re2.947e6_aoam1p52
+  reynolds: 2947142.991
+  aoa_deg: -1.525
+  digits:
+  - 5
+  - 2
+  - 13
+- name: mf_dataset_2_738_naca5412_re3.055e6_aoam1p20
+  reynolds: 3054768.79
+  aoa_deg: -1.202
+  digits:
+  - 5
+  - 4
+  - 12
+- name: mf_dataset_2_739_naca5418_re4.976e6_aoa1p58
+  reynolds: 4976162.787
+  aoa_deg: 1.578
+  digits:
+  - 5
+  - 4
+  - 18
+- name: mf_dataset_2_740_naca35115_re4.553e6_aoa8p25
+  reynolds: 4553492.667
+  aoa_deg: 8.25
+  digits:
+  - 3
+  - 5
+  - 1
+  - 15
+- name: mf_dataset_2_741_naca4406_re4.813e6_aoa14p77
+  reynolds: 4812998.996
+  aoa_deg: 14.77
+  digits:
+  - 4
+  - 4
+  - 6
+- name: mf_dataset_2_742_naca34007_re3.579e6_aoa11p15
+  reynolds: 3578850.972
+  aoa_deg: 11.155
+  digits:
+  - 3
+  - 4
+  - 0
+  - 7
+- name: mf_dataset_2_743_naca4709_re3.181e6_aoa8p67
+  reynolds: 3180730.119
+  aoa_deg: 8.669
+  digits:
+  - 4
+  - 7
+  - 9
+- name: mf_dataset_2_744_naca45017_re2.585e6_aoa9p14
+  reynolds: 2584794.475
+  aoa_deg: 9.137
+  digits:
+  - 4
+  - 5
+  - 0
+  - 17
+- name: mf_dataset_2_745_naca5418_re3.021e6_aoa9p16
+  reynolds: 3020681.718
+  aoa_deg: 9.163
+  digits:
+  - 5
+  - 4
+  - 18
+- name: mf_dataset_2_746_naca35118_re3.9e6_aoa7p82
+  reynolds: 3899921.128
+  aoa_deg: 7.823
+  digits:
+  - 3
+  - 5
+  - 1
+  - 18
+- name: mf_dataset_2_747_naca17110_re5.72e6_aoa9p17
+  reynolds: 5720461.971
+  aoa_deg: 9.173
+  digits:
+  - 1
+  - 7
+  - 1
+  - 10
+- name: mf_dataset_2_748_naca4018_re5.46e6_aoa8p70
+  reynolds: 5460093.419
+  aoa_deg: 8.702
+  digits:
+  - 4
+  - 0
+  - 18
+- name: mf_dataset_2_749_naca47111_re4.609e6_aoa7p52
+  reynolds: 4609153.849
+  aoa_deg: 7.523
+  digits:
+  - 4
+  - 7
+  - 1
+  - 11
+- name: mf_dataset_2_750_naca05115_re3.906e6_aoa1p61
+  reynolds: 3906368.453
+  aoa_deg: 1.606
+  digits:
+  - 0
+  - 5
+  - 1
+  - 15
+- name: mf_dataset_2_751_naca43109_re5.813e6_aoa12p78
+  reynolds: 5813365.463
+  aoa_deg: 12.783
+  digits:
+  - 4
+  - 3
+  - 1
+  - 9
+- name: mf_dataset_2_752_naca16118_re3.697e6_aoa0p67
+  reynolds: 3696831.369
+  aoa_deg: 0.67
+  digits:
+  - 1
+  - 6
+  - 1
+  - 18
+- name: mf_dataset_2_753_naca5410_re3.366e6_aoa9p30
+  reynolds: 3365700.344
+  aoa_deg: 9.302
+  digits:
+  - 5
+  - 4
+  - 10
+- name: mf_dataset_2_754_naca17118_re5.332e6_aoam0p18
+  reynolds: 5332400.355
+  aoa_deg: -0.176
+  digits:
+  - 1
+  - 7
+  - 1
+  - 18
+- name: mf_dataset_2_755_naca04116_re3.491e6_aoam4p77
+  reynolds: 3490542.306
+  aoa_deg: -4.766
+  digits:
+  - 0
+  - 4
+  - 1
+  - 16
+- name: mf_dataset_2_756_naca38114_re5.802e6_aoa4p64
+  reynolds: 5802204.427
+  aoa_deg: 4.642
+  digits:
+  - 3
+  - 8
+  - 1
+  - 14
+- name: mf_dataset_2_757_naca5010_re5.278e6_aoa11p18
+  reynolds: 5277507.76
+  aoa_deg: 11.182
+  digits:
+  - 5
+  - 0
+  - 10
+- name: mf_dataset_2_758_naca7505_re4.26e6_aoam0p86
+  reynolds: 4260295.461
+  aoa_deg: -0.862
+  digits:
+  - 7
+  - 5
+  - 5
+- name: mf_dataset_2_759_naca3408_re2.878e6_aoa0p87
+  reynolds: 2877893.828
+  aoa_deg: 0.866
+  digits:
+  - 3
+  - 4
+  - 8
+- name: mf_dataset_2_760_naca6307_re2.085e6_aoa9p37
+  reynolds: 2085070.695
+  aoa_deg: 9.366
+  digits:
+  - 6
+  - 3
+  - 7
+- name: mf_dataset_2_761_naca1012_re2.08e6_aoa5p99
+  reynolds: 2080118.347
+  aoa_deg: 5.992
+  digits:
+  - 1
+  - 0
+  - 12
+- name: mf_dataset_2_762_naca34008_re2.814e6_aoa4p23
+  reynolds: 2814205.955
+  aoa_deg: 4.227
+  digits:
+  - 3
+  - 4
+  - 0
+  - 8
+- name: mf_dataset_2_763_naca25116_re2.126e6_aoa3p16
+  reynolds: 2125617.426
+  aoa_deg: 3.161
+  digits:
+  - 2
+  - 5
+  - 1
+  - 16
+- name: mf_dataset_2_764_naca33017_re5.605e6_aoa11p83
+  reynolds: 5604709.415
+  aoa_deg: 11.831
+  digits:
+  - 3
+  - 3
+  - 0
+  - 17
+- name: mf_dataset_2_765_naca14009_re5.493e6_aoam0p97
+  reynolds: 5492509.946
+  aoa_deg: -0.971
+  digits:
+  - 1
+  - 4
+  - 0
+  - 9
+- name: mf_dataset_2_766_naca47015_re2.25e6_aoa6p54
+  reynolds: 2249580.332
+  aoa_deg: 6.537
+  digits:
+  - 4
+  - 7
+  - 0
+  - 15
+- name: mf_dataset_2_767_naca46018_re5.482e6_aoa9p17
+  reynolds: 5482137.58
+  aoa_deg: 9.172
+  digits:
+  - 4
+  - 6
+  - 0
+  - 18
+- name: mf_dataset_2_768_naca2014_re3.016e6_aoa1p77
+  reynolds: 3016451.063
+  aoa_deg: 1.773
+  digits:
+  - 2
+  - 0
+  - 14
+- name: mf_dataset_2_769_naca6009_re4.909e6_aoa13p13
+  reynolds: 4908756.09
+  aoa_deg: 13.13
+  digits:
+  - 6
+  - 0
+  - 9
+- name: mf_dataset_2_770_naca43109_re2.693e6_aoa11p55
+  reynolds: 2692710.295
+  aoa_deg: 11.554
+  digits:
+  - 4
+  - 3
+  - 1
+  - 9
+- name: mf_dataset_2_771_naca6309_re5.448e6_aoa11p56
+  reynolds: 5447736.261
+  aoa_deg: 11.561
+  digits:
+  - 6
+  - 3
+  - 9
+- name: mf_dataset_2_772_naca3007_re2.51e6_aoa14p45
+  reynolds: 2509573.03
+  aoa_deg: 14.447
+  digits:
+  - 3
+  - 0
+  - 7
+- name: mf_dataset_2_773_naca1414_re4.418e6_aoa11p75
+  reynolds: 4418244.759
+  aoa_deg: 11.753
+  digits:
+  - 1
+  - 4
+  - 14
+- name: mf_dataset_2_774_naca2413_re2.324e6_aoam3p20
+  reynolds: 2324409.8
+  aoa_deg: -3.202
+  digits:
+  - 2
+  - 4
+  - 13
+- name: mf_dataset_2_775_naca2007_re2.289e6_aoa11p39
+  reynolds: 2288837.886
+  aoa_deg: 11.389
+  digits:
+  - 2
+  - 0
+  - 7
+- name: mf_dataset_2_776_naca0505_re3.366e6_aoa5p91
+  reynolds: 3366399.293
+  aoa_deg: 5.914
+  digits:
+  - 0
+  - 5
+  - 5
+- name: mf_dataset_2_777_naca1720_re2.085e6_aoa8p16
+  reynolds: 2084823.699
+  aoa_deg: 8.165
+  digits:
+  - 1
+  - 7
+  - 20
+- name: mf_dataset_2_778_naca16116_re3.158e6_aoa13p84
+  reynolds: 3158456.366
+  aoa_deg: 13.84
+  digits:
+  - 1
+  - 6
+  - 1
+  - 16
+- name: mf_dataset_2_779_naca14115_re5.115e6_aoa4p34
+  reynolds: 5115455.545
+  aoa_deg: 4.344
+  digits:
+  - 1
+  - 4
+  - 1
+  - 15
+- name: mf_dataset_2_780_naca25009_re2.595e6_aoa6p55
+  reynolds: 2595250.901
+  aoa_deg: 6.548
+  digits:
+  - 2
+  - 5
+  - 0
+  - 9
+- name: mf_dataset_2_781_naca13109_re2.51e6_aoa10p41
+  reynolds: 2509549.44
+  aoa_deg: 10.408
+  digits:
+  - 1
+  - 3
+  - 1
+  - 9
+- name: mf_dataset_2_782_naca47115_re2.076e6_aoam0p74
+  reynolds: 2076016.173
+  aoa_deg: -0.74
+  digits:
+  - 4
+  - 7
+  - 1
+  - 15
+- name: mf_dataset_2_783_naca5518_re5.219e6_aoam0p97
+  reynolds: 5218542.731
+  aoa_deg: -0.968
+  digits:
+  - 5
+  - 5
+  - 18
+- name: mf_dataset_2_784_naca14112_re4.311e6_aoa4p38
+  reynolds: 4310745.414
+  aoa_deg: 4.38
+  digits:
+  - 1
+  - 4
+  - 1
+  - 12
+- name: mf_dataset_2_785_naca26017_re4.092e6_aoa6p58
+  reynolds: 4092066.071
+  aoa_deg: 6.582
+  digits:
+  - 2
+  - 6
+  - 0
+  - 17
+- name: mf_dataset_2_786_naca6313_re2.41e6_aoa2p39
+  reynolds: 2409553.612
+  aoa_deg: 2.392
+  digits:
+  - 6
+  - 3
+  - 13
+- name: mf_dataset_2_787_naca0616_re3.378e6_aoam3p04
+  reynolds: 3377775.353
+  aoa_deg: -3.039
+  digits:
+  - 0
+  - 6
+  - 16
+- name: mf_dataset_2_788_naca1019_re4.129e6_aoa14p41
+  reynolds: 4128767.005
+  aoa_deg: 14.407
+  digits:
+  - 1
+  - 0
+  - 19
+- name: mf_dataset_2_789_naca2008_re5.938e6_aoam4p42
+  reynolds: 5937575.289
+  aoa_deg: -4.422
+  digits:
+  - 2
+  - 0
+  - 8
+- name: mf_dataset_2_790_naca18017_re3.316e6_aoa12p86
+  reynolds: 3315790.413
+  aoa_deg: 12.855
+  digits:
+  - 1
+  - 8
+  - 0
+  - 17
+- name: mf_dataset_2_791_naca3010_re5.393e6_aoa3p68
+  reynolds: 5392551.08
+  aoa_deg: 3.681
+  digits:
+  - 3
+  - 0
+  - 10
+- name: mf_dataset_2_792_naca28007_re3.263e6_aoa0p07
+  reynolds: 3263108.514
+  aoa_deg: 0.072
+  digits:
+  - 2
+  - 8
+  - 0
+  - 7
+- name: mf_dataset_2_793_naca15108_re4.138e6_aoa12p05
+  reynolds: 4137897.287
+  aoa_deg: 12.053
+  digits:
+  - 1
+  - 5
+  - 1
+  - 8
+- name: mf_dataset_2_794_naca2417_re5.225e6_aoa9p91
+  reynolds: 5224968.489
+  aoa_deg: 9.908
+  digits:
+  - 2
+  - 4
+  - 17
+- name: mf_dataset_2_795_naca26112_re4.058e6_aoa14p20
+  reynolds: 4057788.698
+  aoa_deg: 14.201
+  digits:
+  - 2
+  - 6
+  - 1
+  - 12
+- name: mf_dataset_2_796_naca45019_re2.075e6_aoa0p28
+  reynolds: 2075412.413
+  aoa_deg: 0.278
+  digits:
+  - 4
+  - 5
+  - 0
+  - 19
+- name: mf_dataset_2_797_naca7320_re4.373e6_aoa7p51
+  reynolds: 4372696.75
+  aoa_deg: 7.507
+  digits:
+  - 7
+  - 3
+  - 20
+- name: mf_dataset_2_798_naca1314_re3.945e6_aoam3p38
+  reynolds: 3945374.152
+  aoa_deg: -3.381
+  digits:
+  - 1
+  - 3
+  - 14
+- name: mf_dataset_2_799_naca3711_re3.334e6_aoa10p30
+  reynolds: 3333539.526
+  aoa_deg: 10.305
+  digits:
+  - 3
+  - 7
+  - 11
+- name: mf_dataset_2_800_naca0410_re3.74e6_aoa14p79
+  reynolds: 3740001.031
+  aoa_deg: 14.792
+  digits:
+  - 0
+  - 4
+  - 10
+- name: mf_dataset_2_801_naca4508_re2.684e6_aoa0p83
+  reynolds: 2683874.556
+  aoa_deg: 0.835
+  digits:
+  - 4
+  - 5
+  - 8
+- name: mf_dataset_2_802_naca23007_re3.428e6_aoam3p82
+  reynolds: 3428007.56
+  aoa_deg: -3.818
+  digits:
+  - 2
+  - 3
+  - 0
+  - 7
+- name: mf_dataset_2_803_naca24108_re2.796e6_aoa10p66
+  reynolds: 2795929.537
+  aoa_deg: 10.66
+  digits:
+  - 2
+  - 4
+  - 1
+  - 8
+- name: mf_dataset_2_804_naca04115_re3.821e6_aoa4p27
+  reynolds: 3821264.197
+  aoa_deg: 4.273
+  digits:
+  - 0
+  - 4
+  - 1
+  - 15
+- name: mf_dataset_2_805_naca1318_re2.874e6_aoa9p83
+  reynolds: 2873676.866
+  aoa_deg: 9.831
+  digits:
+  - 1
+  - 3
+  - 18
+- name: mf_dataset_2_806_naca1019_re5.189e6_aoam2p58
+  reynolds: 5189079.422
+  aoa_deg: -2.585
+  digits:
+  - 1
+  - 0
+  - 19
+- name: mf_dataset_2_807_naca46014_re3.312e6_aoa0p29
+  reynolds: 3311672.999
+  aoa_deg: 0.286
+  digits:
+  - 4
+  - 6
+  - 0
+  - 14
+- name: mf_dataset_2_808_naca5309_re3.722e6_aoa8p19
+  reynolds: 3721569.497
+  aoa_deg: 8.185
+  digits:
+  - 5
+  - 3
+  - 9
+- name: mf_dataset_2_809_naca6012_re3.636e6_aoam0p79
+  reynolds: 3635934.141
+  aoa_deg: -0.788
+  digits:
+  - 6
+  - 0
+  - 12
+- name: mf_dataset_2_810_naca2308_re2.807e6_aoa10p14
+  reynolds: 2806624.025
+  aoa_deg: 10.145
+  digits:
+  - 2
+  - 3
+  - 8
+- name: mf_dataset_2_811_naca2010_re4.266e6_aoam2p14
+  reynolds: 4266070.525
+  aoa_deg: -2.136
+  digits:
+  - 2
+  - 0
+  - 10
+- name: mf_dataset_2_812_naca17118_re4.281e6_aoa4p67
+  reynolds: 4281416.137
+  aoa_deg: 4.67
+  digits:
+  - 1
+  - 7
+  - 1
+  - 18
+- name: mf_dataset_2_813_naca6505_re3.934e6_aoa11p97
+  reynolds: 3933835.701
+  aoa_deg: 11.971
+  digits:
+  - 6
+  - 5
+  - 5
+- name: mf_dataset_2_814_naca28011_re5.94e6_aoam0p40
+  reynolds: 5939988.541
+  aoa_deg: -0.404
+  digits:
+  - 2
+  - 8
+  - 0
+  - 11
+- name: mf_dataset_2_815_naca7307_re4.354e6_aoa8p47
+  reynolds: 4353626.821
+  aoa_deg: 8.469
+  digits:
+  - 7
+  - 3
+  - 7
+- name: mf_dataset_2_816_naca45116_re5.703e6_aoam3p79
+  reynolds: 5702787.246
+  aoa_deg: -3.793
+  digits:
+  - 4
+  - 5
+  - 1
+  - 16
+- name: mf_dataset_2_817_naca36106_re3.248e6_aoa10p62
+  reynolds: 3247606.697
+  aoa_deg: 10.616
+  digits:
+  - 3
+  - 6
+  - 1
+  - 6
+- name: mf_dataset_2_818_naca34011_re3.294e6_aoa14p08
+  reynolds: 3293948.309
+  aoa_deg: 14.081
+  digits:
+  - 3
+  - 4
+  - 0
+  - 11
+- name: mf_dataset_2_819_naca1005_re2.013e6_aoa9p37
+  reynolds: 2012600.611
+  aoa_deg: 9.367
+  digits:
+  - 1
+  - 0
+  - 5
+- name: mf_dataset_2_820_naca24008_re4.406e6_aoa9p80
+  reynolds: 4406478.342
+  aoa_deg: 9.801
+  digits:
+  - 2
+  - 4
+  - 0
+  - 8
+- name: mf_dataset_2_821_naca14005_re3.991e6_aoa9p90
+  reynolds: 3990700.558
+  aoa_deg: 9.899
+  digits:
+  - 1
+  - 4
+  - 0
+  - 5
+- name: mf_dataset_2_822_naca35108_re5.888e6_aoa12p88
+  reynolds: 5888463.797
+  aoa_deg: 12.882
+  digits:
+  - 3
+  - 5
+  - 1
+  - 8
+- name: mf_dataset_2_823_naca5012_re2.899e6_aoa10p47
+  reynolds: 2898820.921
+  aoa_deg: 10.47
+  digits:
+  - 5
+  - 0
+  - 12
+- name: mf_dataset_2_824_naca1405_re4.497e6_aoa14p13
+  reynolds: 4496771.404
+  aoa_deg: 14.128
+  digits:
+  - 1
+  - 4
+  - 5
+- name: mf_dataset_2_825_naca7608_re3.772e6_aoam3p77
+  reynolds: 3771555.192
+  aoa_deg: -3.774
+  digits:
+  - 7
+  - 6
+  - 8
+- name: mf_dataset_2_826_naca1417_re4.912e6_aoa1p07
+  reynolds: 4912096.522
+  aoa_deg: 1.066
+  digits:
+  - 1
+  - 4
+  - 17
+- name: mf_dataset_2_827_naca37019_re4.256e6_aoa5p90
+  reynolds: 4256015.186
+  aoa_deg: 5.903
+  digits:
+  - 3
+  - 7
+  - 0
+  - 19
+- name: mf_dataset_2_828_naca25008_re4.364e6_aoa11p68
+  reynolds: 4363851.465
+  aoa_deg: 11.683
+  digits:
+  - 2
+  - 5
+  - 0
+  - 8
+- name: mf_dataset_2_829_naca3006_re5.876e6_aoa9p00
+  reynolds: 5876154.864
+  aoa_deg: 8.999
+  digits:
+  - 3
+  - 0
+  - 6
+- name: mf_dataset_2_830_naca4214_re4.295e6_aoa14p32
+  reynolds: 4294522.435
+  aoa_deg: 14.323
+  digits:
+  - 4
+  - 2
+  - 14
+- name: mf_dataset_2_831_naca37115_re5.598e6_aoa10p79
+  reynolds: 5598216.461
+  aoa_deg: 10.79
+  digits:
+  - 3
+  - 7
+  - 1
+  - 15
+- name: mf_dataset_2_832_naca0414_re5.41e6_aoa1p58
+  reynolds: 5409504.074
+  aoa_deg: 1.585
+  digits:
+  - 0
+  - 4
+  - 14
+- name: mf_dataset_2_833_naca35118_re2.389e6_aoa11p69
+  reynolds: 2389314.972
+  aoa_deg: 11.687
+  digits:
+  - 3
+  - 5
+  - 1
+  - 18
+- name: mf_dataset_2_834_naca33115_re5.525e6_aoa2p85
+  reynolds: 5525085.547
+  aoa_deg: 2.852
+  digits:
+  - 3
+  - 3
+  - 1
+  - 15
+- name: mf_dataset_2_835_naca06115_re4.228e6_aoa11p98
+  reynolds: 4227657.235
+  aoa_deg: 11.984
+  digits:
+  - 0
+  - 6
+  - 1
+  - 15
+- name: mf_dataset_2_836_naca24007_re5.047e6_aoa0p54
+  reynolds: 5047316.237
+  aoa_deg: 0.536
+  digits:
+  - 2
+  - 4
+  - 0
+  - 7
+- name: mf_dataset_2_837_naca25010_re2.937e6_aoa3p50
+  reynolds: 2936742.577
+  aoa_deg: 3.496
+  digits:
+  - 2
+  - 5
+  - 0
+  - 10
+- name: mf_dataset_2_838_naca17107_re3.404e6_aoam2p87
+  reynolds: 3404170.331
+  aoa_deg: -2.869
+  digits:
+  - 1
+  - 7
+  - 1
+  - 7
+- name: mf_dataset_2_839_naca24013_re3.677e6_aoa2p24
+  reynolds: 3677248.355
+  aoa_deg: 2.24
+  digits:
+  - 2
+  - 4
+  - 0
+  - 13
+- name: mf_dataset_2_840_naca38114_re5.056e6_aoam3p16
+  reynolds: 5055757.015
+  aoa_deg: -3.163
+  digits:
+  - 3
+  - 8
+  - 1
+  - 14
+- name: mf_dataset_2_841_naca5513_re4.511e6_aoa5p85
+  reynolds: 4511342.382
+  aoa_deg: 5.852
+  digits:
+  - 5
+  - 5
+  - 13
+- name: mf_dataset_2_842_naca5411_re5.878e6_aoa11p98
+  reynolds: 5877940.524
+  aoa_deg: 11.979
+  digits:
+  - 5
+  - 4
+  - 11
+- name: mf_dataset_2_843_naca15013_re3.384e6_aoa13p82
+  reynolds: 3383993.276
+  aoa_deg: 13.821
+  digits:
+  - 1
+  - 5
+  - 0
+  - 13
+- name: mf_dataset_2_844_naca0619_re4.943e6_aoa14p95
+  reynolds: 4942513.882
+  aoa_deg: 14.953
+  digits:
+  - 0
+  - 6
+  - 19
+- name: mf_dataset_2_845_naca44109_re4.643e6_aoa14p90
+  reynolds: 4642949.933
+  aoa_deg: 14.9
+  digits:
+  - 4
+  - 4
+  - 1
+  - 9
+- name: mf_dataset_2_846_naca5312_re2.12e6_aoam1p58
+  reynolds: 2119892.465
+  aoa_deg: -1.583
+  digits:
+  - 5
+  - 3
+  - 12
+- name: mf_dataset_2_847_naca06019_re4.81e6_aoa2p25
+  reynolds: 4810490.135
+  aoa_deg: 2.245
+  digits:
+  - 0
+  - 6
+  - 0
+  - 19
+- name: mf_dataset_2_848_naca3017_re2.406e6_aoam1p61
+  reynolds: 2406269.478
+  aoa_deg: -1.615
+  digits:
+  - 3
+  - 0
+  - 17
+- name: mf_dataset_2_849_naca1014_re2.165e6_aoam2p90
+  reynolds: 2164537.216
+  aoa_deg: -2.899
+  digits:
+  - 1
+  - 0
+  - 14
+- name: mf_dataset_2_850_naca6010_re3.815e6_aoa3p51
+  reynolds: 3815169.7
+  aoa_deg: 3.508
+  digits:
+  - 6
+  - 0
+  - 10
+- name: mf_dataset_2_851_naca0019_re3.475e6_aoa13p85
+  reynolds: 3475340.765
+  aoa_deg: 13.852
+  digits:
+  - 0
+  - 0
+  - 19
+- name: mf_dataset_2_852_naca07107_re3.122e6_aoam2p16
+  reynolds: 3121531.653
+  aoa_deg: -2.156
+  digits:
+  - 0
+  - 7
+  - 1
+  - 7
+- name: mf_dataset_2_853_naca27105_re2.612e6_aoa3p39
+  reynolds: 2612060.671
+  aoa_deg: 3.39
+  digits:
+  - 2
+  - 7
+  - 1
+  - 5
+- name: mf_dataset_2_854_naca3216_re5.651e6_aoa0p21
+  reynolds: 5651186.665
+  aoa_deg: 0.213
+  digits:
+  - 3
+  - 2
+  - 16
+- name: mf_dataset_2_855_naca6318_re5.518e6_aoa9p93
+  reynolds: 5518242.348
+  aoa_deg: 9.93
+  digits:
+  - 6
+  - 3
+  - 18
+- name: mf_dataset_2_856_naca7618_re3.321e6_aoa10p94
+  reynolds: 3320617.45
+  aoa_deg: 10.936
+  digits:
+  - 7
+  - 6
+  - 18
+- name: mf_dataset_2_857_naca3407_re4.367e6_aoa8p20
+  reynolds: 4366928.008
+  aoa_deg: 8.195
+  digits:
+  - 3
+  - 4
+  - 7
+- name: mf_dataset_2_858_naca4018_re3.935e6_aoa11p15
+  reynolds: 3935215.895
+  aoa_deg: 11.152
+  digits:
+  - 4
+  - 0
+  - 18
+- name: mf_dataset_2_859_naca36010_re3.099e6_aoa4p80
+  reynolds: 3098665.364
+  aoa_deg: 4.803
+  digits:
+  - 3
+  - 6
+  - 0
+  - 10
+- name: mf_dataset_2_860_naca38110_re5.666e6_aoa2p12
+  reynolds: 5666488.113
+  aoa_deg: 2.124
+  digits:
+  - 3
+  - 8
+  - 1
+  - 10
+- name: mf_dataset_2_861_naca14115_re2.75e6_aoa0p96
+  reynolds: 2749507.742
+  aoa_deg: 0.964
+  digits:
+  - 1
+  - 4
+  - 1
+  - 15
+- name: mf_dataset_2_862_naca5006_re3.367e6_aoa5p82
+  reynolds: 3367371.42
+  aoa_deg: 5.824
+  digits:
+  - 5
+  - 0
+  - 6
+- name: mf_dataset_2_863_naca38019_re5.41e6_aoa8p54
+  reynolds: 5410345.029
+  aoa_deg: 8.545
+  digits:
+  - 3
+  - 8
+  - 0
+  - 19
+- name: mf_dataset_2_864_naca23108_re5.5e6_aoa8p89
+  reynolds: 5500189.75
+  aoa_deg: 8.888
+  digits:
+  - 2
+  - 3
+  - 1
+  - 8
+- name: mf_dataset_2_865_naca27112_re4.674e6_aoa3p61
+  reynolds: 4673833.707
+  aoa_deg: 3.606
+  digits:
+  - 2
+  - 7
+  - 1
+  - 12
+- name: mf_dataset_2_866_naca38113_re5.39e6_aoa14p11
+  reynolds: 5390478.961
+  aoa_deg: 14.107
+  digits:
+  - 3
+  - 8
+  - 1
+  - 13
+- name: mf_dataset_2_867_naca2617_re4.032e6_aoa1p62
+  reynolds: 4031635.22
+  aoa_deg: 1.616
+  digits:
+  - 2
+  - 6
+  - 17
+- name: mf_dataset_2_868_naca3517_re3.182e6_aoa8p25
+  reynolds: 3181989.379
+  aoa_deg: 8.248
+  digits:
+  - 3
+  - 5
+  - 17
+- name: mf_dataset_2_869_naca5016_re4.152e6_aoa6p20
+  reynolds: 4152170.368
+  aoa_deg: 6.2
+  digits:
+  - 5
+  - 0
+  - 16
+- name: mf_dataset_2_870_naca33015_re5.538e6_aoa10p76
+  reynolds: 5537728.319
+  aoa_deg: 10.761
+  digits:
+  - 3
+  - 3
+  - 0
+  - 15
+- name: mf_dataset_2_871_naca27014_re3.597e6_aoa6p57
+  reynolds: 3597426.058
+  aoa_deg: 6.57
+  digits:
+  - 2
+  - 7
+  - 0
+  - 14
+- name: mf_dataset_2_872_naca36118_re3.902e6_aoa14p15
+  reynolds: 3901800.183
+  aoa_deg: 14.154
+  digits:
+  - 3
+  - 6
+  - 1
+  - 18
+- name: mf_dataset_2_873_naca6020_re5.524e6_aoam3p56
+  reynolds: 5523573.972
+  aoa_deg: -3.562
+  digits:
+  - 6
+  - 0
+  - 20
+- name: mf_dataset_2_874_naca23114_re3.876e6_aoa11p04
+  reynolds: 3875696.77
+  aoa_deg: 11.038
+  digits:
+  - 2
+  - 3
+  - 1
+  - 14
+- name: mf_dataset_2_875_naca13019_re2.68e6_aoam4p57
+  reynolds: 2680002.218
+  aoa_deg: -4.569
+  digits:
+  - 1
+  - 3
+  - 0
+  - 19
+- name: mf_dataset_2_876_naca45011_re5.622e6_aoa5p76
+  reynolds: 5621922.069
+  aoa_deg: 5.76
+  digits:
+  - 4
+  - 5
+  - 0
+  - 11
+- name: mf_dataset_2_877_naca1406_re4.07e6_aoa2p52
+  reynolds: 4069784.932
+  aoa_deg: 2.52
+  digits:
+  - 1
+  - 4
+  - 6
+- name: mf_dataset_2_878_naca6710_re5.256e6_aoa14p76
+  reynolds: 5255692.71
+  aoa_deg: 14.764
+  digits:
+  - 6
+  - 7
+  - 10
+- name: mf_dataset_2_879_naca43006_re5.547e6_aoa10p29
+  reynolds: 5547341.0
+  aoa_deg: 10.287
+  digits:
+  - 4
+  - 3
+  - 0
+  - 6
+- name: mf_dataset_2_880_naca3206_re3.713e6_aoa14p67
+  reynolds: 3712537.057
+  aoa_deg: 14.672
+  digits:
+  - 3
+  - 2
+  - 6
+- name: mf_dataset_2_881_naca1617_re4.308e6_aoam2p88
+  reynolds: 4307740.382
+  aoa_deg: -2.877
+  digits:
+  - 1
+  - 6
+  - 17
+- name: mf_dataset_2_882_naca36120_re2.556e6_aoa1p93
+  reynolds: 2556380.059
+  aoa_deg: 1.929
+  digits:
+  - 3
+  - 6
+  - 1
+  - 20
+- name: mf_dataset_2_883_naca17015_re5.413e6_aoa2p61
+  reynolds: 5413373.907
+  aoa_deg: 2.607
+  digits:
+  - 1
+  - 7
+  - 0
+  - 15
+- name: mf_dataset_2_884_naca14109_re4.789e6_aoa0p04
+  reynolds: 4788918.843
+  aoa_deg: 0.041
+  digits:
+  - 1
+  - 4
+  - 1
+  - 9
+- name: mf_dataset_2_885_naca46005_re3.991e6_aoa4p29
+  reynolds: 3991392.362
+  aoa_deg: 4.292
+  digits:
+  - 4
+  - 6
+  - 0
+  - 5
+- name: mf_dataset_2_886_naca4616_re2.275e6_aoa5p11
+  reynolds: 2274799.039
+  aoa_deg: 5.11
+  digits:
+  - 4
+  - 6
+  - 16
+- name: mf_dataset_2_887_naca08105_re3.512e6_aoa11p54
+  reynolds: 3512221.884
+  aoa_deg: 11.543
+  digits:
+  - 0
+  - 8
+  - 1
+  - 5
+- name: mf_dataset_2_888_naca2209_re4.222e6_aoa12p99
+  reynolds: 4221666.249
+  aoa_deg: 12.986
+  digits:
+  - 2
+  - 2
+  - 9
+- name: mf_dataset_2_889_naca2011_re2.171e6_aoam4p49
+  reynolds: 2171149.995
+  aoa_deg: -4.491
+  digits:
+  - 2
+  - 0
+  - 11
+- name: mf_dataset_2_890_naca26010_re2.247e6_aoa13p63
+  reynolds: 2247427.042
+  aoa_deg: 13.633
+  digits:
+  - 2
+  - 6
+  - 0
+  - 10
+- name: mf_dataset_2_891_naca06109_re5.846e6_aoa9p18
+  reynolds: 5846335.327
+  aoa_deg: 9.184
+  digits:
+  - 0
+  - 6
+  - 1
+  - 9
+- name: mf_dataset_2_892_naca46006_re4.116e6_aoa6p58
+  reynolds: 4116176.576
+  aoa_deg: 6.585
+  digits:
+  - 4
+  - 6
+  - 0
+  - 6
+- name: mf_dataset_2_893_naca0210_re5.936e6_aoa11p96
+  reynolds: 5936157.807
+  aoa_deg: 11.961
+  digits:
+  - 0
+  - 2
+  - 10
+- name: mf_dataset_2_894_naca2311_re5.403e6_aoam1p76
+  reynolds: 5403075.932
+  aoa_deg: -1.758
+  digits:
+  - 2
+  - 3
+  - 11
+- name: mf_dataset_2_895_naca26115_re4.9e6_aoa13p99
+  reynolds: 4899736.441
+  aoa_deg: 13.992
+  digits:
+  - 2
+  - 6
+  - 1
+  - 15
+- name: mf_dataset_2_896_naca24119_re2.562e6_aoa13p34
+  reynolds: 2562102.424
+  aoa_deg: 13.338
+  digits:
+  - 2
+  - 4
+  - 1
+  - 19
+- name: mf_dataset_2_897_naca3007_re3.282e6_aoa0p67
+  reynolds: 3281920.369
+  aoa_deg: 0.674
+  digits:
+  - 3
+  - 0
+  - 7
+- name: mf_dataset_2_898_naca23114_re3.388e6_aoa7p64
+  reynolds: 3387651.774
+  aoa_deg: 7.645
+  digits:
+  - 2
+  - 3
+  - 1
+  - 14
+- name: mf_dataset_2_899_naca4208_re4.47e6_aoa13p96
+  reynolds: 4469742.828
+  aoa_deg: 13.957
+  digits:
+  - 4
+  - 2
+  - 8
+- name: mf_dataset_2_900_naca14106_re2.849e6_aoa1p78
+  reynolds: 2849473.117
+  aoa_deg: 1.778
+  digits:
+  - 1
+  - 4
+  - 1
+  - 6
+- name: mf_dataset_2_901_naca46108_re2.136e6_aoa10p66
+  reynolds: 2136203.989
+  aoa_deg: 10.661
+  digits:
+  - 4
+  - 6
+  - 1
+  - 8
+- name: mf_dataset_2_902_naca2008_re5.205e6_aoa8p91
+  reynolds: 5205312.652
+  aoa_deg: 8.907
+  digits:
+  - 2
+  - 0
+  - 8
+- name: mf_dataset_2_903_naca14115_re4.604e6_aoa12p20
+  reynolds: 4603946.441
+  aoa_deg: 12.2
+  digits:
+  - 1
+  - 4
+  - 1
+  - 15
+- name: mf_dataset_2_904_naca1416_re3.046e6_aoam1p68
+  reynolds: 3045857.549
+  aoa_deg: -1.675
+  digits:
+  - 1
+  - 4
+  - 16
+- name: mf_dataset_2_905_naca38109_re4.984e6_aoam0p24
+  reynolds: 4984004.136
+  aoa_deg: -0.241
+  digits:
+  - 3
+  - 8
+  - 1
+  - 9
+- name: mf_dataset_2_906_naca3216_re4.721e6_aoa10p69
+  reynolds: 4720789.957
+  aoa_deg: 10.691
+  digits:
+  - 3
+  - 2
+  - 16
+- name: mf_dataset_2_907_naca6508_re2.035e6_aoa6p66
+  reynolds: 2035170.919
+  aoa_deg: 6.664
+  digits:
+  - 6
+  - 5
+  - 8
+- name: mf_dataset_2_908_naca6009_re3.825e6_aoa13p92
+  reynolds: 3825244.354
+  aoa_deg: 13.92
+  digits:
+  - 6
+  - 0
+  - 9
+- name: mf_dataset_2_909_naca15006_re2.207e6_aoa0p15
+  reynolds: 2207082.291
+  aoa_deg: 0.151
+  digits:
+  - 1
+  - 5
+  - 0
+  - 6
+- name: mf_dataset_2_910_naca24109_re5.394e6_aoa11p56
+  reynolds: 5394259.459
+  aoa_deg: 11.559
+  digits:
+  - 2
+  - 4
+  - 1
+  - 9
+- name: mf_dataset_2_911_naca3714_re4.881e6_aoa10p35
+  reynolds: 4880698.196
+  aoa_deg: 10.354
+  digits:
+  - 3
+  - 7
+  - 14
+- name: mf_dataset_2_912_naca7407_re5.069e6_aoa10p40
+  reynolds: 5068588.284
+  aoa_deg: 10.398
+  digits:
+  - 7
+  - 4
+  - 7
+- name: mf_dataset_2_913_naca4505_re5.353e6_aoa8p38
+  reynolds: 5352819.113
+  aoa_deg: 8.381
+  digits:
+  - 4
+  - 5
+  - 5
+- name: mf_dataset_2_914_naca14120_re2.796e6_aoa1p65
+  reynolds: 2796072.343
+  aoa_deg: 1.646
+  digits:
+  - 1
+  - 4
+  - 1
+  - 20
+- name: mf_dataset_2_915_naca7608_re4.102e6_aoa0p07
+  reynolds: 4102049.04
+  aoa_deg: 0.072
+  digits:
+  - 7
+  - 6
+  - 8
+- name: mf_dataset_2_916_naca14008_re3.146e6_aoa7p31
+  reynolds: 3145906.723
+  aoa_deg: 7.31
+  digits:
+  - 1
+  - 4
+  - 0
+  - 8
+- name: mf_dataset_2_917_naca5406_re5.185e6_aoam2p60
+  reynolds: 5184685.144
+  aoa_deg: -2.603
+  digits:
+  - 5
+  - 4
+  - 6
+- name: mf_dataset_2_918_naca14109_re2.985e6_aoam2p07
+  reynolds: 2984575.506
+  aoa_deg: -2.074
+  digits:
+  - 1
+  - 4
+  - 1
+  - 9
+- name: mf_dataset_2_919_naca3617_re3.67e6_aoa6p48
+  reynolds: 3669837.757
+  aoa_deg: 6.479
+  digits:
+  - 3
+  - 6
+  - 17
+- name: mf_dataset_2_920_naca16107_re2.629e6_aoa10p92
+  reynolds: 2629313.699
+  aoa_deg: 10.919
+  digits:
+  - 1
+  - 6
+  - 1
+  - 7
+- name: mf_dataset_2_921_naca16018_re3.233e6_aoa0p63
+  reynolds: 3232847.175
+  aoa_deg: 0.63
+  digits:
+  - 1
+  - 6
+  - 0
+  - 18
+- name: mf_dataset_2_922_naca23012_re2.48e6_aoa14p33
+  reynolds: 2480458.879
+  aoa_deg: 14.333
+  digits:
+  - 2
+  - 3
+  - 0
+  - 12
+- name: mf_dataset_2_923_naca28118_re4.864e6_aoa5p68
+  reynolds: 4863784.395
+  aoa_deg: 5.677
+  digits:
+  - 2
+  - 8
+  - 1
+  - 18
+- name: mf_dataset_2_924_naca7015_re4.196e6_aoa4p43
+  reynolds: 4196333.154
+  aoa_deg: 4.432
+  digits:
+  - 7
+  - 0
+  - 15
+- name: mf_dataset_2_925_naca37114_re4.651e6_aoa3p62
+  reynolds: 4651166.903
+  aoa_deg: 3.619
+  digits:
+  - 3
+  - 7
+  - 1
+  - 14
+- name: mf_dataset_2_926_naca1411_re4.146e6_aoa8p33
+  reynolds: 4145861.732
+  aoa_deg: 8.329
+  digits:
+  - 1
+  - 4
+  - 11
+- name: mf_dataset_2_927_naca3216_re3.392e6_aoam2p02
+  reynolds: 3392298.401
+  aoa_deg: -2.019
+  digits:
+  - 3
+  - 2
+  - 16
+- name: mf_dataset_2_928_naca2314_re4.141e6_aoa3p58
+  reynolds: 4140513.028
+  aoa_deg: 3.579
+  digits:
+  - 2
+  - 3
+  - 14
+- name: mf_dataset_2_929_naca1312_re5.178e6_aoa9p15
+  reynolds: 5178068.461
+  aoa_deg: 9.153
+  digits:
+  - 1
+  - 3
+  - 12
+- name: mf_dataset_2_930_naca33006_re3.578e6_aoa1p39
+  reynolds: 3578457.261
+  aoa_deg: 1.386
+  digits:
+  - 3
+  - 3
+  - 0
+  - 6
+- name: mf_dataset_2_931_naca37118_re2.101e6_aoa11p87
+  reynolds: 2100505.58
+  aoa_deg: 11.873
+  digits:
+  - 3
+  - 7
+  - 1
+  - 18
+- name: mf_dataset_2_932_naca1020_re5.689e6_aoa5p58
+  reynolds: 5689428.08
+  aoa_deg: 5.576
+  digits:
+  - 1
+  - 0
+  - 20
+- name: mf_dataset_2_933_naca6013_re5.154e6_aoa0p05
+  reynolds: 5154049.208
+  aoa_deg: 0.049
+  digits:
+  - 6
+  - 0
+  - 13
+- name: mf_dataset_2_934_naca27009_re5.6e6_aoa8p08
+  reynolds: 5600121.887
+  aoa_deg: 8.078
+  digits:
+  - 2
+  - 7
+  - 0
+  - 9
+- name: mf_dataset_2_935_naca14007_re4.211e6_aoa12p17
+  reynolds: 4210674.519
+  aoa_deg: 12.174
+  digits:
+  - 1
+  - 4
+  - 0
+  - 7
+- name: mf_dataset_2_936_naca07015_re2.1e6_aoa11p44
+  reynolds: 2099661.525
+  aoa_deg: 11.438
+  digits:
+  - 0
+  - 7
+  - 0
+  - 15
+- name: mf_dataset_2_937_naca34005_re3.079e6_aoa7p88
+  reynolds: 3079138.302
+  aoa_deg: 7.879
+  digits:
+  - 3
+  - 4
+  - 0
+  - 5
+- name: mf_dataset_2_938_naca1720_re3.062e6_aoa14p47
+  reynolds: 3061689.986
+  aoa_deg: 14.471
+  digits:
+  - 1
+  - 7
+  - 20
+- name: mf_dataset_2_939_naca05012_re3.202e6_aoam1p05
+  reynolds: 3202251.193
+  aoa_deg: -1.047
+  digits:
+  - 0
+  - 5
+  - 0
+  - 12
+- name: mf_dataset_2_940_naca27012_re3.065e6_aoam2p67
+  reynolds: 3065170.011
+  aoa_deg: -2.67
+  digits:
+  - 2
+  - 7
+  - 0
+  - 12
+- name: mf_dataset_2_941_naca38007_re3.611e6_aoam0p50
+  reynolds: 3611346.831
+  aoa_deg: -0.496
+  digits:
+  - 3
+  - 8
+  - 0
+  - 7
+- name: mf_dataset_2_942_naca24107_re3.23e6_aoam2p72
+  reynolds: 3230037.342
+  aoa_deg: -2.719
+  digits:
+  - 2
+  - 4
+  - 1
+  - 7
+- name: mf_dataset_2_943_naca3019_re4.726e6_aoa5p46
+  reynolds: 4726243.97
+  aoa_deg: 5.455
+  digits:
+  - 3
+  - 0
+  - 19
+- name: mf_dataset_2_944_naca17015_re5.609e6_aoam4p08
+  reynolds: 5609190.833
+  aoa_deg: -4.084
+  digits:
+  - 1
+  - 7
+  - 0
+  - 15
+- name: mf_dataset_2_945_naca48106_re4.275e6_aoa4p17
+  reynolds: 4274936.316
+  aoa_deg: 4.169
+  digits:
+  - 4
+  - 8
+  - 1
+  - 6
+- name: mf_dataset_2_946_naca26012_re5.486e6_aoa2p47
+  reynolds: 5485604.117
+  aoa_deg: 2.473
+  digits:
+  - 2
+  - 6
+  - 0
+  - 12
+- name: mf_dataset_2_947_naca2213_re2.423e6_aoa14p24
+  reynolds: 2422543.837
+  aoa_deg: 14.241
+  digits:
+  - 2
+  - 2
+  - 13
+- name: mf_dataset_2_948_naca38019_re3.242e6_aoa1p26
+  reynolds: 3241614.199
+  aoa_deg: 1.256
+  digits:
+  - 3
+  - 8
+  - 0
+  - 19
+- name: mf_dataset_2_949_naca08006_re2.306e6_aoa12p44
+  reynolds: 2306496.586
+  aoa_deg: 12.436
+  digits:
+  - 0
+  - 8
+  - 0
+  - 6
+- name: mf_dataset_2_950_naca44112_re3.41e6_aoam1p67
+  reynolds: 3410068.841
+  aoa_deg: -1.669
+  digits:
+  - 4
+  - 4
+  - 1
+  - 12
+- name: mf_dataset_2_951_naca44009_re4.384e6_aoam1p69
+  reynolds: 4383681.914
+  aoa_deg: -1.691
+  digits:
+  - 4
+  - 4
+  - 0
+  - 9
+- name: mf_dataset_2_952_naca2013_re5.214e6_aoam0p51
+  reynolds: 5214456.281
+  aoa_deg: -0.509
+  digits:
+  - 2
+  - 0
+  - 13
+- name: mf_dataset_2_953_naca6410_re3.147e6_aoa10p31
+  reynolds: 3147412.27
+  aoa_deg: 10.314
+  digits:
+  - 6
+  - 4
+  - 10
+- name: mf_dataset_2_954_naca25015_re3.053e6_aoam3p07
+  reynolds: 3053450.839
+  aoa_deg: -3.067
+  digits:
+  - 2
+  - 5
+  - 0
+  - 15
+- name: mf_dataset_2_955_naca6708_re2.606e6_aoam1p00
+  reynolds: 2606127.322
+  aoa_deg: -0.996
+  digits:
+  - 6
+  - 7
+  - 8
+- name: mf_dataset_2_956_naca14111_re2.283e6_aoa8p10
+  reynolds: 2283162.323
+  aoa_deg: 8.1
+  digits:
+  - 1
+  - 4
+  - 1
+  - 11
+- name: mf_dataset_2_957_naca37016_re2.576e6_aoa13p71
+  reynolds: 2575747.375
+  aoa_deg: 13.711
+  digits:
+  - 3
+  - 7
+  - 0
+  - 16
+- name: mf_dataset_2_958_naca1313_re5.747e6_aoam1p24
+  reynolds: 5746567.517
+  aoa_deg: -1.241
+  digits:
+  - 1
+  - 3
+  - 13
+- name: mf_dataset_2_959_naca6309_re2.398e6_aoa10p31
+  reynolds: 2397980.979
+  aoa_deg: 10.307
+  digits:
+  - 6
+  - 3
+  - 9
+- name: mf_dataset_2_960_naca18018_re4.935e6_aoam1p65
+  reynolds: 4934780.912
+  aoa_deg: -1.648
+  digits:
+  - 1
+  - 8
+  - 0
+  - 18
+- name: mf_dataset_2_961_naca6018_re3.894e6_aoa2p53
+  reynolds: 3893599.873
+  aoa_deg: 2.528
+  digits:
+  - 6
+  - 0
+  - 18
+- name: mf_dataset_2_962_naca7318_re4.428e6_aoam1p83
+  reynolds: 4428101.931
+  aoa_deg: -1.831
+  digits:
+  - 7
+  - 3
+  - 18
+- name: mf_dataset_2_963_naca28016_re5.189e6_aoa14p09
+  reynolds: 5188854.216
+  aoa_deg: 14.093
+  digits:
+  - 2
+  - 8
+  - 0
+  - 16
+- name: mf_dataset_2_964_naca5405_re5.851e6_aoa12p40
+  reynolds: 5850581.267
+  aoa_deg: 12.401
+  digits:
+  - 5
+  - 4
+  - 5
+- name: mf_dataset_2_965_naca18112_re3.28e6_aoa11p39
+  reynolds: 3280419.693
+  aoa_deg: 11.394
+  digits:
+  - 1
+  - 8
+  - 1
+  - 12
+- name: mf_dataset_2_966_naca37018_re2.961e6_aoa2p19
+  reynolds: 2961297.629
+  aoa_deg: 2.193
+  digits:
+  - 3
+  - 7
+  - 0
+  - 18
+- name: mf_dataset_2_967_naca46117_re4.6e6_aoam2p00
+  reynolds: 4599923.788
+  aoa_deg: -1.996
+  digits:
+  - 4
+  - 6
+  - 1
+  - 17
+- name: mf_dataset_2_968_naca4014_re2.292e6_aoa13p98
+  reynolds: 2292455.868
+  aoa_deg: 13.98
+  digits:
+  - 4
+  - 0
+  - 14
+- name: mf_dataset_2_969_naca33112_re2.626e6_aoa2p34
+  reynolds: 2626197.939
+  aoa_deg: 2.344
+  digits:
+  - 3
+  - 3
+  - 1
+  - 12
+- name: mf_dataset_2_970_naca26107_re5.189e6_aoa3p29
+  reynolds: 5189061.63
+  aoa_deg: 3.287
+  digits:
+  - 2
+  - 6
+  - 1
+  - 7
+- name: mf_dataset_2_971_naca0018_re2.009e6_aoa0p37
+  reynolds: 2008881.988
+  aoa_deg: 0.372
+  digits:
+  - 0
+  - 0
+  - 18
+- name: mf_dataset_2_972_naca36014_re5.438e6_aoa1p53
+  reynolds: 5437564.352
+  aoa_deg: 1.531
+  digits:
+  - 3
+  - 6
+  - 0
+  - 14
+- name: mf_dataset_2_973_naca6719_re4.395e6_aoa0p13
+  reynolds: 4394849.383
+  aoa_deg: 0.129
+  digits:
+  - 6
+  - 7
+  - 19
+- name: mf_dataset_2_974_naca17020_re2.429e6_aoa9p97
+  reynolds: 2428758.055
+  aoa_deg: 9.967
+  digits:
+  - 1
+  - 7
+  - 0
+  - 20
+- name: mf_dataset_2_975_naca48010_re2.675e6_aoam4p43
+  reynolds: 2674594.35
+  aoa_deg: -4.428
+  digits:
+  - 4
+  - 8
+  - 0
+  - 10
+- name: mf_dataset_2_976_naca5607_re2.4e6_aoa11p27
+  reynolds: 2399506.201
+  aoa_deg: 11.269
+  digits:
+  - 5
+  - 6
+  - 7
+- name: mf_dataset_2_977_naca4611_re5.641e6_aoa1p60
+  reynolds: 5641122.226
+  aoa_deg: 1.597
+  digits:
+  - 4
+  - 6
+  - 11
+- name: mf_dataset_2_978_naca07017_re5.748e6_aoa5p44
+  reynolds: 5748365.171
+  aoa_deg: 5.437
+  digits:
+  - 0
+  - 7
+  - 0
+  - 17
+- name: mf_dataset_2_979_naca1617_re2.202e6_aoa3p72
+  reynolds: 2202479.049
+  aoa_deg: 3.718
+  digits:
+  - 1
+  - 6
+  - 17
+- name: mf_dataset_2_980_naca37117_re5.335e6_aoam0p69
+  reynolds: 5334960.947
+  aoa_deg: -0.687
+  digits:
+  - 3
+  - 7
+  - 1
+  - 17
+- name: mf_dataset_2_981_naca34013_re3.856e6_aoa3p17
+  reynolds: 3856112.749
+  aoa_deg: 3.165
+  digits:
+  - 3
+  - 4
+  - 0
+  - 13
+- name: mf_dataset_2_982_naca2517_re3.18e6_aoa12p80
+  reynolds: 3180206.711
+  aoa_deg: 12.798
+  digits:
+  - 2
+  - 5
+  - 17
+- name: mf_dataset_2_983_naca36012_re4.153e6_aoa0p12
+  reynolds: 4152648.725
+  aoa_deg: 0.125
+  digits:
+  - 3
+  - 6
+  - 0
+  - 12
+- name: mf_dataset_2_984_naca24118_re2.781e6_aoam4p47
+  reynolds: 2780973.118
+  aoa_deg: -4.469
+  digits:
+  - 2
+  - 4
+  - 1
+  - 18
+- name: mf_dataset_2_985_naca17115_re4.037e6_aoa5p12
+  reynolds: 4036921.419
+  aoa_deg: 5.121
+  digits:
+  - 1
+  - 7
+  - 1
+  - 15
+- name: mf_dataset_2_986_naca3614_re2.477e6_aoa6p23
+  reynolds: 2476608.61
+  aoa_deg: 6.23
+  digits:
+  - 3
+  - 6
+  - 14
+- name: mf_dataset_2_987_naca47013_re5.265e6_aoa13p89
+  reynolds: 5264522.105
+  aoa_deg: 13.888
+  digits:
+  - 4
+  - 7
+  - 0
+  - 13
+- name: mf_dataset_2_988_naca1216_re4.766e6_aoa2p15
+  reynolds: 4766181.45
+  aoa_deg: 2.154
+  digits:
+  - 1
+  - 2
+  - 16
+- name: mf_dataset_2_989_naca7011_re3.129e6_aoa1p88
+  reynolds: 3129227.593
+  aoa_deg: 1.875
+  digits:
+  - 7
+  - 0
+  - 11
+- name: mf_dataset_2_990_naca3505_re4.029e6_aoa9p24
+  reynolds: 4029184.49
+  aoa_deg: 9.238
+  digits:
+  - 3
+  - 5
+  - 5
+- name: mf_dataset_2_991_naca34108_re4.777e6_aoa4p13
+  reynolds: 4777210.845
+  aoa_deg: 4.131
+  digits:
+  - 3
+  - 4
+  - 1
+  - 8
+- name: mf_dataset_2_992_naca44105_re2.164e6_aoa12p47
+  reynolds: 2164055.221
+  aoa_deg: 12.467
+  digits:
+  - 4
+  - 4
+  - 1
+  - 5
+- name: mf_dataset_2_993_naca23018_re4.935e6_aoa13p51
+  reynolds: 4934691.536
+  aoa_deg: 13.514
+  digits:
+  - 2
+  - 3
+  - 0
+  - 18
+- name: mf_dataset_2_994_naca34112_re5.056e6_aoa8p05
+  reynolds: 5056228.858
+  aoa_deg: 8.051
+  digits:
+  - 3
+  - 4
+  - 1
+  - 12
+- name: mf_dataset_2_995_naca4215_re4.973e6_aoa5p25
+  reynolds: 4972920.388
+  aoa_deg: 5.246
+  digits:
+  - 4
+  - 2
+  - 15
+- name: mf_dataset_2_996_naca47108_re3.719e6_aoa13p78
+  reynolds: 3719078.117
+  aoa_deg: 13.784
+  digits:
+  - 4
+  - 7
+  - 1
+  - 8
+- name: mf_dataset_2_997_naca2516_re3.727e6_aoa2p50
+  reynolds: 3727314.302
+  aoa_deg: 2.504
+  digits:
+  - 2
+  - 5
+  - 16
+- name: mf_dataset_2_998_naca3016_re3.216e6_aoa6p92
+  reynolds: 3215860.442
+  aoa_deg: 6.917
+  digits:
+  - 3
+  - 0
+  - 16
+- name: mf_dataset_2_999_naca27015_re5.019e6_aoa10p72
+  reynolds: 5018534.52
+  aoa_deg: 10.717
+  digits:
+  - 2
+  - 7
+  - 0
+  - 15
