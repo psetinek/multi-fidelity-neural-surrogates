@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Primary meta tags -->
+  <meta name="title" content="Compute-optimal data scaling for neural surrogates via multi-fidelity training">
+  <meta name="description" content="Training neural PDE surrogates on the optimal mixture of simulation fidelities matches high-fidelity-only accuracy with up to 6.3x less data generation compute.">
+  <meta name="keywords" content="neural surrogates, multi-fidelity, scaling laws, data generation, PDE, scientific machine learning, neural operators">
+  <meta name="author" content="Paul Setinek, Fabian Paischer, Nils Thuerey, Johannes Brandstetter, Felix Koehler">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Compute-optimal data scaling for neural surrogates via multi-fidelity training">
+  <meta property="og:description" content="Training neural PDE surrogates on the optimal mixture of simulation fidelities matches high-fidelity-only accuracy with up to 6.3x less data generation compute.">
+  <meta property="og:url" content="https://psetinek.github.io/multi-fidelity-neural-surrogates/">
+  <meta property="og:image" content="https://psetinek.github.io/multi-fidelity-neural-surrogates/static/images/teaser.png">
+  <meta property="og:image:alt" content="Overview of multi-fidelity data scaling">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Compute-optimal data scaling for neural surrogates via multi-fidelity training">
+  <meta name="twitter:description" content="Training neural PDE surrogates on the optimal mixture of simulation fidelities matches high-fidelity-only accuracy with up to 6.3x less data generation compute.">
+  <meta name="twitter:image" content="https://psetinek.github.io/multi-fidelity-neural-surrogates/static/images/teaser.png">
+
+  <!-- Google Scholar -->
+  <meta name="citation_title" content="Compute-optimal data scaling for neural surrogates via multi-fidelity training">
+  <meta name="citation_author" content="Setinek, Paul">
+  <meta name="citation_author" content="Paischer, Fabian">
+  <meta name="citation_author" content="Thuerey, Nils">
+  <meta name="citation_author" content="Brandstetter, Johannes">
+  <meta name="citation_author" content="Koehler, Felix">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="Advances in Neural Information Processing Systems (NeurIPS)">
+  <!-- TODO: add <meta name="citation_pdf_url" ...> once the paper is on arXiv -->
+
+  <meta name="theme-color" content="#2d6a4f">
+
+  <title>Compute-optimal data scaling for neural surrogates via multi-fidelity training</title>
+
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/index.css?v=6">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/index.js?v=6"></script>
+</head>
+<body>
+
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+
+  <!-- Title, authors, links -->
+  <section class="hero title-hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Compute-optimal data scaling for neural surrogates via multi-fidelity training</h1>
+
+            <!-- TODO: add personal pages as <a href="..." target="_blank">Name</a> -->
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Paul Setinek<sup>*1</sup>,</span>
+              <span class="author-block">Fabian Paischer<sup>1,2</sup>,</span>
+              <span class="author-block">Nils Thuerey<sup>3,4</sup>,</span>
+              <span class="author-block">Johannes Brandstetter<sup>1,2</sup>,</span>
+              <span class="author-block">Felix Koehler<sup>*3,4</sup></span>
+            </div>
+
+            <div class="is-size-6 publication-affiliations">
+              <span class="author-block"><sup>1</sup>Institute for Machine Learning, JKU Linz</span>
+              <span class="author-block"><sup>2</sup>Mistral AI</span>
+              <span class="author-block"><sup>3</sup>Technical University of Munich</span>
+              <span class="author-block"><sup>4</sup>Munich Center for Machine Learning (MCML)</span>
+              <span class="eql-cntrb"><small><br><sup>*</sup>Equal contribution</small></span>
+            </div>
+
+            <div class="publication-venue-tag">NeurIPS 2026</div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- TODO: replace the arXiv id (currently a placeholder) -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2506.12007" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/psetinek/multi-fidelity-neural-surrogates" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/psetinek/multi-fidelity-airfoil" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="hf-icon">🤗</i></span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <div class="tldr-box">
+          <span class="tldr-label">TL;DR</span>
+          <p>
+            Neural surrogates for PDEs are trained on data from numerical simulators, which can get quite expensive to generate.
+            In SciML, the cost of a simulated training sample is usually linked to its numerical fidelity.
+            We use this fact and show that training on a <b>mixture of fidelities</b> can reach the error of high-fidelity-only training with <b> significantly less data generation compute</b>.
+          </p>
+        </div>
+        <div class="stats">
+          <div class="stat"><span class="stat-value">6.3&times;</span><span class="stat-label">Largest compute saving</span></div>
+          <div class="stat"><span class="stat-value">~3.1&times;</span><span class="stat-label">Average saving</span></div>
+          <div class="stat"><span class="stat-value">6</span><span class="stat-label">PDE problems (grids &amp; meshes)</span></div>
+          <div class="stat"><span class="stat-value">4</span><span class="stat-label">Surrogate architectures</span></div>
+          <div class="stat"><span class="stat-value">7,000+</span><span class="stat-label">Training runs</span></div>
+        </div>
+        <img class="teaser-image" src="static/images/teaser.png" alt="Error surface over fidelity mixture and data generation budget; multi-fidelity scaling curves lie below high-fidelity-only curves for a 3D Poisson problem, a hyperelastic plate and an airfoil.">
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Neural surrogates for Partial Differential Equations (PDEs) are usually trained on synthetic
+              data from numerical simulators. As models grow and scaling laws demand larger datasets, the
+              cost of data generation often outweighs the training cost and becomes the bottleneck in the
+              scaling quest. Unlike data in other domains, however, each PDE sample has a tunable cost that
+              depends on its numerical fidelity, with the resulting cost-accuracy trade-off governed by known
+              convergence rates. We exploit this property by formalizing neural surrogate training as a
+              function of both data quantity and fidelity under a fixed data generation compute budget,
+              treating fidelity as a fine-grained discrete spectrum rather than a binary distinction.
+              Building on this, we show that multi-fidelity training enables Pareto-optimal error scaling
+              against data generation compute. By using simulations at lower fidelities as an additional
+              training signal, training on the optimal fidelity mixture matches the accuracy of
+              high-fidelity-only training, with up to 6.3&times; less data generation compute across our
+              settings. We validate these findings across six PDE problems spanning structured grids and
+              unstructured meshes, two distinct error sources (discretization and iterative-solver error),
+              and four surrogate architectures, totaling over 7,000 training runs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Motivation: error sources -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Data generation pipeline: the fidelity-cost trade-off</h2>
+      <div class="section-body">
+        <p>
+          When we generate training data using numerical simulators, each sample has an associated non-negligible compute cost (measurable in e.g. FLOPs or CPU core-hours).
+          Luckily, for a lot of problems, two of the error sources can be traded against compute with known convergence rates: the <b>discretization
+          error</b>, and the <b>solver error</b>.
+        </p>
+        <figure class="figure">
+          <img src="static/images/error_sources.png" alt="Data generation pipeline from real-world system over physical model and discrete system to training sample, with modeling, discretization and solver error." loading="lazy">
+          <figcaption>
+            The data generation pipeline and its main error sources: Discretization and solver error
+            (blue) follow known convergence rates and can be reduced at the expense of additional compute.
+          </figcaption>
+        </figure>
+        <p>
+          We denote fidelity as \(\xi\). 
+          Current datasets are generated at a single, fixed fidelity, and a given budget \(B\) then buys
+          \(\lfloor B / c(\xi) \rfloor\) samples. This raises a natural question:
+        </p>
+        <div class="question">
+          At the same data generation cost, can using a mixture of samples at different fidelities yield
+          better surrogate accuracy than using high-fidelity data alone?
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Method: fidelity mixtures -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Treating fidelity as a spectrum</h2>
+      <div class="section-body">
+        <p>
+          Instead of one fixed fidelity, we allow a discrete set of admissible fidelities
+          \(\Xi = \{\xi_1, \dots, \xi_{|\Xi|}\}\), map them onto a normalized coordinate
+          \(\hat\xi \in [0, 1]\) that is linear in the theoretical error, and draw the fidelity of each
+          training sample from a softmax distribution:
+        </p>
+        <div class="equation">
+          $$p(\hat\xi_i;\lambda,\Xi) = \frac{\exp(\lambda\,\hat\xi_i)}{\sum_{j=1}^{|\Xi|}\exp(\lambda\,\hat\xi_j)}$$
+        </div>
+        <p>
+          A single parameter \(\lambda\) moves the dataset between <i>many cheap samples</i>
+          (\(\lambda \to -\infty\)), a uniform mixture (\(\lambda = 0\)) and <i>few expensive samples</i>
+          (\(\lambda \to \infty\), high fidelity only). Below you can explore the dataset composition of our linear elasticity dataset:
+        </p>
+
+        <div class="mixture-explorer">
+          <div class="columns is-variable is-4">
+            <div class="column">
+              <div class="panel-title">Fidelity distribution</div>
+              <svg id="pmf-plot" role="img" aria-label="Probability of each fidelity level for the selected lambda"></svg>
+            </div>
+            <div class="column">
+              <div class="panel-title">Dataset size at a fixed budget</div>
+              <svg id="count-plot" role="img" aria-label="Number of training samples over lambda for the selected budget"></svg>
+            </div>
+          </div>
+          <div class="controls">
+            <label for="lambda-slider">\(\lambda\)</label>
+            <input type="range" id="lambda-slider" min="-20" max="20" step="0.5" value="-3">
+            <span class="readout">\(\lambda\) = <strong id="lambda-value"></strong> &nbsp;·&nbsp; mean \(\hat\xi\) = <strong id="mean-fidelity"></strong></span>
+          </div>
+          <div class="controls">
+            <label for="budget-slider">\(\tilde B\)</label>
+            <input type="range" id="budget-slider" min="0" max="6" step="1" value="2">
+            <span class="readout">\(\tilde B\) = <strong id="budget-value"></strong> &nbsp;·&nbsp; <strong id="sample-count"></strong> samples (HF only: <strong id="hf-count"></strong>)</span>
+          </div>
+          <p class="note">
+            Linear elasticity, solver error axis: eleven fidelity levels of truncated solver iterations, where the
+            high-fidelity level costs about 10&times; the cheapest one. The budget \(\tilde B\) is given in
+            units of high-fidelity samples, so high-fidelity-only training gets \(\tilde B\) samples.
+            Hover over the bars for the number of samples per level.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Pareto-optimal data scaling</h2>
+      <div class="section-body">
+        <p>
+          For each budget \(\tilde B\), we train surrogates on mixtures over a range of \(\lambda\). The
+          surrogate receives the fidelity \(\hat\xi\) of each training sample as an additional input, and we
+          always evaluate it at \(\hat\xi = 1\) on a high-fidelity test set, so every model is measured
+          against most accurate reference. The best mixture at each budget, \(\lambda^\star(\tilde B)\), traces
+          the compute-optimal Pareto front, which we compare against training on high-fidelity data only.
+          Our experiments span structured grids and unstructured meshes, two error sources and four
+          architectures:
+        </p>
+        <div class="table-container">
+          <table class="table is-fullwidth overview-table">
+            <thead>
+              <tr>
+                <th>Domain</th>
+                <th>Physics</th>
+                <th>Data format</th>
+                <th class="has-text-centered">Discretization</th>
+                <th class="has-text-centered">Solver</th>
+                <th class="nowrap">Architectures</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mathematical PDEs</td>
+                <td>Poisson equation</td>
+                <td class="nowrap">1D, 2D, 3D grids</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="nowrap">FNO, U-Net</td>
+              </tr>
+              <tr>
+                <td rowspan="2">Structural mechanics</td>
+                <td>Linear elasticity</td>
+                <td>2D meshes</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="nowrap">AB-UPT, Transolver</td>
+              </tr>
+              <tr>
+                <td>Hyperelasticity (nonlinear)</td>
+                <td>2D meshes</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="nowrap">AB-UPT, Transolver</td>
+              </tr>
+              <tr>
+                <td>Fluid dynamics</td>
+                <td>RANS (airfoils)</td>
+                <td>2D meshes</td>
+                <td class="has-text-centered">&#10003;</td>
+                <td class="has-text-centered">&ndash;</td>
+                <td class="nowrap">AB-UPT, Transolver</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          In all settings, the optimal mixture lies in the interior at small and medium budgets, i.e. it beats
+          high-fidelity-only training, and moves towards high fidelity as the budget grows, until both scaling
+          curves converge.
+        </p>
+
+        <div class="result-tabs" role="tablist">
+          <button class="result-tab is-active" role="tab" aria-selected="true" data-target="res-poisson">Poisson 3D</button>
+          <button class="result-tab" role="tab" aria-selected="false" data-target="res-hyper">Hyperelasticity</button>
+          <button class="result-tab" role="tab" aria-selected="false" data-target="res-airfoil">Airfoil RANS</button>
+        </div>
+
+        <div class="result-panel is-active" id="res-poisson">
+          <figure class="figure">
+            <img src="static/images/results_poisson3d.png" alt="Iso-budget error curves over lambda and Pareto fronts for Poisson 3D, discretization and solver error." loading="lazy">
+            <figcaption>
+              <b>Poisson 3D, U-Net.</b> Each group shows iso-budget curves over \(\lambda\) (left) and the
+              compute-optimal Pareto front using \(\lambda^\star(\tilde B)\) (right). The minima lie in the
+              interior and shift towards higher \(\lambda\) as the budget grows. At \(\tilde B = 300\),
+              multi-fidelity training reduces the error by 46.9% / 42.2% on the solver / discretization
+              axis.
+            </figcaption>
+          </figure>
+        </div>
+        <div class="result-panel" id="res-hyper">
+          <figure class="figure">
+            <img src="static/images/results_hyperelasticity.png" alt="Iso-budget error curves over lambda and Pareto fronts for hyperelasticity, discretization and solver error." loading="lazy">
+            <figcaption>
+              <b>Hyperelasticity, Transolver.</b> The same trends hold on unstructured meshes with a
+              nonlinear PDE. At \(\tilde B \approx 400\), multi-fidelity training reduces the test error by
+              59% / 49.4% on the solver / discretization axis. Solver error savings are larger because
+              all samples share one resolution.
+            </figcaption>
+          </figure>
+        </div>
+        <div class="result-panel" id="res-airfoil">
+          <figure class="figure">
+            <img src="static/images/results_airfoil.png" alt="Iso-budget error curves over lambda and Pareto fronts for the airfoil volume fields and the lift coefficient." loading="lazy">
+            <figcaption>
+              <b>Airfoil RANS, AB-UPT (discretization error).</b> At a matched volume field error of 2%,
+              multi-fidelity training saves 1,820 CPU core-hours of simulation, turning about two days
+              of high-fidelity data generation on a 64-core CPU into about 18 hours. The savings carry
+              over to the lift coefficient (right).
+            </figcaption>
+          </figure>
+        </div>
+
+        <h3 class="title is-4 has-text-centered">Savings in every setup</h3>
+        <p>
+          Across all 20 combinations of problem, error source and architecture, multi-fidelity training
+          reaches the same error as high-fidelity-only training at a lower data generation cost:
+          up to <b>6.3&times;</b>, and <b>~3.1&times;</b> on average.
+        </p>
+        <figure class="figure">
+          <img src="static/images/savings.png" alt="Bar chart of the cost-savings ratio of multi-fidelity over high-fidelity training for 20 setups, between 1.1x and 6.3x." loading="lazy">
+          <figcaption>
+            Cost-savings ratio \(S(\mathcal{E}^\star) = \tilde B_{\mathrm{HF}} / \tilde B_{\mathrm{MF}}\)
+            at a relative \(L_2\) error of \(\mathcal{E}^\star = 10\%\) (Poisson, linear elasticity,
+            hyperelasticity) and \(2\%\) (airfoil volume fields). Bars are bootstrap medians, whiskers
+            95% confidence intervals; all exclude 1&times;.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- BibTeX -->
+  <section class="section hero is-light" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@inproceedings{setinek2026multifidelity,
+  title     = {Compute-optimal data scaling for neural surrogates via multi-fidelity training},
+  author    = {Setinek, Paul and Paischer, Fabian and Thuerey, Nils and Brandstetter, Johannes and Koehler, Felix},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2026}
+}</code></pre>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>,
+              which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
