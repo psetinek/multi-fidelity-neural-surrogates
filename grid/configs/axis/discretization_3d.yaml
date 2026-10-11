@@ -1,0 +1,9 @@
+# @package _global_
+# Discretization menu, 3D: native grid N. Relative error ≈20% (N=16)
+# down to ≈0.5% (N=96). At N=16 the M=15 RHS modes alias (Nyquist 8);
+# the training pair stays self-consistent and the aliasing is absorbed
+# into the fidelity tag. Test data at N=96 does not alias.
+# Cost per sample = N^dim.
+axis: discretization
+dim: 3
+fidelity_values: [16, 24, 32, 48, 64, 96]

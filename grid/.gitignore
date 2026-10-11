@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# Run outputs (Hydra, Submitit)
+/results/
+/outputs/
+/multirun/
+/slurm/
+
+# Generated figures (redraw from the shipped CSVs, see README)
+*.png
+*.pdf

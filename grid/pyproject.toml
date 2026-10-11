@@ -1,0 +1,37 @@
+[project]
+name = "compute-optimal-poisson"
+version = "1.0.0"
+description = "Compute-optimal multi-fidelity training data for neural Poisson surrogates"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = [
+    "jax[cuda12]",
+    "equinox",
+    "optax",
+    "pdequinox",
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "hydra-core>=1.3",
+    "hydra-submitit-launcher>=1.2",
+    "cmcrameri>=1.10",
+    "vape4d>=0.2.7",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["-ra", "-q"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+# pyflakes (unused or undefined names) and syntax errors
+select = ["F", "E9"]

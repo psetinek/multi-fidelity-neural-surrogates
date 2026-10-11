@@ -1,0 +1,90 @@
+# Top-level Hydra config for compute-optimal-poisson experiments.
+#
+# `python -m experiments.run axis=truncation dim=1 lambd=0.3 budget=2500 seed=0`
+# runs a single configuration; `-m` turns it into a multirun (grid sweep).
+# Attach `hydra/launcher=slurm_generic` to dispatch the sweep as a SLURM array.
+#
+# All fields mirror experiments.configs.ExperimentConfig. `axis/*` and
+# `arch/*` groups override the corresponding bundled defaults.
+
+defaults:
+  - experiment_config_schema     # dataclass schema registered by experiments.configs (enables type coercion)
+  - axis: truncation_2d          # one YAML per (axis, dim). See configs/axis/*.yaml.
+  - arch: unet
+  - _self_
+
+# Required per run / multirun.
+lambd: ???
+budget: ???
+seed: ???
+
+# dim is set by the selected axis YAML (e.g. configs/axis/truncation_2d.yaml
+# pins dim=2). Override by choosing a different axis group at launch:
+# `axis=truncation_1d`, `axis=discretization_3d`, etc.
+
+target_resolution: 64
+
+# training
+num_training_steps: 20000
+num_warmup_steps: 2000
+batch_size: 20
+learning_rate: 1e-4
+log_every: 100
+
+# test
+num_test_samples: 100
+test_seed: 42
+
+# RHS / domain
+num_modes: 15
+domain_extent: 1.0
+
+# architecture hyperparameters (only the selected arch's are consumed)
+base_channels: 64
+num_levels: 4                   # UNet
+cond_dim: null                  # UNet FiLM width; null -> 4 * base_channels
+num_modes_fno: 12               # FNO
+fno_num_blocks: 4               # FNO
+fno_hidden_channels: 64         # FNO
+fno_pad_ratio: 1.5              # FNO
+
+# whitening
+num_whitening_samples: 8000
+
+# dataset strategy
+cache_dataset: false
+save_loss_history: false         # per-step loss trace; off by default (lean runs)
+eval_super_reference: false      # also report err vs an exact DST reference solution
+dst_interpolation: false         # disc prolongation via DST sine basis (no interp error)
+cache_location: gpu
+
+# Keep per-config outputs at the same relative paths the old pipeline used
+# so `experiments._common.get_all_results` finds them without changes.
+hydra:
+  run:
+    dir: results/${axis}/${architecture}_dim_${dim}_lambd_${lambd}_budget_${budget}_seed_${seed}
+  sweep:
+    dir: results/${axis}
+    subdir: ${architecture}_dim_${dim}_lambd_${lambd}_budget_${budget}_seed_${seed}
+  job:
+    chdir: true
+
+  # Chunk large multiruns into sequential sbatch calls, so the live
+  # task-count per user never exceeds `max_batch_size`. 900 leaves
+  # headroom under a `MaxSubmit=1000` per-user cap (e.g. Leonardo).
+  # On clusters with stricter caps (e.g. LRZ mcml: MaxSubmit=50), pass
+  # `hydra.sweeper.max_batch_size=40` on the CLI.
+  sweeper:
+    max_batch_size: 900
+
+  # Always-on callbacks. See `experiments/callbacks.py` for the custom
+  # ones; the built-in `LogJobReturnCallback` prints the metrics dict
+  # returned from `main()` per job. All three are failure-isolated so
+  # a callback bug can't kill the sweep.
+  callbacks:
+    log_job_return:
+      _target_: hydra.experimental.callbacks.LogJobReturnCallback
+    aggregate_results:
+      _target_: experiments.callbacks.AggregateResultsCallback
+    sweep_summary:
+      _target_: experiments.callbacks.SweepSummaryCallback

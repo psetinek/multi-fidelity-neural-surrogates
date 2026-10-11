@@ -1,0 +1,41 @@
+# Submitit launcher for CINECA Leonardo (Booster, `boost_usr_prod`).
+#
+# Usage:
+#   export SLURM_ACCOUNT=<your-project-account>
+#   python -m experiments.run -m axis=truncation_1d arch=unet \
+#     lambd=-5,0,5 budget=300,3000 seed=0 hydra/launcher=leonardo
+#
+# `boost_usr_prod` has MaxSubmit=1000 per user; configs/config.yaml sets
+# `hydra.sweeper.max_batch_size=900` so large sweeps are split into
+# several array submissions.
+
+# @package hydra.launcher
+defaults:
+  - submitit_slurm
+
+submitit_folder: slurm/leonardo/logs/%j
+
+timeout_min: 20               # enough for 1D/2D; raise for 3D
+partition: boost_usr_prod
+qos: normal
+account: ${oc.env:SLURM_ACCOUNT,null}
+nodes: 1
+tasks_per_node: 1
+gres: gpu:1
+mem_gb: 0
+
+name: ${hydra.job.name}
+array_parallelism: 500
+
+# Compute-node environment:
+# - `uv` is expected in `$HOME/.local/bin`.
+# - `--xla_gpu_strict_conv_algorithm_picker=false`: XLA's cuDNN self-check
+#   rejects every conv algorithm on some UNet shapes ("WRONG RESULTS").
+# - `--xla_gpu_autotune_level=2`: same idea for the GEMM autotuner (hit by
+#   the FNO complex-valued spectral matmul).
+# - `XLA_PYTHON_CLIENT_MEM_FRACTION=0.95`: headroom for cached datasets.
+setup:
+  - "export PATH=$HOME/.local/bin:$PATH"
+  - "export PYTHONUNBUFFERED=1"
+  - "export XLA_FLAGS='--xla_gpu_strict_conv_algorithm_picker=false --xla_gpu_autotune_level=2'"
+  - "export XLA_PYTHON_CLIENT_MEM_FRACTION=0.95"

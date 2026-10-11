@@ -1,0 +1,6 @@
+# @package _global_
+# Truncation menu, 2D: number of multigrid V-cycles K at N_target=64.
+# Relative error ≈25% (K=1) down to ≈0.5% (K=7). Cost per sample = K.
+axis: truncation
+dim: 2
+fidelity_values: [1, 2, 3, 4, 5, 6, 7]

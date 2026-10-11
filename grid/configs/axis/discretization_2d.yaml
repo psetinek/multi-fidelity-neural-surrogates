@@ -1,0 +1,6 @@
+# @package _global_
+# Discretization menu, 2D: native grid N. Relative error ≈30% (N=20)
+# down to ≈0.5% (N=96). Cost per sample = N^dim.
+axis: discretization
+dim: 2
+fidelity_values: [20, 32, 48, 64, 96]

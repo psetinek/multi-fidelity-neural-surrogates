@@ -1,0 +1,37 @@
+# LRZ MIG launcher sized for 3D UNet runs: a `3g.40gb` slice and 14 h
+# walltime. Whitening materialises (8000, 64³) arrays for f and u
+# (~17 GB peak), which does not fit on smaller slices.
+#
+# Usage:
+#   python -m experiments.run -m axis=truncation_3d arch=unet seed=0 \
+#     lambd=0 budget=8000 hydra/launcher=lrz_mig_3d
+
+# @package hydra.launcher
+defaults:
+  - submitit_slurm
+
+submitit_folder: slurm/lrz_mig/logs/%j
+
+timeout_min: 840
+partition: mcml-hgx-a100-80x4-mig
+qos: mcml
+account: ${oc.env:SLURM_ACCOUNT,default}
+nodes: 1
+tasks_per_node: 1
+gres: gpu:3g.40gb
+
+name: ${hydra.job.name}
+array_parallelism: 10
+
+# Compute-node environment:
+# - `uv` is expected in `$HOME/.local/bin`.
+# - `--xla_gpu_strict_conv_algorithm_picker=false`: XLA's cuDNN self-check
+#   rejects every conv algorithm on some UNet shapes ("WRONG RESULTS").
+# - `--xla_gpu_autotune_level=2`: same idea for the GEMM autotuner (hit by
+#   the FNO complex-valued spectral matmul).
+# - `XLA_PYTHON_CLIENT_MEM_FRACTION=0.95`: headroom for cached datasets.
+setup:
+  - "export PATH=$HOME/.local/bin:$PATH"
+  - "export PYTHONUNBUFFERED=1"
+  - "export XLA_FLAGS='--xla_gpu_strict_conv_algorithm_picker=false --xla_gpu_autotune_level=2'"
+  - "export XLA_PYTHON_CLIENT_MEM_FRACTION=0.95"
