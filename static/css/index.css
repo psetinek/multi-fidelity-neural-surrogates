@@ -1089,3 +1089,9 @@ a:focus {
 .title-hero .hero-body {
   padding-bottom: 0.5rem;
 }
+
+.section-body a {
+  color: var(--primary-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

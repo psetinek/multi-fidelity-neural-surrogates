@@ -48,7 +48,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="static/css/index.css?v=6">
+  <link rel="stylesheet" href="static/css/index.css?v=9">
 
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
@@ -71,13 +71,12 @@
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">Compute-optimal data scaling for neural surrogates via multi-fidelity training</h1>
 
-            <!-- TODO: add personal pages as <a href="..." target="_blank">Name</a> -->
             <div class="is-size-5 publication-authors">
-              <span class="author-block">Paul Setinek<sup>*1</sup>,</span>
-              <span class="author-block">Fabian Paischer<sup>1,2</sup>,</span>
-              <span class="author-block">Nils Thuerey<sup>3,4</sup>,</span>
-              <span class="author-block">Johannes Brandstetter<sup>1,2</sup>,</span>
-              <span class="author-block">Felix Koehler<sup>*3,4</sup></span>
+              <span class="author-block"><a href="https://scholar.google.com/citations?user=qt1Y7n8AAAAJ&amp;hl=en" target="_blank">Paul Setinek</a><sup>*1</sup>,</span>
+              <span class="author-block"><a href="https://scholar.google.com/citations?user=zdm5ZKwAAAAJ&amp;hl=en" target="_blank">Fabian Paischer</a><sup>1,2</sup>,</span>
+              <span class="author-block"><a href="https://ge.in.tum.de/about/n-thuerey/" target="_blank">Nils Thuerey</a><sup>3,4</sup>,</span>
+              <span class="author-block"><a href="https://scholar.google.com/citations?user=KiRvOHcAAAAJ&amp;hl=en" target="_blank">Johannes Brandstetter</a><sup>1,2</sup>,</span>
+              <span class="author-block"><a href="https://fkoehler.site/" target="_blank">Felix Koehler</a><sup>*3,4</sup></span>
             </div>
 
             <div class="is-size-6 publication-affiliations">
@@ -92,9 +91,9 @@
 
             <div class="column has-text-centered">
               <div class="publication-links">
-                <!-- TODO: replace the arXiv id (currently a placeholder) -->
+                <!-- TODO: link the arXiv abstract once the paper is on arXiv (points to the NeurIPS page for now) -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/2506.12007" target="_blank"
+                  <a href="https://neurips.cc/virtual/2026/loc/sydney/poster/151246" target="_blank"
                      class="external-link button is-normal is-rounded is-dark">
                     <span class="icon"><i class="ai ai-arxiv"></i></span>
                     <span>arXiv</span>
@@ -362,7 +361,7 @@
             <figcaption>
               <b>Airfoil RANS, AB-UPT (discretization error).</b> At a matched volume field error of 2%,
               multi-fidelity training saves 1,820 CPU core-hours of simulation, turning about two days
-              of high-fidelity data generation on a 64-core CPU into about 18 hours. The savings carry
+              of high-fidelity data generation on a 64-core CPU into about 19 hours. The savings carry
               over to the lift coefficient (right).
             </figcaption>
           </figure>
@@ -387,8 +386,37 @@
     </div>
   </section>
 
+  <!-- Why this matters -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Why this matters</h2>
+      <div class="section-body">
+        <p>
+          As we scale up neural surrogates to more complex problems, generating the training data, not training the network,
+          is often the dominant cost. The more expensive the dataset, the later a surrogate pays off in
+          downstream tasks such as design optimization.
+        </p>
+        <p>
+          <b>The gains are largest where data is scarce.</b> In our experiments, multi-fidelity training saves the most at
+          budgets of about 100-500 high-fidelity samples. That is around the size of established high-fidelity
+          datasets: <a href="https://arxiv.org/abs/2408.11969" target="_blank">DrivAerML</a>, for example,
+          contains about 500 high-fidelity CFD simulations. On our airfoil case, multi-fidelity training
+          turns about two days of high-fidelity data generation on a 64-core CPU into about 19 hours, at
+          the same surrogate accuracy. We hope that our work serves as a starting point to scale this idea to larger settings.
+        </p>
+        <p>
+          For practitioners, we recommend to <b>start with the solver axis.</b>
+          Mixing fidelities along the solver error gave larger savings than along the discretization
+          on problems that require resolution invariance. It is also simpler to deploy:
+          one only needs to change a single solver parameter instead of building a meshing pipeline
+          that is robust across various resolutions.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- BibTeX -->
-  <section class="section hero is-light" id="BibTeX">
+  <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <div class="bibtex-header">
         <h2 class="title">BibTeX</h2>
