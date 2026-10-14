@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Project Page](https://img.shields.io/badge/Project-Page-2d6a4f.svg)](https://psetinek.github.io/multi-fidelity-neural-surrogates/)
-[![Paper](https://img.shields.io/badge/arXiv-2506.12007-b31b1b.svg)](https://neurips.cc/virtual/2026/loc/sydney/poster/151246)
+[![Paper](https://img.shields.io/badge/arXiv-2506.12007-b31b1b.svg)](https://arxiv.org/abs/2610.17221)
 [![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-multi--fidelity--airfoil-ffd21e.svg)](https://huggingface.co/datasets/psetinek/multi-fidelity-airfoil)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -39,6 +39,7 @@ The other datasets are generated with the pipelines in the respective folder and
   title     = {Compute-optimal data scaling for neural surrogates via multi-fidelity training},
   author    = {Setinek, Paul and Paischer, Fabian and Thuerey, Nils and Brandstetter, Johannes and Koehler, Felix},
   booktitle = {Advances in Neural Information Processing Systems},
-  year      = {2026}
+  year      = {2026},
+  url       = {https://arxiv.org/abs/2610.17221}
 }
 ```
